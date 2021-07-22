@@ -1,0 +1,62 @@
+---
+title: "Lab 2"
+author: "Jonathan Whiteley, Max Hoff, Connor McCormick"
+subtitle: 'w203: Statistics for Data Science'
+
+output:
+  pdf_document: default
+---
+
+```{r setup, include=FALSE, warning=FALSE, message=FALSE}
+install.packages('corrplot')
+
+library(corrplot)
+library(tidyverse)
+library(car)
+library(lmtest)
+library(sandwich)
+library(stargazer)
+```
+
+```{r setup chunks, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+*Research question:* How do Covid-19 vaccination rates within a county impact visits to parks within that county?  
+
+The Covid-19 pandemic has upended lifestyles to a degree that most people couldn’t have imagined a couple years ago. One of the more interesting changes to lifestyles has been a significant increase in visits to parks, as people have been restricted to local travel. As developed world vaccinations increase, this raises an interesting question about the future of parks. Will some of the lifestyle changes from the pandemic stick around? Which ones? Are visits to parks going to be a permanent fixture of American life?
+
+Finding the answer to this question will bring important insight into how the Department of Tourism should allocate resources towards parks. 
+
+
+```{r}
+parks <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/Google_Mobility_Report_out.csv')
+vax <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/CDC_Vaccinations_out.csv')
+head(parks)
+head(vax)
+```
+
+
+```{r slim parks}
+parks <- parks %>% 
+  select(census_fips_code, 
+         parks_percent_change_from_baseline) %>%
+  rename(fips_code = census_fips_code,
+         parks_chg = parks_percent_change_from_baseline) %>% 
+  mutate(fips_code = as.character(fips_code))
+
+vax <- vax %>% 
+  select(FIPS, Recip_County:Completeness_pct, SVI_CTGY, Series_Complete_Pop_Pct_SVI)
+
+head(parks)
+head(vax)
+```
+
+```{r join results and campaigns}
+data <- parks %>% 
+  dplyr::inner_join(vax, by = c("fips_code" = "FIPS"))
+
+head(data)
+```
+
+

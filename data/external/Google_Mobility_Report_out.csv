@@ -1,0 +1,519 @@
+country_region_code,country_region,sub_region_1,sub_region_2,metro_area,iso_3166_2_code,census_fips_code,place_id,date,retail_and_recreation_percent_change_from_baseline,grocery_and_pharmacy_percent_change_from_baseline,parks_percent_change_from_baseline,transit_stations_percent_change_from_baseline,workplaces_percent_change_from_baseline,residential_percent_change_from_baseline
+US,United States,Alabama,Baldwin County,,,1003.0,ChIJMRERvxBnmogR0K_9O08dxDw,2021-06-30,35.0,47.0,79.0,32.0,-9.0,1.0
+US,United States,Alabama,Cullman County,,,1043.0,ChIJ80bNgkhOiIgR2OiZAIYFOOI,2021-06-30,2.0,4.0,48.0,28.0,-22.0,4.0
+US,United States,Alabama,Jefferson County,,,1073.0,ChIJI3NHUAHeiIgRjEYySwpu1Zg,2021-06-30,-2.0,8.0,-8.0,-22.0,-28.0,5.0
+US,United States,Alabama,Limestone County,,,1083.0,ChIJdaslZmNhYogRJltxufJfYmA,2021-06-30,9.0,10.0,43.0,,-25.0,6.0
+US,United States,Alabama,Madison County,,,1089.0,ChIJD42VzuAUYogRzlLGpknYs44,2021-06-30,-2.0,13.0,33.0,-16.0,-32.0,7.0
+US,United States,Alabama,Marshall County,,,1095.0,ChIJcxIcvTAAiogRu8l5JunPtSs,2021-06-30,9.0,14.0,55.0,,-23.0,2.0
+US,United States,Alabama,Mobile County,,,1097.0,ChIJK6FDUmGym4gRO0XgJVIpkUY,2021-06-30,0.0,5.0,-6.0,-4.0,-22.0,4.0
+US,United States,Alabama,Montgomery County,,,1101.0,ChIJ-YHUsJSBjogRwWSetWNBBsQ,2021-06-30,3.0,11.0,9.0,-13.0,-20.0,5.0
+US,United States,Alabama,Morgan County,,,1103.0,ChIJSfZjE7ooiIgRfGKcLi3wy24,2021-06-30,8.0,4.0,26.0,37.0,-22.0,3.0
+US,United States,Alabama,Shelby County,,,1117.0,ChIJIw3ADV7jiIgRP6sugMWjQVM,2021-06-30,5.0,5.0,40.0,,-31.0,6.0
+US,United States,Alabama,Talladega County,,,1121.0,ChIJcbiXho1EiYgRZvIqb_vG6Wg,2021-06-30,3.0,7.0,-14.0,7.0,-27.0,5.0
+US,United States,Alaska,Anchorage,,,2020.0,ChIJQT-zBHaRyFYRI1oVnNskwlo,2021-06-30,16.0,14.0,210.0,42.0,-31.0,3.0
+US,United States,Arizona,Apache County,,,4001.0,ChIJ-WDLw6lhJYcRcrSQ4ttk6sE,2021-06-30,37.0,40.0,60.0,5.0,-32.0,3.0
+US,United States,Arizona,Cochise County,,,4003.0,ChIJ30PnwuKo14YRUhvNr6Cpals,2021-06-30,-8.0,-2.0,-8.0,0.0,-26.0,4.0
+US,United States,Arizona,Coconino County,,,4005.0,ChIJK-gFlwP2MocR8iCzue8_fJs,2021-06-30,20.0,18.0,74.0,17.0,-22.0,6.0
+US,United States,Arizona,Gila County,,,4007.0,ChIJC_SEqrZtKYcR4nCmBCLykDk,2021-06-30,19.0,18.0,9.0,,-16.0,3.0
+US,United States,Arizona,La Paz County,,,4012.0,ChIJ3f7Q5PTk04ARcPUqZ1wzDcg,2021-06-30,-36.0,-38.0,-72.0,15.0,-30.0,3.0
+US,United States,Arizona,Maricopa County,,,4013.0,ChIJ_6JyBQxdK4cRgEgsf9Ec7Eo,2021-06-30,-15.0,-10.0,-36.0,-17.0,-38.0,9.0
+US,United States,Arizona,Mohave County,,,4015.0,ChIJy3P6phi5zYARF6xUkrx2XF8,2021-06-30,6.0,10.0,-5.0,39.0,-16.0,4.0
+US,United States,Arizona,Navajo County,,,4017.0,ChIJP_zwFUXbL4cR1fe46GC9yJU,2021-06-30,43.0,21.0,104.0,52.0,-20.0,4.0
+US,United States,Arizona,Pima County,,,4019.0,ChIJe8JyMI_h1YYR2CMgyPALEJc,2021-06-30,-12.0,-9.0,-51.0,-21.0,-33.0,7.0
+US,United States,Arizona,Pinal County,,,4021.0,ChIJ-0CVcqRcKocRs7hv5vsqLVs,2021-06-30,-8.0,0.0,-46.0,17.0,-33.0,6.0
+US,United States,Arizona,Santa Cruz County,,,4023.0,ChIJE5kN7zy91oYRStPdMS-VcFw,2021-06-30,-23.0,-15.0,8.0,-7.0,-31.0,6.0
+US,United States,Arizona,Yavapai County,,,4025.0,ChIJ_9Wg9ndHLYcRSpqrnWA24FQ,2021-06-30,5.0,5.0,-2.0,34.0,-24.0,4.0
+US,United States,Arizona,Yuma County,,,4027.0,ChIJ0RQL4sIy1IARGb_Oo87I-Y4,2021-06-30,-23.0,-17.0,-40.0,-13.0,-37.0,4.0
+US,United States,Arkansas,Benton County,,,5007.0,ChIJxRvBH49xyYcR7YJdSf4HSJM,2021-06-30,10.0,5.0,121.0,7.0,-36.0,8.0
+US,United States,Arkansas,Pulaski County,,,5119.0,ChIJs_V_pr-f0ocRWdyUuGRsFpc,2021-06-30,-2.0,0.0,83.0,-6.0,-32.0,4.0
+US,United States,Arkansas,Washington County,,,5143.0,ChIJ29VSGF5DyYcR2uRJ0-eIZ8g,2021-06-30,-3.0,-7.0,86.0,-6.0,-27.0,6.0
+US,United States,California,Alameda County,,,6001.0,ChIJWRd5NDfyj4ARc30TGxHHxmg,2021-06-30,-22.0,-12.0,17.0,-57.0,-50.0,15.0
+US,United States,California,Butte County,,,6007.0,ChIJq3N-WwHWnIARk_kVDHE2boU,2021-06-30,-4.0,4.0,15.0,,-28.0,4.0
+US,United States,California,Contra Costa County,,,6013.0,ChIJ3QQ6ifNuhYAR4fM4Ln-yyVk,2021-06-30,-17.0,-6.0,-9.0,-56.0,-41.0,10.0
+US,United States,California,El Dorado County,,,6017.0,ChIJhQd-sopHmoARt9CBUcuaJB4,2021-06-30,15.0,13.0,182.0,-57.0,-35.0,6.0
+US,United States,California,Fresno County,,,6019.0,ChIJb4MUvgDhlIAR17RXLUdHFN0,2021-06-30,-2.0,0.0,3.0,-10.0,-31.0,5.0
+US,United States,California,Humboldt County,,,6023.0,ChIJsVTwdfTf01QRfyaxfTR5OjQ,2021-06-30,8.0,13.0,124.0,-43.0,-29.0,4.0
+US,United States,California,Imperial County,,,6025.0,ChIJhdiTJCJU14ARgIVgGBtq0Ok,2021-06-30,-21.0,-12.0,-63.0,-5.0,-31.0,6.0
+US,United States,California,Inyo County,,,6027.0,ChIJZ9qUJCZdv4ARXoUOFIxjZpY,2021-06-30,24.0,,-11.0,,-23.0,
+US,United States,California,Kern County,,,6029.0,ChIJay370_YE64AR-iOuuhZv_Hk,2021-06-30,1.0,0.0,5.0,-3.0,-31.0,5.0
+US,United States,California,Kings County,,,6031.0,ChIJN7r1HUGolIAR515hBXl1zFQ,2021-06-30,0.0,-3.0,-9.0,-40.0,-33.0,4.0
+US,United States,California,Lake County,,,6033.0,ChIJk1dBm5ndg4AR_76GSNuh_ok,2021-06-30,10.0,19.0,59.0,-1.0,-19.0,4.0
+US,United States,California,Los Angeles County,,,6037.0,ChIJMc1kAdMq3YARKjm9z9YofYM,2021-06-30,-17.0,-12.0,-3.0,-34.0,-39.0,9.0
+US,United States,California,Madera County,,,6039.0,ChIJJ0RmN7I4lIARWvI1ivl5FfA,2021-06-30,1.0,13.0,32.0,89.0,-27.0,5.0
+US,United States,California,Marin County,,,6041.0,ChIJ82aOMnyhhYARHLRVUdyH0As,2021-06-30,-7.0,-3.0,25.0,-54.0,-45.0,11.0
+US,United States,California,Mendocino County,,,6045.0,ChIJh-hRvjCOgYARFQFu8mmzZyM,2021-06-30,16.0,21.0,98.0,-33.0,-22.0,4.0
+US,United States,California,Merced County,,,6047.0,ChIJV3GZ91BAkYARa-nZLEDidHY,2021-06-30,3.0,-2.0,28.0,-12.0,-25.0,4.0
+US,United States,California,Monterey County,,,6053.0,ChIJUV7XWK6z7IARFNInOyD3gBc,2021-06-30,-9.0,-4.0,7.0,-11.0,-33.0,2.0
+US,United States,California,Napa County,,,6055.0,ChIJMU8qI_lPhIARfMUQoxvSFP4,2021-06-30,-16.0,-12.0,36.0,-54.0,-33.0,5.0
+US,United States,California,Nevada County,,,6057.0,ChIJX_aX8TOFm4ARgtETUAvolo8,2021-06-30,12.0,17.0,122.0,-17.0,-16.0,4.0
+US,United States,California,Orange County,,,6059.0,ChIJz_fVVFyS3IARB9bwj2HDpt4,2021-06-30,-15.0,-5.0,1.0,-36.0,-37.0,9.0
+US,United States,California,Placer County,,,6061.0,ChIJk-ZOZm4Sm4AR8eQ1nDcJNKA,2021-06-30,-5.0,8.0,48.0,-13.0,-37.0,8.0
+US,United States,California,Riverside County,,,6065.0,ChIJr3EqHoH12oARjSkNIFgUKF8,2021-06-30,-8.0,-4.0,-28.0,-38.0,-34.0,6.0
+US,United States,California,Sacramento County,,,6067.0,ChIJ2YAlNVPHmoARfxR2QbW1CPI,2021-06-30,-11.0,3.0,26.0,-27.0,-41.0,8.0
+US,United States,California,San Bernardino County,,,6071.0,ChIJ5Rsx6IoqxYARyu0YyduLQwo,2021-06-30,-7.0,-4.0,-10.0,-19.0,-34.0,6.0
+US,United States,California,San Diego County,,,6073.0,ChIJHWD_IzDr24ARKAeA6yv9DTU,2021-06-30,-12.0,-9.0,10.0,-32.0,-40.0,9.0
+US,United States,California,San Francisco County,,,6075.0,ChIJIQBpAG2ahYARUksNqd0_1h8,2021-06-30,-43.0,-25.0,-21.0,-64.0,-61.0,19.0
+US,United States,California,San Joaquin County,,,6077.0,ChIJ31ZZ5gY-kIAR0dtYpsEqJEc,2021-06-30,-1.0,4.0,22.0,-11.0,-27.0,6.0
+US,United States,California,San Luis Obispo County,,,6079.0,ChIJX3PwOP2E7IAR9ToVLk_oEGY,2021-06-30,0.0,9.0,48.0,-24.0,-33.0,6.0
+US,United States,California,San Mateo County,,,6081.0,ChIJiUYt5gF4j4AR3OQX5ii4s1c,2021-06-30,-20.0,-8.0,14.0,-49.0,-52.0,16.0
+US,United States,California,Santa Barbara County,,,6083.0,ChIJXxfrQWYM7IAR_9ACRVau1Wo,2021-06-30,-11.0,-2.0,21.0,-38.0,-32.0,4.0
+US,United States,California,Santa Clara County,,,6085.0,ChIJd_Y0eVIvkIARuQyDN0F1LBA,2021-06-30,-23.0,-8.0,15.0,-56.0,-55.0,17.0
+US,United States,California,Santa Cruz County,,,6087.0,ChIJfzsx1n8TjoARGbNHDCbAPhU,2021-06-30,-14.0,-5.0,49.0,-61.0,-38.0,8.0
+US,United States,California,Shasta County,,,6089.0,ChIJuTsbyAyZ0lQRqcLKtOn5yus,2021-06-30,4.0,11.0,128.0,-17.0,-28.0,3.0
+US,United States,California,Solano County,,,6095.0,ChIJB_R9n88XhYAR-L8fjKYikj0,2021-06-30,-5.0,-7.0,-7.0,-43.0,-33.0,7.0
+US,United States,California,Sonoma County,,,6097.0,ChIJj7atfV0ihIAR_qYnBSATSUk,2021-06-30,-15.0,-5.0,29.0,-45.0,-34.0,7.0
+US,United States,California,Stanislaus County,,,6099.0,ChIJfZBHmyBKkIARSB3-AYJIs68,2021-06-30,-2.0,1.0,21.0,-16.0,-32.0,5.0
+US,United States,California,Tulare County,,,6107.0,ChIJ1_-qb3ovlYAR5-g1FwCi4EQ,2021-06-30,-10.0,-1.0,28.0,-15.0,-33.0,5.0
+US,United States,California,Tuolumne County,,,6109.0,ChIJUXsaVaYxl4ARpyB7IpcuWGU,2021-06-30,16.0,18.0,59.0,,-23.0,3.0
+US,United States,California,Ventura County,,,6111.0,ChIJqXcAstJi6YARs7DDR_CQld0,2021-06-30,-14.0,-9.0,-15.0,-43.0,-36.0,8.0
+US,United States,California,Yolo County,,,6113.0,ChIJ69wnuncnhYAR4jxmM3iXoXE,2021-06-30,-22.0,-3.0,34.0,-26.0,-39.0,8.0
+US,United States,Colorado,Adams County,,,8001.0,ChIJB6GazydAbIcRWmr4AmHfJ_A,2021-06-30,0.0,1.0,42.0,2.0,-33.0,5.0
+US,United States,Colorado,Arapahoe County,,,8005.0,ChIJDYo7vUlebIcRfni-5Dcedpo,2021-06-30,-3.0,5.0,75.0,-38.0,-38.0,7.0
+US,United States,Colorado,Boulder County,,,8013.0,ChIJxXGuYuzba4cRzUewqXMASX8,2021-06-30,-7.0,0.0,76.0,-54.0,-49.0,9.0
+US,United States,Colorado,Broomfield County,,,8014.0,ChIJJflQ5p_1a4cR07Jtsi8Xw1Y,2021-06-30,4.0,,61.0,,-49.0,9.0
+US,United States,Colorado,Denver County,,,8031.0,ChIJzWww5uJfbIcRBvfuO6cAtKY,2021-06-30,-13.0,-1.0,59.0,-20.0,-41.0,7.0
+US,United States,Colorado,Douglas County,,,8035.0,ChIJxyXdfv2-bIcRWOQrqaUIXjI,2021-06-30,3.0,25.0,89.0,-47.0,-48.0,10.0
+US,United States,Colorado,Eagle County,,,8037.0,ChIJVyxbSAS3QYcRWopZf0qZ0ug,2021-06-30,-1.0,11.0,80.0,-17.0,-33.0,1.0
+US,United States,Colorado,El Paso County,,,8041.0,ChIJiSma4fAWE4cRaCZHd0WP_RA,2021-06-30,8.0,4.0,90.0,4.0,-31.0,5.0
+US,United States,Colorado,Grand County,,,8049.0,ChIJe9U-Gc9qaocRSOj8GQXWLbs,2021-06-30,46.0,,6.0,,-22.0,
+US,United States,Colorado,Jefferson County,,,8059.0,ChIJyxAXZg2va4cRgQv02X4ue50,2021-06-30,1.0,3.0,106.0,-42.0,-46.0,8.0
+US,United States,Colorado,Larimer County,,,8069.0,ChIJ03t0qaJuaYcRZBCHlq3SC70,2021-06-30,5.0,10.0,150.0,-22.0,-35.0,5.0
+US,United States,Colorado,Mesa County,,,8077.0,ChIJv-6LuAEuRocRNF1lhEcz1-0,2021-06-30,22.0,20.0,125.0,-8.0,-19.0,2.0
+US,United States,Colorado,Pueblo County,,,8101.0,ChIJbSRz_4WvE4cRLsrDtfjKNkI,2021-06-30,10.0,17.0,28.0,20.0,-29.0,3.0
+US,United States,Colorado,Summit County,,,8117.0,ChIJu4HI4ohcaocRaP8eOJik0GI,2021-06-30,-9.0,0.0,107.0,15.0,-37.0,2.0
+US,United States,Colorado,Weld County,,,8123.0,ChIJCxObk9oHbIcR-vkuHPq7yHk,2021-06-30,2.0,7.0,174.0,23.0,-27.0,4.0
+US,United States,Connecticut,Fairfield County,,,9001.0,ChIJmeTbuDYH6IkR3xgeNvszpgg,2021-06-30,1.0,0.0,90.0,-8.0,-40.0,6.0
+US,United States,Connecticut,Hartford County,,,9003.0,ChIJtxC3p6qs54kRIvK-2bctar0,2021-06-30,-1.0,-2.0,42.0,-26.0,-37.0,8.0
+US,United States,Connecticut,Litchfield County,,,9005.0,ChIJvYe7N7eQ54kRL6nZaXRwPkI,2021-06-30,10.0,-1.0,142.0,,-26.0,6.0
+US,United States,Connecticut,Middlesex County,,,9007.0,ChIJWRM2Nakw5okRoTCxHvz_5xw,2021-06-30,13.0,10.0,125.0,-22.0,-32.0,7.0
+US,United States,Connecticut,New Haven County,,,9009.0,ChIJiT24cvvP54kR2fSPHkp0Akc,2021-06-30,2.0,-4.0,28.0,-7.0,-30.0,6.0
+US,United States,Connecticut,New London County,,,9011.0,ChIJwTIQbvVv5okRU5_gSJczUTQ,2021-06-30,10.0,8.0,115.0,,-23.0,4.0
+US,United States,Connecticut,Windham County,,,9015.0,ChIJRWKqeLdi5okRLXWDlSEGeTY,2021-06-30,27.0,21.0,94.0,-7.0,-15.0,5.0
+US,United States,Delaware,New Castle County,,,10003.0,ChIJh7_kg3Ybx4kR6L5mDoWESqw,2021-06-30,-1.0,7.0,15.0,-31.0,-37.0,8.0
+US,United States,Delaware,Sussex County,,,10005.0,ChIJaWUVnA-PuIkRzxJPFm9RUIg,2021-06-30,52.0,44.0,318.0,50.0,-16.0,2.0
+US,United States,District of Columbia,,,US-DC,11001.0,ChIJW-T2Wt7Gt4kRmKFUAsCO4tY,2021-06-30,-35.0,-16.0,-16.0,-60.0,-53.0,13.0
+US,United States,Florida,Alachua County,,,12001.0,ChIJackTQW6i6IgRfhtwPpmP_N4,2021-06-30,-13.0,-3.0,-30.0,-26.0,-29.0,8.0
+US,United States,Florida,Bay County,,,12005.0,ChIJh98c1IWck4gRDyqJy1D_miU,2021-06-30,37.0,31.0,103.0,32.0,-12.0,2.0
+US,United States,Florida,Brevard County,,,12009.0,ChIJbXb9O7z93YgRkWvSibvwmzI,2021-06-30,-4.0,1.0,7.0,-11.0,-31.0,6.0
+US,United States,Florida,Broward County,,,12011.0,ChIJFUaCG35_2YgRFNYLv44fMaA,2021-06-30,-20.0,-14.0,-53.0,-31.0,-35.0,10.0
+US,United States,Florida,Charlotte County,,,12015.0,ChIJ5wqKc4dY24gRmeFqag0029I,2021-06-30,-17.0,-6.0,-39.0,5.0,-28.0,4.0
+US,United States,Florida,Citrus County,,,12017.0,ChIJfVwIG9UM6IgRgkKDcCpQRbk,2021-06-30,-1.0,3.0,-19.0,,-11.0,4.0
+US,United States,Florida,Clay County,,,12019.0,ChIJwRfmWjoP5ogRABDrfgS0MSc,2021-06-30,-2.0,-6.0,-3.0,,-36.0,7.0
+US,United States,Florida,Collier County,,,12021.0,ChIJobBYdXKs24gRmut-Oyvi-mw,2021-06-30,-21.0,-16.0,-48.0,-41.0,-24.0,4.0
+US,United States,Florida,DeSoto County,,,12027.0,ChIJTzXJ8vi93IgRv-olrJIBS5M,2021-06-30,-14.0,-13.0,-48.0,,-23.0,4.0
+US,United States,Florida,Duval County,,,12031.0,ChIJi2OkTHOZ5YgRAx47esLB8vs,2021-06-30,-5.0,1.0,-4.0,-15.0,-30.0,8.0
+US,United States,Florida,Escambia County,,,12033.0,ChIJseTBcm1lkIgRNUELOhQhLts,2021-06-30,6.0,11.0,87.0,20.0,-29.0,3.0
+US,United States,Florida,Flagler County,,,12035.0,ChIJ_1RVZTjt5ogRva_K8GwyO2U,2021-06-30,-2.0,11.0,-1.0,,-25.0,4.0
+US,United States,Florida,Glades County,,,12043.0,ChIJpUP3Sfs93IgRW_uBhDIjAOg,2021-06-30,,,-64.0,-12.0,-30.0,
+US,United States,Florida,Hardee County,,,12049.0,ChIJEewZJFLD3IgR7MDdgOV_dsw,2021-06-30,-11.0,-28.0,-43.0,,-25.0,5.0
+US,United States,Florida,Hendry County,,,12051.0,ChIJc0HRaC_l24gRPNP7XzXH24A,2021-06-30,-12.0,-24.0,-46.0,,-27.0,6.0
+US,United States,Florida,Hernando County,,,12053.0,ChIJYW9IKOH754gR_4iRE0VRW9o,2021-06-30,-3.0,1.0,-20.0,,-27.0,5.0
+US,United States,Florida,Highlands County,,,12055.0,ChIJdQYWJcda3IgRrSEaqxjStTM,2021-06-30,-26.0,-15.0,-40.0,,-26.0,4.0
+US,United States,Florida,Hillsborough County,,,12057.0,ChIJlY4KVxI13YgRDPMa3yohOts,2021-06-30,-9.0,-6.0,-22.0,-12.0,-37.0,9.0
+US,United States,Florida,Indian River County,,,12061.0,ChIJkfXeA2dk3ogR5H4ds095lLU,2021-06-30,-13.0,-8.0,-38.0,1.0,-24.0,4.0
+US,United States,Florida,Lake County,,,12069.0,ChIJA8J8CSaM54gRMs9XFunb7ng,2021-06-30,-10.0,-6.0,-25.0,-22.0,-30.0,5.0
+US,United States,Florida,Lee County,,,12071.0,ChIJ47t3hVRu24gRQF8fhs0Ftik,2021-06-30,-19.0,-12.0,-41.0,-30.0,-28.0,4.0
+US,United States,Florida,Leon County,,,12073.0,ChIJU0sSh1GK7IgRd8C1aGi7b8g,2021-06-30,-11.0,-7.0,-11.0,-28.0,-32.0,8.0
+US,United States,Florida,Levy County,,,12075.0,ChIJ7908BbD26IgRFinrUKJ6BFA,2021-06-30,17.0,-3.0,-18.0,,-19.0,5.0
+US,United States,Florida,Manatee County,,,12081.0,ChIJO3wisEEuw4gRJkeIhpCVu-Q,2021-06-30,-14.0,-6.0,-26.0,8.0,-25.0,5.0
+US,United States,Florida,Marion County,,,12083.0,ChIJaQaVRVXQ54gRCht5zsSwoNI,2021-06-30,-1.0,-2.0,-10.0,32.0,-19.0,5.0
+US,United States,Florida,Martin County,,,12085.0,ChIJ-V-yPH7H3ogRstggZi-Szls,2021-06-30,-13.0,-9.0,-31.0,-22.0,-35.0,5.0
+US,United States,Florida,Miami-Dade County,,,12086.0,ChIJORjpTQWL2YgRi2OVgXQeaUk,2021-06-30,-17.0,-11.0,-50.0,-31.0,-30.0,9.0
+US,United States,Florida,Monroe County,,,12087.0,ChIJmxojnNyG2ogRIGAhTf-Tm3I,2021-06-30,-19.0,-12.0,-27.0,-5.0,-26.0,2.0
+US,United States,Florida,Nassau County,,,12089.0,ChIJqbrwpti85YgRwPnj3RzwMuE,2021-06-30,4.0,13.0,26.0,,-22.0,5.0
+US,United States,Florida,Okaloosa County,,,12091.0,ChIJ3dz0mGtskYgRHAGiUBwb5GI,2021-06-30,23.0,13.0,209.0,78.0,-20.0,2.0
+US,United States,Florida,Okeechobee County,,,12093.0,ChIJTwto7i8h3IgRwUNzWnROsEU,2021-06-30,-15.0,-14.0,-55.0,-12.0,-31.0,4.0
+US,United States,Florida,Orange County,,,12095.0,ChIJLUsuoVaY54gRS_Ma3ZvbwUQ,2021-06-30,-8.0,-9.0,-7.0,-23.0,-38.0,8.0
+US,United States,Florida,Osceola County,,,12097.0,ChIJpdRpwtGX3YgRX3_mBdXs8Y0,2021-06-30,3.0,1.0,-32.0,-29.0,-30.0,7.0
+US,United States,Florida,Palm Beach County,,,12099.0,ChIJ89agzq663ogRA5AghqgXmok,2021-06-30,-16.0,-9.0,-35.0,-34.0,-31.0,7.0
+US,United States,Florida,Pasco County,,,12101.0,ChIJ39F9Y7uuwogR7V0K7CtewiY,2021-06-30,-1.0,-5.0,-33.0,-15.0,-24.0,6.0
+US,United States,Florida,Pinellas County,,,12103.0,ChIJmU1R49GXwogREBL8gkBLFZ8,2021-06-30,-12.0,-8.0,-6.0,-19.0,-28.0,7.0
+US,United States,Florida,Polk County,,,12105.0,ChIJD0-pOcNq3YgRmOvtrrA4vjg,2021-06-30,-8.0,10.0,-19.0,-11.0,-26.0,6.0
+US,United States,Florida,Putnam County,,,12107.0,ChIJe5dTbJIS5ogRjoZqmROFwdQ,2021-06-30,9.0,13.0,14.0,,-14.0,4.0
+US,United States,Florida,Santa Rosa County,,,12113.0,ChIJKZ5dCqXkkIgRnxtBMJwndvA,2021-06-30,18.0,13.0,48.0,,-22.0,4.0
+US,United States,Florida,Sarasota County,,,12115.0,ChIJuRKBBt-t3IgRVZgMC9epEtI,2021-06-30,-18.0,-8.0,-37.0,-59.0,-26.0,4.0
+US,United States,Florida,Seminole County,,,12117.0,ChIJMZgld-Nq54gRAdgUl-UK_d0,2021-06-30,-8.0,-5.0,-25.0,10.0,-38.0,10.0
+US,United States,Florida,St. Johns County,,,12109.0,ChIJsx8LGrjh5YgRRLOselY_NPE,2021-06-30,9.0,18.0,34.0,8.0,-33.0,7.0
+US,United States,Florida,St. Lucie County,,,12111.0,ChIJo4hoBJiT3ogR29cIVGIFp_M,2021-06-30,-8.0,-2.0,-32.0,-3.0,-27.0,6.0
+US,United States,Florida,Sumter County,,,12119.0,ChIJD8Uf1uni54gRjsPSegwTL08,2021-06-30,-11.0,-4.0,-44.0,11.0,-21.0,3.0
+US,United States,Florida,Volusia County,,,12127.0,ChIJnaCQPsIF54gRfVd-Mdz2z9w,2021-06-30,-2.0,10.0,15.0,-32.0,-29.0,5.0
+US,United States,Florida,Walton County,,,12131.0,ChIJR7MhsZFjkYgRy21szaJzyW0,2021-06-30,48.0,39.0,130.0,26.0,-18.0,0.0
+US,United States,Georgia,Bartow County,,,13015.0,ChIJVeF10MtP9YgRZzpsh823RrE,2021-06-30,8.0,14.0,59.0,16.0,-18.0,4.0
+US,United States,Georgia,Bibb County,,,13021.0,ChIJA6qg2xv884gRO0GDLTiICVc,2021-06-30,-13.0,6.0,26.0,8.0,-25.0,6.0
+US,United States,Georgia,Bleckley County,,,13023.0,ChIJKVxd_W9r8YgRxt1vFh91Xow,2021-06-30,,,-57.0,,-24.0,
+US,United States,Georgia,Camden County,,,13039.0,ChIJl6NPkwkb5YgRwGvHFXP6tYY,2021-06-30,10.0,33.0,8.0,19.0,-18.0,5.0
+US,United States,Georgia,Catoosa County,,,13047.0,ChIJv62PgHlCYIgRH8JovNqZEqA,2021-06-30,7.0,24.0,23.0,9.0,-38.0,5.0
+US,United States,Georgia,Chatham County,,,13051.0,ChIJ2573Ov8G-4gRx8O0nAEHB7w,2021-06-30,7.0,6.0,52.0,-11.0,-30.0,5.0
+US,United States,Georgia,Clarke County,,,13059.0,ChIJpanlw2lz9ogRCsqksj28Gyg,2021-06-30,-12.0,-3.0,10.0,-62.0,-22.0,6.0
+US,United States,Georgia,Clayton County,,,13063.0,ChIJr0GPU4Lv9IgR6_oFujYLkWQ,2021-06-30,7.0,2.0,54.0,-3.0,-33.0,5.0
+US,United States,Georgia,Cobb County,,,13067.0,ChIJJcT9L38a9YgR-t-ZWzIExEg,2021-06-30,-1.0,-2.0,30.0,-45.0,-42.0,9.0
+US,United States,Georgia,Columbia County,,,13073.0,ChIJb-tXOcN_94gRErWZzObFSrA,2021-06-30,12.0,13.0,48.0,10.0,-30.0,6.0
+US,United States,Georgia,DeKalb County,,,13089.0,ChIJW8Aub0YI9YgRR06nEDs3MzE,2021-06-30,-14.0,-3.0,41.0,-43.0,-41.0,8.0
+US,United States,Georgia,Douglas County,,,13097.0,ChIJy2LhqZEV9YgRz9Q9-VydU-0,2021-06-30,-1.0,7.0,35.0,19.0,-32.0,6.0
+US,United States,Georgia,Forsyth County,,,13117.0,ChIJIxgglkKX9YgR10aUyAP4dTM,2021-06-30,-1.0,3.0,63.0,,-45.0,10.0
+US,United States,Georgia,Fulton County,,,13121.0,ChIJ0dNnmHCr9YgRE8XXDotB0tc,2021-06-30,-15.0,-7.0,-7.0,-43.0,-47.0,9.0
+US,United States,Georgia,Glynn County,,,13127.0,ChIJ5-YQylrW5IgRz7CKYMzszNg,2021-06-30,0.0,26.0,61.0,21.0,-26.0,4.0
+US,United States,Georgia,Gwinnett County,,,13135.0,ChIJXZiNz0Wd9YgRfV8GDoGIrlo,2021-06-30,-4.0,-3.0,45.0,-45.0,-34.0,7.0
+US,United States,Georgia,Haralson County,,,13143.0,ChIJ311E9LQgi4gRGeVTqmu7vTo,2021-06-30,,3.0,-1.0,15.0,-27.0,6.0
+US,United States,Georgia,Henry County,,,13151.0,ChIJNypgd2P89IgRCWWgD-u6JrI,2021-06-30,8.0,9.0,46.0,,-33.0,6.0
+US,United States,Georgia,Houston County,,,13153.0,ChIJD-c8tw_o84gR_Ul0wM8fXfM,2021-06-30,0.0,4.0,12.0,,-32.0,7.0
+US,United States,Georgia,Liberty County,,,13179.0,ChIJRdfQ9ECL-ogRRfbU9D-WflI,2021-06-30,0.0,7.0,-38.0,,-26.0,5.0
+US,United States,Georgia,Lowndes County,,,13185.0,ChIJh4ZfRQNd7ogRgqv4l0FQxqM,2021-06-30,2.0,13.0,13.0,13.0,-27.0,6.0
+US,United States,Georgia,Muscogee County,,,13215.0,ChIJ612uy8Mz84gRJVyTU6V41lo,2021-06-30,6.0,13.0,0.0,-40.0,-28.0,5.0
+US,United States,Georgia,Richmond County,,,13245.0,ChIJSQgXSnLa-YgRaWbENS7kAnI,2021-06-30,2.0,6.0,-3.0,-10.0,-28.0,5.0
+US,United States,Hawaii,Hawaii County,,,15001.0,ChIJV6HcMi_CU3kRyTEx69fyK7A,2021-06-30,-18.0,-5.0,-17.0,-9.0,-32.0,6.0
+US,United States,Hawaii,Honolulu County,,,15003.0,ChIJbweGsupCe3wRr22F3XdfxHg,2021-06-30,-13.0,-2.0,-9.0,-33.0,-34.0,9.0
+US,United States,Hawaii,Kauai County,,,15007.0,ChIJG519pu2wB3wR4biEhFb5pg0,2021-06-30,-14.0,-8.0,-23.0,-8.0,-29.0,5.0
+US,United States,Hawaii,Maui County,,,15009.0,ChIJ0Y34pUAqVXkR7ayieeGRlm4,2021-06-30,-13.0,-7.0,-18.0,-9.0,-17.0,6.0
+US,United States,Idaho,Ada County,,,16001.0,ChIJySzGOs_0rlQRA33YPY5VCsM,2021-06-30,2.0,10.0,68.0,19.0,-33.0,6.0
+US,United States,Idaho,Canyon County,,,16027.0,ChIJK0VLMORLrlQRpTfpDcwi73c,2021-06-30,19.0,12.0,112.0,2.0,-22.0,3.0
+US,United States,Illinois,Champaign County,,,17019.0,ChIJFaw55h3aDIgRG1WtmPFBk6Y,2021-06-30,0.0,4.0,70.0,-33.0,-38.0,9.0
+US,United States,Illinois,Cook County,,,17031.0,ChIJdRNDZqqxD4gRPOAOIwnX2Yo,2021-06-30,-5.0,-3.0,31.0,-34.0,-40.0,8.0
+US,United States,Illinois,DuPage County,,,17043.0,ChIJa_8YHt6oD4gRaux4XvaID0k,2021-06-30,-1.0,12.0,36.0,-60.0,-35.0,9.0
+US,United States,Illinois,Jackson County,,,17077.0,ChIJ1WJkfj4Jd4gR9R3Up6pTtrc,2021-06-30,-2.0,3.0,18.0,,-29.0,4.0
+US,United States,Illinois,Kane County,,,17089.0,ChIJnfjNX8UcD4gR2rRf04RfHSw,2021-06-30,3.0,1.0,99.0,-22.0,-35.0,6.0
+US,United States,Illinois,Lake County,,,17097.0,ChIJKdUvmscAD4gRZsVGNFFqkhs,2021-06-30,5.0,11.0,96.0,-6.0,-37.0,7.0
+US,United States,Illinois,Madison County,,,17119.0,ChIJCbty6Ib3dYgR05bPn6vNj2M,2021-06-30,2.0,12.0,81.0,-14.0,-26.0,5.0
+US,United States,Illinois,McHenry County,,,17111.0,ChIJx34ElHw-D4gRBCCaMuI0H2o,2021-06-30,13.0,24.0,136.0,-43.0,-30.0,6.0
+US,United States,Illinois,McLean County,,,17113.0,ChIJE-_tJB9AC4gR9RpRq3ADUkM,2021-06-30,13.0,16.0,43.0,12.0,-37.0,10.0
+US,United States,Illinois,Peoria County,,,17143.0,ChIJPb2t9l1nCogR0U7BdDBgWgQ,2021-06-30,0.0,10.0,62.0,-17.0,-33.0,6.0
+US,United States,Illinois,Rock Island County,,,17161.0,ChIJT0_DY9P04YcR8iWu9ev5Ero,2021-06-30,-1.0,29.0,-45.0,-13.0,-20.0,3.0
+US,United States,Illinois,Sangamon County,,,17167.0,ChIJjQBm7XBqdYgRe4_c2pUEMSQ,2021-06-30,1.0,4.0,64.0,16.0,-38.0,7.0
+US,United States,Illinois,St. Clair County,,,17163.0,ChIJeRbja679dYgR3ASXSadGyno,2021-06-30,7.0,6.0,86.0,15.0,-23.0,6.0
+US,United States,Illinois,Will County,,,17197.0,ChIJuwvCvgOLDogRSNhOfXa7wKA,2021-06-30,6.0,6.0,57.0,-7.0,-37.0,7.0
+US,United States,Indiana,Allen County,,,18003.0,ChIJMat8EGz7FYgRxC2O0LCaDJk,2021-06-30,0.0,5.0,65.0,-3.0,-28.0,5.0
+US,United States,Indiana,Clark County,,,18019.0,ChIJdUX_FN97aYgRBpoPyt4tU0Y,2021-06-30,-1.0,19.0,58.0,18.0,-23.0,5.0
+US,United States,Indiana,Hamilton County,,,18057.0,ChIJ8ylPYRTAFIgRel9tI4yNmro,2021-06-30,4.0,13.0,37.0,,-44.0,11.0
+US,United States,Indiana,Lake County,,,18089.0,ChIJKTKCiIXlEYgRjHbHHioYjbU,2021-06-30,8.0,0.0,25.0,4.0,-30.0,5.0
+US,United States,Indiana,Marion County,,,18097.0,ChIJsUwSvKZVa4gR8O_1nsKeIbc,2021-06-30,-6.0,2.0,15.0,-11.0,-34.0,7.0
+US,United States,Indiana,St. Joseph County,,,18141.0,ChIJ8YY3te1LEYgRvxj0oskckKU,2021-06-30,9.0,8.0,127.0,-6.0,-25.0,4.0
+US,United States,Indiana,Tippecanoe County,,,18157.0,ChIJ67vJPNT_EogRxiZSAMRus8A,2021-06-30,-13.0,11.0,55.0,-35.0,-40.0,9.0
+US,United States,Iowa,Linn County,,,19113.0,ChIJUUIvoHpf5IcRWB5OHYxMshw,2021-06-30,14.0,29.0,196.0,-1.0,-28.0,5.0
+US,United States,Iowa,Polk County,,,19153.0,ChIJu8uF2zgl7IcR6oIsamzvHr4,2021-06-30,14.0,8.0,162.0,-2.0,-34.0,5.0
+US,United States,Iowa,Scott County,,,19163.0,ChIJX6krtf004ocRs8GD4WR_Ux8,2021-06-30,7.0,29.0,115.0,,-29.0,4.0
+US,United States,Kansas,Douglas County,,,20045.0,ChIJ_ZHW2GlJv4cRZxh5fFv330E,2021-06-30,1.0,13.0,-15.0,,-35.0,9.0
+US,United States,Kansas,Johnson County,,,20091.0,ChIJn-fdmaS9wIcR2dm40uN4ICo,2021-06-30,-3.0,4.0,24.0,,-41.0,11.0
+US,United States,Kansas,Sedgwick County,,,20173.0,ChIJYdTfu-7fuocR5CnuybPf61c,2021-06-30,4.0,1.0,52.0,2.0,-25.0,5.0
+US,United States,Kansas,Shawnee County,,,20177.0,ChIJlwNz_ZwCv4cRwvBvqnt9K48,2021-06-30,8.0,12.0,25.0,33.0,-26.0,6.0
+US,United States,Kansas,Wyandotte County,,,20209.0,ChIJtWTKqTSMwIcRfuGD2LoDgYk,2021-06-30,6.0,29.0,18.0,-46.0,-29.0,5.0
+US,United States,Kentucky,Boone County,,,21015.0,ChIJNXQjdMHDQYgR6Hx1OhDzSdw,2021-06-30,7.0,8.0,47.0,9.0,-32.0,6.0
+US,United States,Kentucky,Fayette County,,,21067.0,ChIJJeuczClEQogRk9RIRApp7DA,2021-06-30,-7.0,-2.0,52.0,-23.0,-29.0,6.0
+US,United States,Kentucky,Jefferson County,,,21111.0,ChIJCROGK48KaYgR_WSJcx2vTro,2021-06-30,-7.0,10.0,57.0,-14.0,-35.0,6.0
+US,United States,Kentucky,Kenton County,,,21117.0,ChIJ2Q9miBf0QYgRdF2IF6v8Nkc,2021-06-30,-8.0,0.0,57.0,-39.0,-44.0,6.0
+US,United States,Kentucky,Warren County,,,21227.0,ChIJg_FXx4jwZYgRUqp56onlUME,2021-06-30,7.0,17.0,87.0,,-20.0,3.0
+US,United States,Louisiana,Caddo Parish,,,22017.0,ChIJnWXrR_IqMYYRgjlaPQWLnNg,2021-06-30,7.0,9.0,35.0,8.0,-21.0,3.0
+US,United States,Louisiana,Calcasieu Parish,,,22019.0,ChIJH4HcM4SFO4YRdGgQO4Kq6Xs,2021-06-30,6.0,5.0,4.0,35.0,-25.0,4.0
+US,United States,Louisiana,East Baton Rouge Parish,,,22033.0,ChIJy3RfMmc4JIYRUlLwR_RnY9k,2021-06-30,1.0,0.0,0.0,-17.0,-32.0,5.0
+US,United States,Louisiana,Jefferson Parish,,,22051.0,ChIJM9Ld2kBeIYYRgG51YN66XG8,2021-06-30,1.0,9.0,20.0,-17.0,-24.0,5.0
+US,United States,Louisiana,Lafayette Parish,,,22055.0,ChIJ5cBAxmqDJIYRbDKIJckJam8,2021-06-30,1.0,11.0,-6.0,-16.0,-22.0,3.0
+US,United States,Louisiana,Orleans Parish,,,22071.0,ChIJkTRNv98GnogRcN0jfs1gpz8,2021-06-30,-14.0,-8.0,-14.0,-32.0,-35.0,6.0
+US,United States,Louisiana,Ouachita Parish,,,22073.0,ChIJL1hax53ML4YROqGTQpbqTEI,2021-06-30,10.0,12.0,9.0,3.0,-22.0,3.0
+US,United States,Louisiana,St. John the Baptist Parish,,,22095.0,ChIJwRWewMUsJ4YRUzcXlluoYiE,2021-06-30,-14.0,1.0,-52.0,0.0,-20.0,4.0
+US,United States,Louisiana,St. Tammany Parish,,,22103.0,ChIJnUNaEnjxnYgR32xPGdaY5Hk,2021-06-30,5.0,7.0,-4.0,-7.0,-34.0,5.0
+US,United States,Maine,Cumberland County,,,23005.0,ChIJGfsVYqflrUwR7Wk7LavnyfY,2021-06-30,21.0,25.0,175.0,6.0,-31.0,7.0
+US,United States,Maine,Penobscot County,,,23019.0,ChIJh1l1O2RRpUwRnj2tZ3JEDnA,2021-06-30,15.0,24.0,105.0,17.0,-33.0,3.0
+US,United States,Maryland,Anne Arundel County,,,24003.0,ChIJe-j7owgdyIkR8YrzzqpahWQ,2021-06-30,-4.0,-5.0,93.0,-14.0,-34.0,8.0
+US,United States,Maryland,Baltimore,,,24510.0,ChIJt4P01q4DyIkRWOcjQqiWSAQ,2021-06-30,-16.0,-10.0,-4.0,-37.0,-35.0,8.0
+US,United States,Maryland,Baltimore County,,,24005.0,ChIJt4P01q4DyIkRGShgcajgdCc,2021-06-30,-9.0,0.0,71.0,-51.0,-40.0,9.0
+US,United States,Maryland,Carroll County,,,24013.0,ChIJg_-_ysIeyIkRUCeawzpwNrA,2021-06-30,-1.0,-13.0,41.0,-34.0,-37.0,8.0
+US,United States,Maryland,Frederick County,,,24021.0,ChIJswGodJnVyokRGeb1hydgsnc,2021-06-30,2.0,14.0,64.0,-52.0,-33.0,9.0
+US,United States,Maryland,Harford County,,,24025.0,ChIJ-TfZvkTnx4kRgIG5NP-f8_4,2021-06-30,3.0,3.0,96.0,18.0,-31.0,8.0
+US,United States,Maryland,Howard County,,,24027.0,ChIJH5jhq5AmyIkRktjkA__Uilo,2021-06-30,-12.0,-1.0,94.0,-7.0,-49.0,12.0
+US,United States,Maryland,Montgomery County,,,24031.0,ChIJh6O4gzUytokRc2ipdwYZC3g,2021-06-30,-11.0,6.0,39.0,-50.0,-44.0,12.0
+US,United States,Maryland,Prince George's County,,,24033.0,ChIJp_ap_s1LtokR_Lf7mF9L8mg,2021-06-30,-2.0,0.0,73.0,-56.0,-38.0,9.0
+US,United States,Maryland,St. Mary's County,,,24037.0,ChIJWea2v-1dt4kR7U59V07xdkc,2021-06-30,0.0,4.0,44.0,,-35.0,9.0
+US,United States,Maryland,Washington County,,,24043.0,ChIJ5W-Kkev3yYkRRi6fquUOrYE,2021-06-30,8.0,22.0,128.0,,-16.0,5.0
+US,United States,Massachusetts,Barnstable County,,,25001.0,ChIJNznEmus2-4kR1XIbb_9HhCY,2021-06-30,69.0,54.0,339.0,32.0,-22.0,1.0
+US,United States,Massachusetts,Bristol County,,,25005.0,ChIJhYThEwkS5IkRYeaL-tf7h5M,2021-06-30,3.0,0.0,77.0,-46.0,-31.0,5.0
+US,United States,Massachusetts,Essex County,,,25009.0,ChIJtTxVCm8B5IkRdQoXNfYjl6Q,2021-06-30,2.0,-7.0,108.0,-43.0,-36.0,7.0
+US,United States,Massachusetts,Hampden County,,,25013.0,ChIJmQwtQe4L5IkRQwTgvlGywCY,2021-06-30,0.0,-9.0,56.0,-24.0,-40.0,6.0
+US,United States,Massachusetts,Middlesex County,,,25017.0,ChIJmQwtQe4L5IkRCLDyk1MVcOI,2021-06-30,-14.0,-9.0,4.0,-54.0,-48.0,13.0
+US,United States,Massachusetts,Norfolk County,,,25021.0,ChIJmQwtQe4L5IkR_XElq-CRdoo,2021-06-30,-4.0,-5.0,61.0,-55.0,-44.0,12.0
+US,United States,Massachusetts,Plymouth County,,,25023.0,ChIJgZI3cb8O5IkRWOr57wXcX00,2021-06-30,2.0,3.0,189.0,-41.0,-34.0,6.0
+US,United States,Massachusetts,Suffolk County,,,25025.0,ChIJ6TarW9Sc44kR4nUWuotzEyI,2021-06-30,-24.0,-15.0,-25.0,-45.0,-49.0,10.0
+US,United States,Massachusetts,Worcester County,,,25027.0,ChIJvzRXoh0M5IkRfk1iMRL05dk,2021-06-30,-1.0,-6.0,32.0,-1.0,-32.0,8.0
+US,United States,Michigan,Genesee County,,,26049.0,ChIJZxlEtTp5I4gRjxdqahrBdfU,2021-06-30,13.0,10.0,171.0,12.0,-33.0,3.0
+US,United States,Michigan,Houghton County,,,26061.0,ChIJTfO5_mQ7UU0RWG667XtdKyc,2021-06-30,,36.0,18.0,,-15.0,1.0
+US,United States,Michigan,Ingham County,,,26065.0,ChIJD9W2LEnaIogRAyhZlrTppyY,2021-06-30,-11.0,5.0,93.0,-39.0,-40.0,8.0
+US,United States,Michigan,Kalamazoo County,,,26077.0,ChIJuf0n9q6eF4gR_Y1LA3Eg7go,2021-06-30,3.0,10.0,144.0,-17.0,-34.0,5.0
+US,United States,Michigan,Kent County,,,26081.0,ChIJueNwOGzfGIgR5Y5vLirvnxQ,2021-06-30,1.0,6.0,162.0,-33.0,-30.0,5.0
+US,United States,Michigan,Lapeer County,,,26087.0,ChIJzaGfYluMJIgRvCzzEmsbmbQ,2021-06-30,18.0,23.0,28.0,,-26.0,3.0
+US,United States,Michigan,Livingston County,,,26093.0,ChIJYW9RfTBHI4gRHXrtLIsR864,2021-06-30,-2.0,18.0,66.0,,-30.0,8.0
+US,United States,Michigan,Macomb County,,,26099.0,ChIJI5_BOQ_OJIgRZ1Bcmc7XXIs,2021-06-30,0.0,5.0,224.0,-36.0,-35.0,7.0
+US,United States,Michigan,Monroe County,,,26115.0,ChIJ0yMoNdhmO4gR5ZubrvcyyZM,2021-06-30,7.0,3.0,102.0,50.0,-22.0,5.0
+US,United States,Michigan,Oakland County,,,26125.0,ChIJ2S-UKKSNJIgRO9LSPL-n88Y,2021-06-30,-2.0,5.0,103.0,-41.0,-42.0,10.0
+US,United States,Michigan,Oceana County,,,26127.0,ChIJIUZfB8fzG4gRHSqMbCV0uXg,2021-06-30,,,104.0,,-18.0,2.0
+US,United States,Michigan,Ottawa County,,,26139.0,ChIJ7X2iC_iIGYgRBPwpw5yTx1c,2021-06-30,19.0,25.0,269.0,25.0,-18.0,4.0
+US,United States,Michigan,St. Clair County,,,26147.0,ChIJ2ztKkloEJYgRAUoOzUD3jF0,2021-06-30,15.0,12.0,132.0,21.0,-19.0,4.0
+US,United States,Michigan,Washtenaw County,,,26161.0,ChIJMx9D1A2wPIgRuLFVuZmuyW4,2021-06-30,-13.0,-6.0,84.0,-56.0,-50.0,12.0
+US,United States,Michigan,Wayne County,,,26163.0,ChIJDZ6VuYPKJIgR15xhPzwyGyw,2021-06-30,0.0,1.0,68.0,-7.0,-36.0,6.0
+US,United States,Minnesota,Anoka County,,,27003.0,ChIJv_1lwIhEs1IRs0feqjA_JsI,2021-06-30,18.0,14.0,182.0,-57.0,-28.0,7.0
+US,United States,Minnesota,Dakota County,,,27037.0,ChIJySsC0AvL94cRdzZ2o7jAuWE,2021-06-30,13.0,4.0,192.0,-18.0,-39.0,8.0
+US,United States,Minnesota,Hennepin County,,,27053.0,ChIJpe7ZFZId9ocRnkR32F9xAcw,2021-06-30,-3.0,-4.0,134.0,-30.0,-44.0,9.0
+US,United States,Minnesota,Ramsey County,,,27123.0,ChIJfyBkuQrV94cRJQ5Uv1531bM,2021-06-30,0.0,-5.0,98.0,-33.0,-40.0,7.0
+US,United States,Minnesota,St. Louis County,,,27137.0,ChIJvyoH84qNpVIRt3pjGNnS1VQ,2021-06-30,23.0,20.0,282.0,14.0,-34.0,3.0
+US,United States,Minnesota,Stearns County,,,27145.0,ChIJ6VQcyH5BtFIRnleWaEY1Fcg,2021-06-30,13.0,19.0,207.0,22.0,-25.0,2.0
+US,United States,Minnesota,Washington County,,,27163.0,ChIJ_UOxZ3vCslIR_TDTigqnRuU,2021-06-30,20.0,12.0,280.0,8.0,-39.0,8.0
+US,United States,Mississippi,DeSoto County,,,28033.0,ChIJ2QPCM3dR1YcRVGbyYq2XnvY,2021-06-30,2.0,13.0,19.0,18.0,-30.0,5.0
+US,United States,Mississippi,Harrison County,,,28047.0,ChIJv5Sk26ZYnIgRQgAVlhf_dP8,2021-06-30,20.0,10.0,13.0,34.0,-28.0,2.0
+US,United States,Mississippi,Jackson County,,,28059.0,ChIJj6rgU4BYmogRWO1Lr8TYCLM,2021-06-30,11.0,9.0,-18.0,52.0,-13.0,3.0
+US,United States,Mississippi,Lauderdale County,,,28075.0,ChIJCUyvgXd8hIgRUcxs7EZcH9c,2021-06-30,18.0,11.0,30.0,27.0,-20.0,4.0
+US,United States,Missouri,Boone County,,,29019.0,ChIJJYH0pyWf3IcRR7g9tbBfVNs,2021-06-30,9.0,17.0,37.0,25.0,-29.0,4.0
+US,United States,Missouri,Clay County,,,29047.0,ChIJdVxCUHpLwIcRSNjdePaajZg,2021-06-30,3.0,-5.0,22.0,14.0,-42.0,8.0
+US,United States,Missouri,Greene County,,,29077.0,ChIJJRE2VCSKxYcRtd6Sq3JiUdg,2021-06-30,15.0,-14.0,47.0,28.0,-26.0,3.0
+US,United States,Missouri,Jackson County,,,29095.0,ChIJ1ROsTw1swYcRCr5MOFp61_0,2021-06-30,-7.0,10.0,7.0,-21.0,-33.0,6.0
+US,United States,Missouri,Jasper County,,,29097.0,ChIJQbU6TfIoxocRTrzoDWs-CLc,2021-06-30,23.0,1.0,51.0,46.0,-14.0,3.0
+US,United States,Missouri,Platte County,,,29165.0,ChIJ6W6-vQpmwIcRBSNNlMCLTTU,2021-06-30,-12.0,24.0,20.0,29.0,-36.0,9.0
+US,United States,Missouri,St. Charles County,,,29183.0,ChIJ8_ejCwAp34cR6jFA8VaN-pA,2021-06-30,-1.0,7.0,54.0,25.0,-43.0,9.0
+US,United States,Missouri,St. Louis,,,29510.0,ChIJ-Y7t-qm02IcRW-C7IsrqOb4,2021-06-30,9.0,1.0,16.0,-13.0,-32.0,7.0
+US,United States,Missouri,St. Louis County,,,29189.0,ChIJBe3muPnK2IcRO8QfrOB9Xn0,2021-06-30,-3.0,1.0,70.0,-15.0,-31.0,8.0
+US,United States,Missouri,Taney County,,,29213.0,ChIJDzzoO7erz4cRlTYzs1cakPc,2021-06-30,133.0,87.0,65.0,,-9.0,-1.0
+US,United States,Montana,Missoula County,,,30063.0,ChIJe50wzPyAXlMRvfF17xgQ5B8,2021-06-30,18.0,32.0,146.0,36.0,-24.0,2.0
+US,United States,Montana,Yellowstone County,,,30111.0,ChIJQ73Ga4J0SFMRBPZ-37yjMww,2021-06-30,23.0,27.0,113.0,52.0,-23.0,1.0
+US,United States,Nebraska,Douglas County,,,31055.0,ChIJC0RFNDPik4cR6q2GEvMovcw,2021-06-30,9.0,10.0,75.0,8.0,-28.0,6.0
+US,United States,Nebraska,Lancaster County,,,31109.0,ChIJBdssjYmUlocR1ZV20RKqO90,2021-06-30,15.0,16.0,111.0,-11.0,-22.0,5.0
+US,United States,Nevada,Clark County,,,32003.0,ChIJHao3aEnWuIAR-DZSqgPUFzM,2021-06-30,-2.0,2.0,-2.0,-15.0,-31.0,6.0
+US,United States,Nevada,Nye County,,,32023.0,ChIJJcLL_DeWvoARQyqHFcY2se4,2021-06-30,26.0,3.0,-32.0,,-20.0,4.0
+US,United States,Nevada,Washoe County,,,32031.0,ChIJ4fdsvIAuo4ARgBhifeuEby4,2021-06-30,3.0,9.0,21.0,10.0,-26.0,4.0
+US,United States,New Hampshire,Grafton County,,,33009.0,ChIJzThguhF_s0wRPG8XeyZNifk,2021-06-30,24.0,51.0,128.0,-9.0,-31.0,4.0
+US,United States,New Hampshire,Hillsborough County,,,33011.0,ChIJFyK5pH0z4okRLFpNBZm3El8,2021-06-30,3.0,2.0,82.0,,-33.0,8.0
+US,United States,New Hampshire,Merrimack County,,,33013.0,ChIJr5Mqu9kT4okRpTU0iWQBYWE,2021-06-30,2.0,10.0,49.0,14.0,-29.0,6.0
+US,United States,New Hampshire,Rockingham County,,,33015.0,ChIJfbhY9-fx4okRG0Ob6F11-Qw,2021-06-30,12.0,10.0,233.0,0.0,-36.0,8.0
+US,United States,New Jersey,Atlantic County,,,34001.0,ChIJ1QoSk33fwIkRe269C6wfLcA,2021-06-30,21.0,23.0,257.0,-7.0,-33.0,3.0
+US,United States,New Jersey,Bergen County,,,34003.0,ChIJi82Epg0Aw4kRBYbf88CH42w,2021-06-30,-5.0,5.0,78.0,-23.0,-42.0,10.0
+US,United States,New Jersey,Burlington County,,,34005.0,ChIJe3N0AJddwYkRACBgX3eEhqw,2021-06-30,-2.0,11.0,80.0,-6.0,-39.0,9.0
+US,United States,New Jersey,Camden County,,,34007.0,ChIJ7VrEU68wwYkRrv6SNMgvyrk,2021-06-30,-2.0,-1.0,38.0,-38.0,-34.0,8.0
+US,United States,New Jersey,Essex County,,,34013.0,ChIJbeL7NKG8w4kRrh3vCNK0Vck,2021-06-30,-9.0,-2.0,53.0,-37.0,-39.0,8.0
+US,United States,New Jersey,Gloucester County,,,34015.0,ChIJVVAjAg_XwIkRmC0fZge5sfE,2021-06-30,1.0,5.0,59.0,-33.0,-34.0,7.0
+US,United States,New Jersey,Hudson County,,,34017.0,ChIJ0UrHnkGrw4kRhaap0swA39s,2021-06-30,-9.0,1.0,43.0,-45.0,-43.0,10.0
+US,United States,New Jersey,Mercer County,,,34021.0,ChIJDX6oD-ZgwYkR7p55mCOiTMo,2021-06-30,-12.0,1.0,11.0,-31.0,-47.0,8.0
+US,United States,New Jersey,Middlesex County,,,34023.0,ChIJ4blltancw4kR0ZwQkSoA__s,2021-06-30,-1.0,13.0,53.0,-21.0,-41.0,11.0
+US,United States,New Jersey,Monmouth County,,,34025.0,ChIJs-wyjgfPw4kRpyM0wCxA5CQ,2021-06-30,12.0,15.0,201.0,-13.0,-41.0,8.0
+US,United States,New Jersey,Morris County,,,34027.0,ChIJye24g0OWw4kRa6osNwPLVyM,2021-06-30,-7.0,1.0,44.0,-46.0,-47.0,11.0
+US,United States,New Jersey,Ocean County,,,34029.0,ChIJh7ZJcChswYkRWgFmCdLUJYw,2021-06-30,23.0,18.0,129.0,10.0,-32.0,5.0
+US,United States,New Jersey,Passaic County,,,34031.0,ChIJaRba7DIQw4kR1PxZFBmoKZE,2021-06-30,2.0,2.0,73.0,-30.0,-29.0,7.0
+US,United States,New Jersey,Salem County,,,34033.0,ChIJCf2wV9kjx4kR1h2X5UgqTco,2021-06-30,5.0,15.0,2.0,8.0,-27.0,5.0
+US,United States,New Jersey,Somerset County,,,34035.0,ChIJSU4MpbK_w4kRscwSKQMFq7o,2021-06-30,-7.0,0.0,86.0,,-44.0,12.0
+US,United States,New Jersey,Union County,,,34039.0,ChIJE1ZD4HK6w4kRXelsizO4rG4,2021-06-30,0.0,-2.0,62.0,-34.0,-34.0,8.0
+US,United States,New Mexico,Bernalillo County,,,35001.0,ChIJUX79BuYMIocR61XjFX3dWVg,2021-06-30,-6.0,0.0,13.0,-7.0,-37.0,8.0
+US,United States,New Mexico,Doña Ana County,,,35013.0,ChIJT2CwBJ493oYRilykcpQvyJA,2021-06-30,-4.0,-1.0,-7.0,4.0,-30.0,8.0
+US,United States,New Mexico,Eddy County,,,35015.0,ChIJi3hqPPmW44YRPVEJo1r5eZw,2021-06-30,-17.0,-18.0,-20.0,-18.0,-33.0,9.0
+US,United States,New Mexico,Lea County,,,35025.0,ChIJ1VQcCIjN_IYRJ3n8dy7Foig,2021-06-30,-20.0,-10.0,-49.0,-55.0,-41.0,6.0
+US,United States,New Mexico,Lincoln County,,,35027.0,ChIJvawgY4TD4YYRAG9ckXRT-Co,2021-06-30,36.0,41.0,-34.0,,-19.0,5.0
+US,United States,New Mexico,Otero County,,,35035.0,ChIJpes6ZYqm4YYR9_BF1GXkUs0,2021-06-30,8.0,-4.0,33.0,,-29.0,6.0
+US,United States,New Mexico,San Juan County,,,35045.0,ChIJD7sZvTIjPYcRJ_GnKTTsve8,2021-06-30,3.0,9.0,80.0,-46.0,-30.0,5.0
+US,United States,New Mexico,Sandoval County,,,35043.0,ChIJFwSJJh6HIocRhinJKrcOGD8,2021-06-30,1.0,0.0,31.0,3.0,-35.0,9.0
+US,United States,New Mexico,Santa Fe County,,,35049.0,ChIJLxb9lBZDGIcR1ads3XuFnHU,2021-06-30,-7.0,3.0,44.0,-11.0,-38.0,7.0
+US,United States,New Mexico,Valencia County,,,35061.0,ChIJ5Q-zIccNIocRBgKeUkqw_Ys,2021-06-30,0.0,11.0,11.0,23.0,-25.0,8.0
+US,United States,New York,Albany County,,,36001.0,ChIJKXDqHfHY3YkR58pus3faMs8,2021-06-30,-15.0,3.0,40.0,-35.0,-46.0,10.0
+US,United States,New York,Bronx County,,,36005.0,ChIJBUEf6ovgwokRwlazSIxIpsk,2021-06-30,-12.0,-11.0,-3.0,-33.0,-41.0,7.0
+US,United States,New York,Dutchess County,,,36027.0,ChIJgXGMHTpq3YkRLcG0JidTOfc,2021-06-30,-1.0,11.0,85.0,-30.0,-37.0,7.0
+US,United States,New York,Erie County,,,36029.0,ChIJRRlv_BcQ04kRP2qzyO_pHxA,2021-06-30,2.0,4.0,100.0,-18.0,-40.0,7.0
+US,United States,New York,Kings County,,,36047.0,ChIJOwE7_GTtwokRs75rhW4_I6M,2021-06-30,-17.0,-6.0,57.0,-40.0,-44.0,10.0
+US,United States,New York,Monroe County,,,36055.0,ChIJXXYP0I-w1okRe6s6YQ1JZnw,2021-06-30,-5.0,-3.0,141.0,-46.0,-38.0,7.0
+US,United States,New York,Nassau County,,,36059.0,ChIJoQxey52xwokRap4G05mKJBs,2021-06-30,0.0,0.0,149.0,-42.0,-41.0,8.0
+US,United States,New York,New York County,,,36061.0,ChIJOwE7_GTtwokRFq0uOwLSE9g,2021-06-30,-46.0,-21.0,-18.0,-46.0,-56.0,13.0
+US,United States,New York,Niagara County,,,36063.0,ChIJqZePrpqE1IkRdVv2SU7kou0,2021-06-30,24.0,27.0,277.0,-29.0,-22.0,5.0
+US,United States,New York,Onondaga County,,,36067.0,ChIJNf-jRf702YkRWbJ48qyiSrI,2021-06-30,-4.0,-6.0,46.0,-24.0,-32.0,7.0
+US,United States,New York,Orange County,,,36071.0,ChIJC1B7Fc3S3IkRu6ik0rYBvT4,2021-06-30,2.0,1.0,96.0,-6.0,-40.0,6.0
+US,United States,New York,Queens County,,,36081.0,ChIJgav5pFbxwokRno6Tc5x2GL8,2021-06-30,-9.0,3.0,75.0,-33.0,-38.0,9.0
+US,United States,New York,Rensselaer County,,,36083.0,ChIJp31xcQUa3okRXeon5LH7SRg,2021-06-30,-2.0,12.0,11.0,-26.0,-34.0,8.0
+US,United States,New York,Richmond County,,,36085.0,ChIJOwE7_GTtwokR1V_vES61lRI,2021-06-30,-7.0,-1.0,-16.0,-37.0,-38.0,9.0
+US,United States,New York,Rockland County,,,36087.0,ChIJJ3Ea8crJwokRTmgPSjoWmB8,2021-06-30,-2.0,-3.0,158.0,-7.0,-38.0,6.0
+US,United States,New York,Saratoga County,,,36091.0,ChIJ_wmheghF3okRp4CsEEsdMi8,2021-06-30,0.0,22.0,98.0,-13.0,-37.0,8.0
+US,United States,New York,Suffolk County,,,36103.0,ChIJ1_mbyICu4IkRU18dDUkMxJU,2021-06-30,5.0,5.0,202.0,-15.0,-32.0,5.0
+US,United States,New York,Ulster County,,,36111.0,ChIJcYmy32Tn3IkRE4hwyqUfabM,2021-06-30,2.0,6.0,172.0,21.0,-34.0,6.0
+US,United States,New York,Westchester County,,,36119.0,ChIJr1lrnWrJwokRidu9ImLYDjc,2021-06-30,0.0,2.0,74.0,-36.0,-37.0,8.0
+US,United States,North Carolina,Alamance County,,,37001.0,ChIJEejT22XdrIkRXe3VUtBoP10,2021-06-30,-4.0,1.0,44.0,6.0,-33.0,5.0
+US,United States,North Carolina,Beaufort County,,,37013.0,ChIJc_BuSVlAr4kRWS2OOG_AXOo,2021-06-30,3.0,23.0,15.0,,-22.0,1.0
+US,United States,North Carolina,Brunswick County,,,37019.0,ChIJRUm_0MMMqokRu3oyLeCsVh8,2021-06-30,33.0,30.0,87.0,,-18.0,3.0
+US,United States,North Carolina,Buncombe County,,,37021.0,ChIJ-9Gb3wOJWYgRsNOCvn3hsr0,2021-06-30,3.0,9.0,52.0,0.0,-31.0,4.0
+US,United States,North Carolina,Carteret County,,,37031.0,ChIJQfziqja-qIkRbIxzH9dMsN8,2021-06-30,47.0,47.0,59.0,,-8.0,2.0
+US,United States,North Carolina,Craven County,,,37049.0,ChIJ8QZsVLgrr4kR6KmhmYdr2TQ,2021-06-30,7.0,15.0,34.0,,-23.0,3.0
+US,United States,North Carolina,Cumberland County,,,37051.0,ChIJS4DZt8Ntq4kR8sv8yWDT8WE,2021-06-30,9.0,10.0,58.0,12.0,-28.0,4.0
+US,United States,North Carolina,Durham County,,,37063.0,ChIJLdauxjzprIkRVFeQLhVUJCQ,2021-06-30,-14.0,2.0,8.0,-44.0,-41.0,9.0
+US,United States,North Carolina,Forsyth County,,,37067.0,ChIJOTtetxYIU4gRWkOAllmvnQ8,2021-06-30,-3.0,9.0,41.0,-19.0,-33.0,6.0
+US,United States,North Carolina,Gaston County,,,37071.0,ChIJyf9pG3e8VogRlFrxMCkszws,2021-06-30,-1.0,11.0,32.0,,-28.0,5.0
+US,United States,North Carolina,Guilford County,,,37081.0,ChIJV_0RAexPU4gR2YH2a6BLjqs,2021-06-30,-3.0,8.0,37.0,0.0,-32.0,6.0
+US,United States,North Carolina,Henderson County,,,37089.0,ChIJc3H1qgvqWYgR7t-DAmPVmso,2021-06-30,8.0,12.0,77.0,-24.0,-18.0,3.0
+US,United States,North Carolina,Iredell County,,,37097.0,ChIJmTL1AFJaUYgR4NctXawg6_Q,2021-06-30,-3.0,9.0,50.0,12.0,-32.0,4.0
+US,United States,North Carolina,Mecklenburg County,,,37119.0,ChIJ5eGZZcmrVogR7cvbvC3B9hk,2021-06-30,-11.0,-4.0,-10.0,-13.0,-41.0,9.0
+US,United States,North Carolina,New Hanover County,,,37129.0,ChIJD37Q1drtqYkRG8-l0WfWNk8,2021-06-30,10.0,12.0,71.0,-12.0,-20.0,5.0
+US,United States,North Carolina,Onslow County,,,37133.0,ChIJLWtLVQkIqYkRX3OJ2tLpSP4,2021-06-30,3.0,7.0,8.0,10.0,-27.0,3.0
+US,United States,North Carolina,Orange County,,,37135.0,ChIJEejT22XdrIkRPupCdcVJt0k,2021-06-30,-20.0,-1.0,14.0,-46.0,-43.0,10.0
+US,United States,North Carolina,Pitt County,,,37147.0,ChIJwZ5gU7TBrokRHpsht2IPQP0,2021-06-30,-2.0,4.0,4.0,-38.0,-26.0,4.0
+US,United States,North Carolina,Randolph County,,,37151.0,ChIJUyobBt9aU4gRRiqcIVee7-E,2021-06-30,20.0,23.0,-12.0,,-7.0,3.0
+US,United States,North Carolina,Rowan County,,,37159.0,ChIJvytYVVnwU4gRTzQhW7B9FaU,2021-06-30,7.0,21.0,6.0,9.0,-26.0,3.0
+US,United States,North Carolina,Rutherford County,,,37161.0,ChIJJ0LUrq9GV4gR7NjZ74zDNs4,2021-06-30,1.0,8.0,39.0,,-21.0,3.0
+US,United States,North Carolina,Wake County,,,37183.0,ChIJkz27-syIrIkRLMc1xrVAGqQ,2021-06-30,-9.0,10.0,18.0,-23.0,-46.0,10.0
+US,United States,North Dakota,Dunn County,,,38025.0,ChIJj9mZtMhlJlMRq8QOp_oub_Y,2021-06-30,,,-38.0,,,
+US,United States,Ohio,Butler County,,,39017.0,ChIJ0z2oQpSKQIgR-S814rYmYxA,2021-06-30,4.0,10.0,60.0,,-28.0,6.0
+US,United States,Ohio,Clermont County,,,39025.0,ChIJt9jjIbHkQIgR3qqTM-ZfhiQ,2021-06-30,-3.0,9.0,85.0,,-33.0,6.0
+US,United States,Ohio,Cuyahoga County,,,39035.0,ChIJi7Vw1sX5MIgRatMgBe159Z8,2021-06-30,0.0,6.0,42.0,-10.0,-32.0,6.0
+US,United States,Ohio,Franklin County,,,39049.0,ChIJcd6QucGJOIgR3zgRtZz7NcQ,2021-06-30,-3.0,0.0,42.0,-15.0,-37.0,9.0
+US,United States,Ohio,Greene County,,,39057.0,ChIJncWRYq2iQIgRMygrj391U5E,2021-06-30,-3.0,8.0,45.0,,-29.0,6.0
+US,United States,Ohio,Hamilton County,,,39061.0,ChIJ1808oWhQQIgRMC9c5Ml8hMo,2021-06-30,-4.0,3.0,61.0,-34.0,-31.0,7.0
+US,United States,Ohio,Lake County,,,39085.0,ChIJ9xG5fwOfMYgRziQls9EtBAU,2021-06-30,8.0,24.0,72.0,-2.0,-28.0,6.0
+US,United States,Ohio,Licking County,,,39089.0,ChIJwUDdDlAROIgRiqqIpjig4MU,2021-06-30,17.0,10.0,68.0,43.0,-34.0,6.0
+US,United States,Ohio,Lorain County,,,39093.0,ChIJv5LVh5PJMIgRH_mRsbjXjmQ,2021-06-30,5.0,9.0,117.0,61.0,-30.0,5.0
+US,United States,Ohio,Lucas County,,,39095.0,ChIJS5kUC-SAO4gRIxIketBtTLY,2021-06-30,3.0,11.0,58.0,-41.0,-24.0,5.0
+US,United States,Ohio,Montgomery County,,,39113.0,ChIJcc4RhY9iQIgRFxRmOJXb_kk,2021-06-30,-4.0,0.0,36.0,-18.0,-28.0,6.0
+US,United States,Ohio,Stark County,,,39151.0,ChIJGXvF_is9N4gRTUq22ZuY1S4,2021-06-30,8.0,16.0,67.0,-22.0,-21.0,4.0
+US,United States,Ohio,Summit County,,,39153.0,ChIJ78mtsLLUNogR7OHKeZgJcSM,2021-06-30,3.0,6.0,56.0,-24.0,-31.0,6.0
+US,United States,Ohio,Trumbull County,,,39155.0,ChIJwYi7FNZhMYgRCExqoGgyCbU,2021-06-30,11.0,12.0,26.0,11.0,-25.0,4.0
+US,United States,Ohio,Warren County,,,39165.0,ChIJQcLNcG76QIgR1Nznyf8frn8,2021-06-30,11.0,18.0,117.0,50.0,-38.0,8.0
+US,United States,Oklahoma,Cleveland County,,,40027.0,ChIJ5-6Tf7ZjsocRiqZ1O_0Y_7M,2021-06-30,11.0,11.0,23.0,,-30.0,6.0
+US,United States,Oklahoma,Garfield County,,,40047.0,ChIJMTy_kHcqsIcRZ4Km0xppS8Y,2021-06-30,2.0,11.0,12.0,-7.0,-24.0,2.0
+US,United States,Oklahoma,Muskogee County,,,40101.0,ChIJZ8N6DF_CtYcR3u2Ebp7YkUc,2021-06-30,21.0,-2.0,-13.0,15.0,-14.0,3.0
+US,United States,Oklahoma,Oklahoma County,,,40109.0,ChIJXSnUOq51socRzM5aZGuXVb4,2021-06-30,4.0,8.0,26.0,15.0,-30.0,4.0
+US,United States,Oklahoma,Tulsa County,,,40143.0,ChIJscN-NimKtocROGrbT2c3uEM,2021-06-30,12.0,3.0,57.0,20.0,-28.0,5.0
+US,United States,Oregon,Clackamas County,,,41005.0,ChIJF-_FOL18lVQRronWZ3yQJWU,2021-06-30,3.0,6.0,115.0,-17.0,-37.0,7.0
+US,United States,Oregon,Deschutes County,,,41017.0,ChIJp0VDGr7OuFQRbdPVeMx3Xq8,2021-06-30,13.0,16.0,139.0,14.0,-32.0,3.0
+US,United States,Oregon,Douglas County,,,41019.0,ChIJleaDxkldx1QReL6_jXzgyck,2021-06-30,22.0,23.0,118.0,30.0,-23.0,2.0
+US,United States,Oregon,Jackson County,,,41029.0,ChIJx9QCzFWkxVQRMl82d3kBGPk,2021-06-30,5.0,21.0,96.0,14.0,-29.0,2.0
+US,United States,Oregon,Josephine County,,,41033.0,ChIJ0dBRMiNmxVQRh6kezpY0p7c,2021-06-30,30.0,23.0,157.0,-12.0,-22.0,2.0
+US,United States,Oregon,Lane County,,,41039.0,ChIJ54PkOBZdx1QRR5QcWYeUMr8,2021-06-30,3.0,7.0,141.0,-11.0,-31.0,5.0
+US,United States,Oregon,Lincoln County,,,41041.0,ChIJl-1salwrwFQR9iBAFeFKzKU,2021-06-30,71.0,51.0,225.0,,-15.0,2.0
+US,United States,Oregon,Linn County,,,41043.0,ChIJi17E_iOJwFQRg2Wq4e_Sp_8,2021-06-30,13.0,12.0,137.0,57.0,-25.0,4.0
+US,United States,Oregon,Marion County,,,41047.0,ChIJG7aEsg7ov1QRW75E6RzxTbY,2021-06-30,7.0,6.0,120.0,-5.0,-32.0,5.0
+US,United States,Oregon,Multnomah County,,,41051.0,ChIJsbYckviDlVQR6bqXj-gieh8,2021-06-30,-12.0,2.0,81.0,-28.0,-43.0,8.0
+US,United States,Oregon,Umatilla County,,,41059.0,ChIJH9nKdK4_o1QRT3LmQUQrLkM,2021-06-30,12.0,17.0,55.0,37.0,-18.0,3.0
+US,United States,Oregon,Washington County,,,41067.0,ChIJ58L9WshnlVQRK_Ybl-Gu9TM,2021-06-30,-2.0,6.0,63.0,-52.0,-41.0,10.0
+US,United States,Pennsylvania,Allegheny County,,,42003.0,ChIJu-PIH-y5NIgRVFV1McCaCyw,2021-06-30,-12.0,-5.0,4.0,-40.0,-42.0,10.0
+US,United States,Pennsylvania,Beaver County,,,42007.0,ChIJc9SPnLtkNIgRaAlAsfNQ0kI,2021-06-30,0.0,11.0,12.0,-40.0,-26.0,7.0
+US,United States,Pennsylvania,Berks County,,,42011.0,ChIJDeYOtrt0xokRZSWVYWC06gU,2021-06-30,1.0,14.0,73.0,-9.0,-25.0,5.0
+US,United States,Pennsylvania,Bucks County,,,42017.0,ChIJHw5nt85GxIkRE6dc-_7kG54,2021-06-30,2.0,8.0,114.0,-50.0,-29.0,8.0
+US,United States,Pennsylvania,Chester County,,,42029.0,ChIJ_w4lRiZdxokRjwDbOR-3-YE,2021-06-30,-3.0,5.0,39.0,-26.0,-41.0,10.0
+US,United States,Pennsylvania,Cumberland County,,,42041.0,ChIJgWYAHnYeyYkR4YrBSt8OEcs,2021-06-30,-2.0,8.0,144.0,1.0,-34.0,8.0
+US,United States,Pennsylvania,Dauphin County,,,42043.0,ChIJVdIHI9KzyIkRmZL4uXjXGU8,2021-06-30,5.0,9.0,39.0,-10.0,-39.0,7.0
+US,United States,Pennsylvania,Delaware County,,,42045.0,ChIJM-XEj6nuxokR4Dx2JFH4Zho,2021-06-30,-2.0,4.0,74.0,222.0,-39.0,8.0
+US,United States,Pennsylvania,Erie County,,,42049.0,ChIJRfAkQGh-LYgRRPHJjU87Btg,2021-06-30,8.0,13.0,235.0,-12.0,-30.0,4.0
+US,United States,Pennsylvania,Lackawanna County,,,42069.0,ChIJQQnWl8zexIkRwk5WVw0I5PQ,2021-06-30,9.0,9.0,94.0,-32.0,-25.0,5.0
+US,United States,Pennsylvania,Lancaster County,,,42071.0,ChIJnRLnFlAfxokR1p1HPfkfGoU,2021-06-30,2.0,12.0,91.0,-9.0,-26.0,5.0
+US,United States,Pennsylvania,Lehigh County,,,42077.0,ChIJLXl6Rn8_xIkRIi_FV_0CMTQ,2021-06-30,0.0,4.0,68.0,-6.0,-31.0,6.0
+US,United States,Pennsylvania,Luzerne County,,,42079.0,ChIJT8UL4YF0xYkRY-bZsVwaZh4,2021-06-30,5.0,10.0,69.0,5.0,-29.0,5.0
+US,United States,Pennsylvania,Lycoming County,,,42081.0,ChIJOZ1ZQsqbz4kRQYbuLs1kpRw,2021-06-30,-1.0,16.0,32.0,-34.0,-31.0,5.0
+US,United States,Pennsylvania,Monroe County,,,42089.0,ChIJo1Dq5_-NxIkRf4gUnFVPgUI,2021-06-30,37.0,24.0,40.0,54.0,-30.0,5.0
+US,United States,Pennsylvania,Montgomery County,,,42091.0,ChIJ6yayVjmcxokRvV1Q-SKqC0s,2021-06-30,-4.0,4.0,52.0,-58.0,-41.0,10.0
+US,United States,Pennsylvania,Northampton County,,,42095.0,ChIJexs0vPAWxIkRlPV5q6zFZ1o,2021-06-30,6.0,5.0,93.0,4.0,-32.0,6.0
+US,United States,Pennsylvania,Philadelphia County,,,42101.0,ChIJ60u11Ni3xokRhBCHQtzJmsM,2021-06-30,-15.0,-6.0,1.0,-47.0,-40.0,8.0
+US,United States,Pennsylvania,Washington County,,,42125.0,ChIJ77mzXIhUNIgRLeIAh52V2HI,2021-06-30,11.0,15.0,51.0,-20.0,-29.0,6.0
+US,United States,Pennsylvania,Westmoreland County,,,42129.0,ChIJkyU4jg3JNIgRMgKKqj4XSz0,2021-06-30,6.0,14.0,71.0,34.0,-28.0,6.0
+US,United States,Pennsylvania,York County,,,42133.0,ChIJ0d0uysfzyIkRfznnnLSl6k8,2021-06-30,-1.0,15.0,127.0,-58.0,-28.0,6.0
+US,United States,Rhode Island,Providence County,,,44007.0,ChIJtUdvanpH5IkRYcTtx_6GVAo,2021-06-30,-3.0,-5.0,114.0,-49.0,-33.0,5.0
+US,United States,South Carolina,Aiken County,,,45003.0,ChIJEdRzD5dO-IgR3ODSj18kOU0,2021-06-30,4.0,20.0,-4.0,31.0,-25.0,6.0
+US,United States,South Carolina,Anderson County,,,45007.0,ChIJyXPVhcVrWIgR0qZwGD4Fq_c,2021-06-30,0.0,3.0,43.0,18.0,-23.0,4.0
+US,United States,South Carolina,Beaufort County,,,45013.0,ChIJIa_B2gED_IgRGybFWTUAgaQ,2021-06-30,20.0,16.0,152.0,,-25.0,2.0
+US,United States,South Carolina,Berkeley County,,,45015.0,ChIJi0GL-8ha_ogR-oqDVfSASpQ,2021-06-30,3.0,5.0,44.0,7.0,-37.0,5.0
+US,United States,South Carolina,Charleston County,,,45019.0,ChIJc85eBBlg_ogRoqwsxzlsW3g,2021-06-30,1.0,10.0,20.0,-12.0,-27.0,5.0
+US,United States,South Carolina,Dorchester County,,,45035.0,ChIJjW5cpcaL_ogRwRoybbsoZtc,2021-06-30,-4.0,11.0,16.0,16.0,-28.0,5.0
+US,United States,South Carolina,Greenville County,,,45045.0,ChIJl0X2CawfWIgR0CISPLCUc9c,2021-06-30,-1.0,3.0,50.0,-18.0,-30.0,4.0
+US,United States,South Carolina,Horry County,,,45051.0,ChIJF9M2QzgOAIkRgSGtcbNW9Ig,2021-06-30,71.0,47.0,199.0,72.0,-21.0,1.0
+US,United States,South Carolina,Jasper County,,,45053.0,ChIJyXEoeS6T-4gRnI4OR2ugugE,2021-06-30,27.0,19.0,37.0,62.0,-11.0,3.0
+US,United States,South Carolina,Lexington County,,,45063.0,ChIJsXt2IvW_-IgRKxYj9Ycjs-w,2021-06-30,8.0,12.0,57.0,31.0,-17.0,5.0
+US,United States,South Carolina,Oconee County,,,45073.0,ChIJbTofJkAEWIgRitYlFQKS-tc,2021-06-30,10.0,25.0,110.0,,-23.0,3.0
+US,United States,South Carolina,Richland County,,,45079.0,ChIJOxu60MdK_4gRQqZb8Meu5LU,2021-06-30,-1.0,9.0,11.0,-5.0,-30.0,6.0
+US,United States,South Carolina,Spartanburg County,,,45083.0,ChIJ6y3Vm6TcV4gRpCwDdX-rwEQ,2021-06-30,6.0,14.0,40.0,16.0,-20.0,4.0
+US,United States,South Carolina,York County,,,45091.0,ChIJCTP662GLVogRaveZ2tpGams,2021-06-30,6.0,6.0,59.0,21.0,-34.0,7.0
+US,United States,South Dakota,Minnehaha County,,,46099.0,ChIJ16y94Ji0jocRbXLuf-gRGrM,2021-06-30,16.0,17.0,216.0,-6.0,-20.0,3.0
+US,United States,Tennessee,Anderson County,,,47001.0,ChIJsaBviX4XXIgRRXtYrhRNGms,2021-06-30,15.0,5.0,23.0,,-29.0,4.0
+US,United States,Tennessee,Davidson County,,,47037.0,ChIJPZDrEzLsZIgRN4SPG6TwQJU,2021-06-30,0.0,7.0,32.0,-13.0,-40.0,6.0
+US,United States,Tennessee,Hamilton County,,,47065.0,ChIJuwVDlj2XYIgR_jxnvongYg4,2021-06-30,-1.0,10.0,85.0,-44.0,-33.0,5.0
+US,United States,Tennessee,Knox County,,,47093.0,ChIJdQBFcKMmXIgRhNPZ1WdQsBY,2021-06-30,2.0,12.0,33.0,6.0,-31.0,4.0
+US,United States,Tennessee,Montgomery County,,,47125.0,ChIJcXGk-4_RZIgRXDc05xoLPOo,2021-06-30,10.0,22.0,5.0,29.0,-24.0,5.0
+US,United States,Tennessee,Rutherford County,,,47149.0,ChIJY3uH9qr5Y4gRSc3S3p8qWsk,2021-06-30,0.0,8.0,46.0,2.0,-35.0,7.0
+US,United States,Tennessee,Sevier County,,,47155.0,ChIJSzuyVRX-W4gRukjEdGDY2gM,2021-06-30,132.0,57.0,471.0,,-16.0,0.0
+US,United States,Tennessee,Shelby County,,,47157.0,ChIJxTozQx5-1YcRllAW6iCNC4U,2021-06-30,-3.0,0.0,14.0,-10.0,-29.0,5.0
+US,United States,Tennessee,Sumner County,,,47165.0,ChIJ_WmAQCgvZIgRZmf7nHhvxGo,2021-06-30,4.0,17.0,83.0,,-29.0,5.0
+US,United States,Tennessee,Williamson County,,,47187.0,ChIJNUn54OB4Y4gRk0nGyKUQcOU,2021-06-30,-3.0,-2.0,69.0,-1.0,-43.0,9.0
+US,United States,Tennessee,Wilson County,,,47189.0,ChIJc0Wm9NN0ZIgRTPRInI3wKNs,2021-06-30,11.0,17.0,48.0,66.0,-29.0,6.0
+US,United States,Texas,Aransas County,,,48007.0,ChIJJxJm5H5JaIYRwOZqhsJvLFU,2021-06-30,18.0,,9.0,,-23.0,3.0
+US,United States,Texas,Bell County,,,48027.0,ChIJWQqIJGJGRYYR9aDqx3l4418,2021-06-30,6.0,12.0,77.0,54.0,-25.0,5.0
+US,United States,Texas,Bexar County,,,48029.0,ChIJycWfxDz1XIYRgQasSE1FyTI,2021-06-30,-3.0,1.0,-4.0,-20.0,-36.0,8.0
+US,United States,Texas,Brazoria County,,,48039.0,ChIJxwGSkgbpQIYRNcjQowMUR-Q,2021-06-30,6.0,9.0,14.0,-13.0,-35.0,8.0
+US,United States,Texas,Brazos County,,,48041.0,ChIJMRMDr4-PRoYRaxzx1RBnWGA,2021-06-30,-6.0,0.0,17.0,-22.0,-38.0,7.0
+US,United States,Texas,Cameron County,,,48061.0,ChIJ06tle7N4b4YRqHTn0TzEbvk,2021-06-30,-11.0,-5.0,-20.0,-15.0,-40.0,7.0
+US,United States,Texas,Collin County,,,48085.0,ChIJ-Xm73adITIYRhrb-NBX-zks,2021-06-30,0.0,7.0,34.0,-16.0,-46.0,11.0
+US,United States,Texas,Comal County,,,48091.0,ChIJrfT9lp-FXIYRe8ruG_TtGBU,2021-06-30,10.0,24.0,49.0,-1.0,-30.0,7.0
+US,United States,Texas,Coryell County,,,48099.0,ChIJR3cqUHnqWoYRzwcSqBzQ8tg,2021-06-30,0.0,18.0,-1.0,,-28.0,4.0
+US,United States,Texas,Dallas County,,,48113.0,ChIJgUO9Ukq_ToYRh9ndnDaZsUc,2021-06-30,-7.0,2.0,12.0,-21.0,-37.0,6.0
+US,United States,Texas,Denton County,,,48121.0,ChIJXQTukxTTTYYR08hsTrvOVUM,2021-06-30,6.0,6.0,81.0,-18.0,-42.0,10.0
+US,United States,Texas,El Paso County,,,48141.0,ChIJVSJTWBJA54YR3Ao2jnl-Kgc,2021-06-30,-8.0,-8.0,-34.0,-11.0,-38.0,8.0
+US,United States,Texas,Ellis County,,,48139.0,ChIJpXU5wPboToYRoRsDS4SukkU,2021-06-30,5.0,17.0,36.0,24.0,-38.0,6.0
+US,United States,Texas,Fort Bend County,,,48157.0,ChIJJ8TgvjLbQIYRVey1STdj-Lk,2021-06-30,5.0,9.0,10.0,-12.0,-38.0,11.0
+US,United States,Texas,Galveston County,,,48167.0,ChIJLfY7sMlZP4YR5QxkJ1-iQt8,2021-06-30,11.0,14.0,80.0,71.0,-33.0,6.0
+US,United States,Texas,Grayson County,,,48181.0,ChIJL-y8URd6TIYRQe29kxTajzo,2021-06-30,12.0,13.0,90.0,,-28.0,4.0
+US,United States,Texas,Gregg County,,,48183.0,ChIJUTPfl_81NoYRlQrcLHO4D7M,2021-06-30,2.0,7.0,34.0,,-18.0,4.0
+US,United States,Texas,Guadalupe County,,,48187.0,ChIJfetKNdW_XIYR9KwkLxAqZSQ,2021-06-30,10.0,12.0,43.0,69.0,-34.0,7.0
+US,United States,Texas,Harris County,,,48201.0,ChIJ9TB__YrMQIYR2tK7sndSry4,2021-06-30,-4.0,3.0,8.0,-16.0,-34.0,7.0
+US,United States,Texas,Harrison County,,,48203.0,ChIJMQ4RNcFYNoYRcjUAshmZ5nU,2021-06-30,15.0,22.0,50.0,,-21.0,4.0
+US,United States,Texas,Hidalgo County,,,48215.0,ChIJP7WdySDdZYYRyg85sKD6C68,2021-06-30,-11.0,-8.0,-33.0,15.0,-35.0,10.0
+US,United States,Texas,Jasper County,,,48241.0,ChIJSZO1ZNAMOYYRhJ183BoAR8s,2021-06-30,20.0,7.0,-30.0,,-19.0,3.0
+US,United States,Texas,Johnson County,,,48251.0,ChIJXfbXILV4ToYRBq60w6Syef8,2021-06-30,7.0,6.0,33.0,,-25.0,5.0
+US,United States,Texas,Llano County,,,48299.0,ChIJJ1qC8d1OWoYR9wEwM1bnUho,2021-06-30,30.0,,27.0,,-18.0,0.0
+US,United States,Texas,Lubbock County,,,48303.0,ChIJqe61Oa1s_oYR4UHN5J5n_sA,2021-06-30,1.0,-4.0,21.0,-19.0,-31.0,5.0
+US,United States,Texas,McLennan County,,,48309.0,ChIJJ1ou4-hGRYYRE1-qu5oSVB4,2021-06-30,5.0,12.0,40.0,9.0,-27.0,5.0
+US,United States,Texas,Midland County,,,48329.0,ChIJD9GlkTlh-YYRq6bw8IjhCiY,2021-06-30,-13.0,-23.0,29.0,2.0,-31.0,6.0
+US,United States,Texas,Mitchell County,,,48335.0,ChIJtWfo87e--IYRTtf5E82QlGo,2021-06-30,,,-66.0,,-35.0,
+US,United States,Texas,Montgomery County,,,48339.0,ChIJj__mGNNAR4YRFk7Pb98re8Q,2021-06-30,4.0,12.0,51.0,0.0,-30.0,6.0
+US,United States,Texas,Nueces County,,,48355.0,ChIJAfYZ5LfyaIYREupwIM9Kgz8,2021-06-30,1.0,2.0,38.0,-27.0,-26.0,5.0
+US,United States,Texas,Orange County,,,48361.0,ChIJrc5iM09NOYYR3Nuuw6YXIeY,2021-06-30,1.0,6.0,22.0,14.0,-21.0,4.0
+US,United States,Texas,Parker County,,,48367.0,ChIJ88tervv-UYYRn4Tn5biyzs4,2021-06-30,16.0,19.0,20.0,2.0,-16.0,5.0
+US,United States,Texas,Potter County,,,48375.0,ChIJ7fZdWYetBocRzPmFBvEHFV8,2021-06-30,10.0,8.0,29.0,29.0,-17.0,5.0
+US,United States,Texas,San Patricio County,,,48409.0,ChIJ1c0o_ehraIYR6iwpCxcR6Xg,2021-06-30,3.0,12.0,5.0,14.0,-24.0,5.0
+US,United States,Texas,Smith County,,,48423.0,ChIJp7nTbt8sSIYRYnX1U6Gf-0c,2021-06-30,8.0,12.0,39.0,68.0,-29.0,5.0
+US,United States,Texas,Starr County,,,48427.0,ChIJg6FMUelHZIYRnY5USnf4v1w,2021-06-30,-9.0,6.0,-40.0,,-41.0,6.0
+US,United States,Texas,Tarrant County,,,48439.0,ChIJDfdJl-59ToYRRjpXA71-c1A,2021-06-30,2.0,8.0,46.0,2.0,-35.0,7.0
+US,United States,Texas,Tom Green County,,,48451.0,ChIJe9U7OHEH-IYRVOaXg9u_wxM,2021-06-30,-4.0,-2.0,11.0,,-23.0,6.0
+US,United States,Texas,Travis County,,,48453.0,ChIJddG_PMCwRIYRO50oSjlkdJA,2021-06-30,-10.0,3.0,-7.0,-27.0,-43.0,11.0
+US,United States,Texas,Walker County,,,48471.0,ChIJ4dJ_NUYhR4YRLpSNSyrfkOg,2021-06-30,12.0,18.0,-22.0,37.0,-36.0,6.0
+US,United States,Texas,Webb County,,,48479.0,ChIJJT35p2zAYIYRREZHYAwVm2E,2021-06-30,-8.0,-9.0,-45.0,-16.0,-30.0,6.0
+US,United States,Texas,Williamson County,,,48491.0,ChIJmaNjTwxHW4YRKTlbS_ZU6JM,2021-06-30,7.0,9.0,20.0,-3.0,-41.0,11.0
+US,United States,Utah,Davis County,,,49011.0,ChIJeT4Ip-XiUocRN1n25stD_W4,2021-06-30,16.0,8.0,81.0,-27.0,-34.0,7.0
+US,United States,Utah,Salt Lake County,,,49035.0,ChIJ8auHWkRzUocR9DsAmYrfL3E,2021-06-30,-5.0,-1.0,65.0,-21.0,-38.0,7.0
+US,United States,Utah,Summit County,,,49043.0,ChIJNVzHx-IWUocRZKRflosqhcI,2021-06-30,-15.0,4.0,82.0,-46.0,-44.0,5.0
+US,United States,Utah,Utah County,,,49049.0,ChIJ1S-SARuWTYcRzxjbgtN-0vs,2021-06-30,15.0,11.0,158.0,-28.0,-39.0,6.0
+US,United States,Utah,Washington County,,,49053.0,ChIJp13qUtOyyoARFvCeOqWi0Z4,2021-06-30,16.0,-3.0,72.0,4.0,-26.0,2.0
+US,United States,Utah,Weber County,,,49057.0,ChIJl4p9NQsMU4cR9JTLDJTyBWM,2021-06-30,5.0,-3.0,146.0,-21.0,-35.0,4.0
+US,United States,Vermont,Chittenden County,,,50007.0,ChIJ3y-bMLOHtUwRnJW7aqaNmSQ,2021-06-30,8.0,7.0,100.0,-19.0,-40.0,10.0
+US,United States,Virginia,Alexandria,,,51510.0,ChIJ8aukkz5NtokRLAHB24Ym9dc,2021-06-30,-15.0,-7.0,51.0,-48.0,-48.0,12.0
+US,United States,Virginia,Arlington County,,,51013.0,ChIJD6ene522t4kRNL6FM2ADhuA,2021-06-30,-39.0,-9.0,-28.0,-43.0,-59.0,17.0
+US,United States,Virginia,Charlottesville,,,51540.0,ChIJj6RQ6i2Gs4kR_HSLw5bwhpA,2021-06-30,-13.0,-7.0,-5.0,-50.0,-51.0,9.0
+US,United States,Virginia,Chesapeake,,,51550.0,ChIJmW0vgHqluokReQtxkBcbe0w,2021-06-30,3.0,14.0,50.0,-21.0,-27.0,6.0
+US,United States,Virginia,Chesterfield County,,,51041.0,ChIJ75MSi_AKsYkRw2FSAqvVOfA,2021-06-30,2.0,2.0,42.0,17.0,-33.0,7.0
+US,United States,Virginia,Fairfax County,,,51059.0,ChIJ0wxG_rFgtokRmRY44U76C30,2021-06-30,-10.0,1.0,0.0,-52.0,-48.0,13.0
+US,United States,Virginia,Hampton,,,51650.0,ChIJ7ZVLmwGFuokRXXOEtSJCVkw,2021-06-30,-2.0,8.0,121.0,-50.0,-28.0,5.0
+US,United States,Virginia,Henrico County,,,51087.0,ChIJG6E4eCwRsYkRfeMcOlrlJc0,2021-06-30,-8.0,-1.0,-1.0,6.0,-42.0,9.0
+US,United States,Virginia,Loudoun County,,,51107.0,ChIJNXQSmXQWtokRjBiEklejIxU,2021-06-30,-6.0,3.0,-2.0,-22.0,-48.0,13.0
+US,United States,Virginia,Newport News,,,51700.0,ChIJ2VZNcIJ7sIkRG8vIA-xVfuw,2021-06-30,-5.0,3.0,26.0,-28.0,-34.0,5.0
+US,United States,Virginia,Norfolk,,,51710.0,ChIJRcoiUzqXuokRCh56zn8Qmas,2021-06-30,-6.0,1.0,58.0,-8.0,-27.0,4.0
+US,United States,Virginia,Prince William County,,,51153.0,ChIJy6miVR0itIkR-4bjMz3EgEg,2021-06-30,3.0,5.0,64.0,-44.0,-37.0,9.0
+US,United States,Virginia,Richmond,,,51760.0,ChIJ7cmZVwkRsYkRxTxC4m0-2L8,2021-06-30,-15.0,-5.0,26.0,-33.0,-44.0,6.0
+US,United States,Virginia,Roanoke,,,51770.0,ChIJ_Wapak0MTYgRm5iw28u-nSQ,2021-06-30,-6.0,8.0,8.0,-15.0,-26.0,5.0
+US,United States,Virginia,Virginia Beach,,,51810.0,ChIJpycV_OjBuokRcwEuo4AQFgQ,2021-06-30,11.0,14.0,89.0,-44.0,-37.0,6.0
+US,United States,Virginia,York County,,,51199.0,ChIJ6xW3k3OBsIkR4FjymwoFqX8,2021-06-30,27.0,20.0,75.0,,-38.0,6.0
+US,United States,Washington,Benton County,,,53005.0,ChIJoxv2QR74mFQRx_jdqfiOWrQ,2021-06-30,6.0,11.0,105.0,8.0,-42.0,6.0
+US,United States,Washington,Chelan County,,,53007.0,ChIJVZv5TUp_m1QRmJDpy3364Ys,2021-06-30,31.0,34.0,182.0,40.0,-27.0,3.0
+US,United States,Washington,Clark County,,,53011.0,ChIJuW5y4XbKlVQR7A8AxglSPVI,2021-06-30,3.0,7.0,116.0,-46.0,-36.0,6.0
+US,United States,Washington,Cowlitz County,,,53015.0,ChIJsQIvJ_sVlFQRaJ2a9Wr4XZI,2021-06-30,10.0,19.0,116.0,4.0,-31.0,3.0
+US,United States,Washington,King County,,,53033.0,ChIJN3gtg4xckFQRPuBki2urgOI,2021-06-30,-12.0,-3.0,62.0,-38.0,-53.0,12.0
+US,United States,Washington,Kitsap County,,,53035.0,ChIJqxmXVwVPkFQR5WzfhmiXYfM,2021-06-30,6.0,10.0,92.0,-10.0,-28.0,5.0
+US,United States,Washington,Kittitas County,,,53037.0,ChIJmTaEPtGJmVQRXy6tJjHXje0,2021-06-30,17.0,42.0,76.0,81.0,-39.0,4.0
+US,United States,Washington,Pierce County,,,53053.0,ChIJKW3I8lgDkVQRH8AROLqXyg0,2021-06-30,-3.0,3.0,86.0,-26.0,-33.0,6.0
+US,United States,Washington,Skagit County,,,53057.0,ChIJe3Wu3oJMhVQRk_Cyes01H5I,2021-06-30,6.0,13.0,91.0,15.0,-30.0,4.0
+US,United States,Washington,Snohomish County,,,53061.0,ChIJybF97ueemlQRqURMGYrDDmc,2021-06-30,3.0,7.0,96.0,-26.0,-37.0,9.0
+US,United States,Washington,Spokane County,,,53063.0,ChIJ0VeFKvoWnlQRJTO2Z6ANhkI,2021-06-30,5.0,10.0,73.0,-9.0,-34.0,5.0
+US,United States,Washington,Thurston County,,,53067.0,ChIJr_i17gYckVQR-0KsfuYZ9t4,2021-06-30,12.0,9.0,75.0,-11.0,-37.0,8.0
+US,United States,Washington,Whatcom County,,,53073.0,ChIJi6KetAsXhVQRq7HXbC1bHz8,2021-06-30,4.0,2.0,168.0,25.0,-31.0,5.0
+US,United States,Washington,Yakima County,,,53077.0,ChIJszwuUVf5mVQRotePKbqftGI,2021-06-30,8.0,15.0,26.0,0.0,-25.0,4.0
+US,United States,West Virginia,Kanawha County,,,54039.0,ChIJNQedGRPUSIgRZaN_DqYadAE,2021-06-30,-9.0,2.0,-51.0,27.0,-26.0,6.0
+US,United States,West Virginia,Monongalia County,,,54061.0,ChIJxXmGM5x-SogROlWf-xrAh4c,2021-06-30,-5.0,6.0,5.0,-2.0,-36.0,8.0
+US,United States,West Virginia,Ohio County,,,54069.0,ChIJr2VvQTTFNYgRkNAdHk80bV4,2021-06-30,7.0,19.0,-31.0,-72.0,-28.0,3.0
+US,United States,Wisconsin,Brown County,,,55009.0,ChIJf5XZ66b8AogRdMAJBkKAD58,2021-06-30,10.0,26.0,211.0,-9.0,-32.0,4.0
+US,United States,Wisconsin,Calumet County,,,55015.0,ChIJK3ujr_2hA4gRbWJTn4DLCPI,2021-06-30,2.0,32.0,12.0,,-25.0,4.0
+US,United States,Wisconsin,Dane County,,,55025.0,ChIJR0uBFlj2BogRz09LOU-1Vyw,2021-06-30,-3.0,18.0,195.0,-23.0,-39.0,9.0
+US,United States,Wisconsin,Kenosha County,,,55059.0,ChIJ2Si-7u9QBYgRFx8FDcBlxJA,2021-06-30,10.0,6.0,63.0,-37.0,-25.0,4.0
+US,United States,Wisconsin,Milwaukee County,,,55079.0,ChIJn_qhzUnMGogRPqGaYXA4zLA,2021-06-30,0.0,2.0,165.0,-15.0,-33.0,5.0
+US,United States,Wisconsin,Ozaukee County,,,55089.0,ChIJIYtNGWHfBIgR1aR4vPyeg2U,2021-06-30,14.0,18.0,120.0,,-37.0,6.0
+US,United States,Wisconsin,Waukesha County,,,55133.0,ChIJFyw_Xj6yBYgRDv3otU1ve2A,2021-06-30,4.0,14.0,218.0,-41.0,-35.0,6.0
+US,United States,Wyoming,Laramie County,,,56021.0,ChIJo4qjvDwfb4cRK9sJJHFmsQU,2021-06-30,11.0,0.0,140.0,11.0,-24.0,2.0
