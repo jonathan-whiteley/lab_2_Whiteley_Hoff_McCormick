@@ -116,18 +116,16 @@ covid_death_histogram <-
 
 park_traffic_histogram/vax_rate_histogram|covid_case_histogram/covid_death_histogram
 ```
-```{r}
+```{r, message=FALSE, warning=FALSE}
 park_vs_vax_scatter <- 
   data %>% 
     ggplot() + 
     aes(x=Series_Complete_Yes, y=parks_chg) + 
+    scale_x_log10() + 
     geom_point() +
-    labs(x='Numer of Deaths in County', y='Bin Count', title='Distribution of Death Counts per County')
-```
-
-
-```{r}
-colnames(data)
+    geom_smooth() +
+    labs(x='Number of Vaccinations', y='Percent Change in Traffic at Parks', title='Vaccination Count VS Change in Park Traffic by County')
+park_vs_vax_scatter
 ```
 
 
