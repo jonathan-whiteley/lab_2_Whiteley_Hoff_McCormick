@@ -11,11 +11,13 @@ output:
 install.packages('corrplot')
 
 library(corrplot)
+library(ggplot2)
 library(tidyverse)
 library(car)
 library(lmtest)
 library(sandwich)
 library(stargazer)
+library(patchwork)
 ```
 
 ```{r setup chunks, include=FALSE}
@@ -32,10 +34,23 @@ Finding the answer to this question will bring important insight into how the De
 ```{r}
 parks <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/Google_Mobility_Report_out.csv')
 vax <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/CDC_Vaccinations_out.csv')
+covid <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/covid_cases_data.csv')
+covid <-
+  covid %>%
+    subset(
+      date > as.Date("2021-06-16")
+    ) %>%
+    subset(
+      date < as.Date("2021-07-14")
+      )
+
+### Subsetting the file and over-writing old file to save space on memory for us folks on datahub.
+# write.csv(covid,"~/lab_2_Whiteley_Hoff_McCormick/data/external/covid_cases_data.csv", row.names = TRUE)
+
 head(parks)
 head(vax)
+head(covid)
 ```
-
 
 ```{r slim parks}
 parks <- parks %>% 
@@ -46,17 +61,84 @@ parks <- parks %>%
   mutate(fips_code = as.character(fips_code))
 
 vax <- vax %>% 
-  select(FIPS, Recip_County:Completeness_pct, SVI_CTGY, Series_Complete_Pop_Pct_SVI)
+  select(FIPS, Recip_County:Completeness_pct, SVI_CTGY, Series_Complete_Pop_Pct_SVI) %>% 
+  rename(fips_code = FIPS)
+
+covid <- covid %>% 
+  select(date, county, fips, cases, deaths) %>% 
+  rename(fips_code = fips) %>% 
+  group_by(fips_code) %>% 
+  summarise_at(vars(cases, deaths), sum)
 
 head(parks)
 head(vax)
+head(covid)
 ```
 
 ```{r join results and campaigns}
-data <- parks %>% 
-  dplyr::inner_join(vax, by = c("fips_code" = "FIPS"))
+data <- parks %>%
+  dplyr::inner_join(vax, by = c("fips_code")) %>% 
+  dplyr::inner_join(covid, by = c("fips_code"))
 
 head(data)
+```
+
+```{r, message=FALSE, fig.width=15, fig.height=6}
+park_traffic_histogram <- 
+  data %>% 
+    ggplot() + 
+    aes(x=parks_chg) + 
+    geom_histogram(color='firebrick4', fill="firebrick1") +
+    labs(x='Percent Change', y='Bin Count', title='Distribution of Change Percentages for Park Traffic')
+
+vax_rate_histogram <- 
+  data %>% 
+    ggplot() + 
+    aes(x=Series_Complete_Pop_Pct) + 
+    geom_histogram(color='darkblue', fill="lightblue") +
+    labs(x='Percent Fully Vaccinated', y='Bin Count', title='Distribution of Population Percentages of Fully Vaccinated Individuals by County')
+
+covid_case_histogram <- 
+  data %>% 
+    ggplot() + 
+    aes(x=cases) + 
+    geom_histogram(color='darkgreen', fill="lightgreen") +
+    scale_x_log10() + 
+    labs(x='Numer of Cases in County', y='Bin Count', title='Distribution of Case Counts per County')
+
+covid_death_histogram <- 
+  data %>% 
+    ggplot() + 
+    aes(x=deaths) + 
+    geom_histogram(color='purple', fill="violet") +
+    scale_x_log10() + 
+    labs(x='Numer of Deaths in County', y='Bin Count', title='Distribution of Death Counts per County')
+
+park_traffic_histogram/vax_rate_histogram|covid_case_histogram/covid_death_histogram
+```
+```{r}
+park_vs_vax_scatter <- 
+  data %>% 
+    ggplot() + 
+    aes(x=Series_Complete_Yes, y=parks_chg) + 
+    geom_point() +
+    labs(x='Numer of Deaths in County', y='Bin Count', title='Distribution of Death Counts per County')
+```
+
+
+```{r}
+colnames(data)
+```
+
+
+```{r}
+model_one <- lm(parks_chg ~ Series_Complete_Yes, data=data)
+model_two <- lm(parks_chg ~ Series_Complete_Yes + log10(cases), data=data)
+model_three <- lm(parks_chg ~ Series_Complete_Yes + Series_Complete_Pop_Pct + log10(cases) + log10(deaths), data=data)
+
+model_one
+model_two
+model_three
 ```
 
 
