@@ -31,10 +31,14 @@ The Covid-19 pandemic has upended lifestyles to a degree that most people couldn
 Finding the answer to this question will bring important insight into how the Department of Tourism should allocate resources towards parks. 
 
 
+
 ```{r}
 parks <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/Google_Mobility_Report_out.csv')
 vax <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/CDC_Vaccinations_out.csv')
 covid <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/covid_cases_data.csv')
+mask_use <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/mask-use-by-county.csv')
+age <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/census_demographics.csv')
+
 covid <-
   covid %>%
     subset(
@@ -50,6 +54,8 @@ covid <-
 head(parks)
 head(vax)
 head(covid)
+head(mask_use)
+head(age)
 ```
 
 ```{r slim parks}
@@ -61,8 +67,14 @@ parks <- parks %>%
   mutate(fips_code = as.character(fips_code))
 
 vax <- vax %>% 
-  select(FIPS, Recip_County:Completeness_pct, SVI_CTGY, Series_Complete_Pop_Pct_SVI) %>% 
-  rename(fips_code = FIPS)
+  select(FIPS, Recip_County, Recip_State, Series_Complete_Pop_Pct, 
+         Series_Complete_Yes, SVI_CTGY) %>% 
+  rename(fips_code = FIPS, 
+         county = Recip_County, 
+         state = Recip_State, 
+         full_vax_pct = Series_Complete_Pop_Pct, 
+         full_vax_count = Series_Complete_Yes, 
+         social_vulnerability_index = SVI_CTGY)
 
 covid <- covid %>% 
   select(date, county, fips, cases, deaths) %>% 
@@ -70,57 +82,81 @@ covid <- covid %>%
   group_by(fips_code) %>% 
   summarise_at(vars(cases, deaths), sum)
 
+mask_use <- mask_use %>% 
+  select(COUNTYFP, ALWAYS) %>% 
+  rename(fips_code = COUNTYFP, 
+         mask_percent = ALWAYS) %>% 
+  mutate(mask_percent = mask_percent*100)
+
+age <- age %>% 
+  select(fips_code, median_age_years)
+
 head(parks)
 head(vax)
 head(covid)
+head(mask_use)
+head(age)
+
 ```
 
 ```{r join results and campaigns}
 data <- parks %>%
   dplyr::inner_join(vax, by = c("fips_code")) %>% 
-  dplyr::inner_join(covid, by = c("fips_code"))
+  dplyr::inner_join(covid, by = c("fips_code")) %>% 
+  dplyr::inner_join(mask_use, by = c("fips_code")) %>% 
+  dplyr::inner_join(age, by = c("fips_code"))
 
 head(data)
 ```
 
 ```{r, message=FALSE, fig.width=15, fig.height=6}
-park_traffic_histogram <- 
-  data %>% 
+park_traffic_histogram <- data %>% 
     ggplot() + 
     aes(x=parks_chg) + 
     geom_histogram(color='firebrick4', fill="firebrick1") +
     labs(x='Percent Change', y='Bin Count', title='Distribution of Change Percentages for Park Traffic')
 
-vax_rate_histogram <- 
-  data %>% 
+vax_rate_histogram <- data %>% 
     ggplot() + 
-    aes(x=Series_Complete_Pop_Pct) + 
+    aes(x=full_vax_pct) + 
     geom_histogram(color='darkblue', fill="lightblue") +
     labs(x='Percent Fully Vaccinated', y='Bin Count', title='Distribution of Population Percentages of Fully Vaccinated Individuals by County')
 
-covid_case_histogram <- 
-  data %>% 
+covid_case_histogram <- data %>% 
     ggplot() + 
     aes(x=cases) + 
     geom_histogram(color='darkgreen', fill="lightgreen") +
     scale_x_log10() + 
     labs(x='Numer of Cases in County', y='Bin Count', title='Distribution of Case Counts per County')
 
-covid_death_histogram <- 
-  data %>% 
+covid_death_histogram <- data %>% 
     ggplot() + 
     aes(x=deaths) + 
     geom_histogram(color='purple', fill="violet") +
     scale_x_log10() + 
     labs(x='Numer of Deaths in County', y='Bin Count', title='Distribution of Death Counts per County')
 
-park_traffic_histogram/vax_rate_histogram|covid_case_histogram/covid_death_histogram
+mask_use_histogram <- data %>% 
+    ggplot() + 
+    aes(x=mask_percent) + 
+    geom_histogram(color='orange', fill="darkorange") + 
+    labs(x='Percent of Residents Who Always Wear Masks in Public', y='Bin Count', title='Distribution of Percentage Mask Use by County')
+
+age_histogram <- data %>% 
+    ggplot() + 
+    aes(x=median_age_years) + 
+    geom_histogram(color='blue', fill="darkblue") +
+    scale_x_log10() + 
+    labs(x='Median Age', y='Bin Count', title='Distribution of Median Age by County')
+
+park_traffic_histogram/vax_rate_histogram/age_histogram|covid_case_histogram/covid_death_histogram/mask_use_histogram
 ```
+
 ```{r, message=FALSE, warning=FALSE}
 park_vs_vax_scatter <- 
   data %>% 
     ggplot() + 
-    aes(x=Series_Complete_Yes, y=parks_chg) + 
+    aes(x=full_vax_count, y=parks_chg) + 
     scale_x_log10() + 
     geom_point() +
     geom_smooth() +
@@ -128,15 +164,37 @@ park_vs_vax_scatter <-
 park_vs_vax_scatter
 ```
 
+```{r correlation}
 
-```{r}
-model_one <- lm(parks_chg ~ Series_Complete_Yes, data=data)
-model_two <- lm(parks_chg ~ Series_Complete_Yes + log10(cases), data=data)
-model_three <- lm(parks_chg ~ Series_Complete_Yes + Series_Complete_Pop_Pct + log10(cases) + log10(deaths), data=data)
-
-model_one
-model_two
-model_three
+corrplot::corrplot(cor(data[c("parks_chg", "full_vax_pct", "full_vax_count" , "cases", "deaths", "mask_percent", "median_age_years")], use = "complete.obs"), 
+                   method = "color", order="AOE", 
+                   diag=FALSE, addCoef.col = "white")
 ```
 
 
+```{r}
+model_1 <- lm(parks_chg ~ full_vax_count, data=data)
+model_2 <- lm(parks_chg ~ full_vax_count + log10(cases), data=data)
+model_3 <- lm(parks_chg ~ full_vax_count + full_vax_pct + log10(cases) + log10(deaths) + mask_percent + median_age_years, data=data)
+
+```
+
+
+```{r latex output, warning=FALSE}
+
+se.model_1 = coeftest(model_1, vcov = vcovHC)[ , "Std. Error"]
+se.model_2 = coeftest(model_2, vcov = vcovHC)[ , "Std. Error"]
+se.model_3 = coeftest(model_2, vcov = vcovHC)[ , "Std. Error"]
+
+stargazer(model_1, model_2, model_3, type = "text",
+          se = list(se.model_1, se.model_2, se.model_3),
+          star.cutoffs = c(0.05, 0.01, 0.001), title = "Table 1: The relationship between vaccination rates and park traffic")
+
+```
+
+
+## Model Comparison
+
+## IID
+> Clustering concerns
+> Add in Age? MEDIAN_AGE_TOT from Census
