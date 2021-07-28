@@ -1,0 +1,161 @@
+---
+title: "Lab 2"
+author: "Jonathan Whiteley, Max Hoff, Connor McCormick"
+subtitle: 'w203: Statistics for Data Science'
+
+output:
+  pdf_document: default
+---
+
+```{r setup, include=FALSE, warning=FALSE, message=FALSE}
+# install.packages('corrplot')
+
+library(corrplot)
+library(tidyverse)
+library(car)
+library(lmtest)
+library(sandwich)
+library(stargazer)
+library(haven)
+library(ggridges)
+
+cb_palette_1 <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+cb_palette_2 <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+```
+
+```{r setup chunks, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+*Research question:* How do Covid-19 vaccination rates within a county impact visits to parks within that county?  
+
+The Covid-19 pandemic has upended lifestyles to a degree that most people couldn’t have imagined a couple years ago. One of the more interesting changes to lifestyles has been a significant increase in visits to parks, as people have been restricted to local travel. As developed world vaccinations increase, this raises an interesting question about the future of parks. Will some of the lifestyle changes from the pandemic stick around? Which ones? Are visits to parks going to be a permanent fixture of American life?
+
+Finding the answer to this question will bring important insight into how the Department of Tourism should allocate resources towards parks. 
+
+
+```{r}
+parks <- read_csv('data/external/Google_Mobility_Report_out.csv')
+vax <- read_csv('data/external/CDC_Vaccinations_out.csv')
+demographics <- read_csv("data/external/census_demographics.csv")
+head(parks)
+head(vax)
+```
+
+```{r slim parks}
+parks <- parks %>% 
+  select(census_fips_code, 
+         parks_percent_change_from_baseline) %>%
+  rename(fips_code = census_fips_code,
+         parks_chg = parks_percent_change_from_baseline) %>% 
+  mutate(fips_code = as.character(fips_code))
+
+vax <- vax %>% 
+  select(FIPS, Recip_County:Completeness_pct, SVI_CTGY, Series_Complete_Pop_Pct_SVI)
+
+head(parks)
+head(vax)
+```
+
+```{r join results and campaigns}
+data <- parks %>% 
+  dplyr::inner_join(vax, by = c("fips_code" = "FIPS")) %>%
+  dplyr::inner_join(demographics[c('fips_code', 'population', 'median_age_years')], by = 'fips_code') %>%
+  rename(census_population = 'population')
+```
+
+```{r create implied population field}
+data <- data %>%
+  mutate(
+    implied_population = round(Series_Complete_Yes / (Series_Complete_Pop_Pct/100), 0),
+    parks_chg_nominal = (parks_chg / 100) * implied_population,
+    region = case_when(
+      Recip_State %in% c('AK', 'WA', 'OR', 'CA', 'NV', 'HI')
+      ~ 'West',
+      Recip_State %in% c('ID', 'UT', 'MT', 'WY', 'CO')
+      ~ 'Mountain West',
+      Recip_State %in% c('AZ', 'NM', 'TX')
+      ~ 'South West',
+      Recip_State %in% c('ND', 'SD', 'NE', 'KS', 'OK', 'IA')
+      ~ 'Great Plains',
+      Recip_State %in% c('MN', 'MO', 'WI', 'MI', 'IL', 'OH', 'IN', 'OH', 'PA', 'WV')
+      ~ 'MidWest',
+      Recip_State %in% c('KY', 'AR', 'LA', 'MS', 'AL', 'GA', 'TN', 'KY', 'VA', 'NC', 'SC')
+      ~ 'South',
+      Recip_State %in% c('FL')
+      ~ 'Florida',
+      Recip_State %in% c('DC', 'MD', 'DE', 'NJ', 'CT', 'NY', 'RI', 'VT', 'NH', 'MA', 'ME')
+      ~ 'North East',
+    )
+    )
+
+data
+```
+
+
+```{r}
+#Park Change Distribution (County)
+data %>%
+  ggplot() +
+  geom_histogram(bins = 30) +
+  aes(x = parks_chg) + 
+  ggtitle(label = 'Park Change Distribution (County)')
+```
+
+```{r}
+#investigate what the completeness percentage means. How reliable is our vaccination percentage field?
+data %>%
+  ggplot() +
+  geom_histogram() +
+  aes(x = Completeness_pct) +
+  ggtitle(label = 'How reliable is our vaccination percentage field?', subtitle = 'Looks like there are some trouble counties. This will need to be accounted for later on')
+```
+
+
+```{r scatter of vaccinations vs park visits}
+data %>%
+  # filter(region == 'West') %>%
+  ggplot() +
+  geom_point() +
+  aes(x = Series_Complete_Pop_Pct, y = parks_chg, size = implied_population, color = region) +
+  ggtitle(label = 'Park Visitation Changes by Vaccination Percent (shown with population size)', subtitle = 'Slight correlation at first glance but mostly inconclusive')
+```
+
+
+
+
+```{r}
+data %>%
+  ggplot() +
+  geom_point() +
+  aes(x = implied_population, y = parks_chg) +
+  ggtitle(label = 'Park Visitation Changes by Population Size', subtitle = 'Slight correlation. Shows the park change percent is somewhat dependent on size. Something to consider further down the road.')
+```
+
+```{r}
+data %>%
+  ggplot() +
+  geom_point() +
+  aes(x = median_age_years, y = parks_chg, size = census_population, color = region) +
+  ggtitle(label = 'Change in Park Visits by Age', subtitle = 'Strong correlation but possibly covariate with region')
+```
+
+```{r}
+data %>%
+  ggplot() +
+  geom_density_ridges() +
+  theme_ridges() +
+  theme(legend.position = "none") +
+  aes(x = median_age_years, y = region, size = census_population, fill = region) +
+  ggtitle(label = 'Change in Park Visits by Age', subtitle = 'Strong correlation but possibly covariate with region')
+```
+
+```{r}
+data %>%
+  ggplot() +
+  geom_density_ridges() +
+  theme_ridges() +
+  theme(legend.position = "none") +
+  aes(x = parks_chg, y = region, size = census_population, fill = region) +
+  ggtitle(label = 'Change in Park Visits by Age', subtitle = 'Strong correlation but possibly covariate with region')
+```
