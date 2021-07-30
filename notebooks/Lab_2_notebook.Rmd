@@ -24,15 +24,15 @@ library(patchwork)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-*Research question:* How do Covid-19 vaccination rates within a county impact visits to parks within that county?  
+# Introduction
 
-The Covid-19 pandemic has upended lifestyles to a degree that most people couldn’t have imagined a couple years ago. One of the more interesting changes to lifestyles has been a significant increase in visits to parks, as people have been restricted to local travel. As developed world vaccinations increase, this raises an interesting question about the future of parks. Will some of the lifestyle changes from the pandemic stick around? Which ones? Are visits to parks going to be a permanent fixture of American life?
+The Covid-19 pandemic has upended lifestyles to a degree that most people couldn’t have imagined a couple years ago. One of the more interesting changes to lifestyles has been a significant increase in visits to parks, as people have been restricted to local travel. As developed world vaccinations increase, this raises an interesting question about the future of parks. Will some of the lifestyle changes from the pandemic stick around? Which ones? Are visits to parks going to be a permanent fixture of American life? This brings us to our proposed research question:
+
+*Research question:* How do Covid-19 vaccination rates within a county impact visits to parks within that county?  
 
 Finding the answer to this question will bring important insight into how the Department of Tourism should allocate resources towards parks. 
 
-
-
-```{r}
+```{r Data Wrangling, include=FALSE}
 parks <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/Google_Mobility_Report_out.csv')
 vax <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/CDC_Vaccinations_out.csv')
 covid <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/covid_cases_data.csv')
@@ -58,7 +58,7 @@ head(mask_use)
 head(age)
 ```
 
-```{r slim parks}
+```{r slim parks, include=FALSE}
 parks <- parks %>% 
   select(census_fips_code, 
          parks_percent_change_from_baseline) %>%
@@ -99,7 +99,7 @@ head(age)
 
 ```
 
-```{r join results and campaigns}
+```{r join results and campaigns, include=FALSE}
 data <- parks %>%
   dplyr::inner_join(vax, by = c("fips_code")) %>% 
   dplyr::inner_join(covid, by = c("fips_code")) %>% 
@@ -109,7 +109,7 @@ data <- parks %>%
 head(data)
 ```
 
-```{r, message=FALSE, fig.width=15, fig.height=6}
+```{r, include=FALSE, message=FALSE, fig.width=15, fig.height=6}
 park_traffic_histogram <- data %>% 
     ggplot() + 
     aes(x=parks_chg) + 
@@ -152,7 +152,7 @@ age_histogram <- data %>%
 park_traffic_histogram/vax_rate_histogram/age_histogram|covid_case_histogram/covid_death_histogram/mask_use_histogram
 ```
 
-```{r, message=FALSE, warning=FALSE}
+```{r, include=FALSE, message=FALSE, warning=FALSE}
 park_vs_vax_scatter <- 
   data %>% 
     ggplot() + 
@@ -164,7 +164,7 @@ park_vs_vax_scatter <-
 park_vs_vax_scatter
 ```
 
-```{r correlation}
+```{r correlation, include=FALSE}
 
 corrplot::corrplot(cor(data[c("parks_chg", "full_vax_pct", "full_vax_count" , "cases", "deaths", "mask_percent", "median_age_years")], use = "complete.obs"), 
                    method = "color", order="AOE", 
@@ -172,14 +172,22 @@ corrplot::corrplot(cor(data[c("parks_chg", "full_vax_pct", "full_vax_count" , "c
 ```
 
 
-```{r}
+```{r, include=FALSE}
 model_1 <- lm(parks_chg ~ full_vax_count, data=data)
 model_2 <- lm(parks_chg ~ full_vax_count + log10(cases), data=data)
 model_3 <- lm(parks_chg ~ full_vax_count + full_vax_pct + log10(cases) + log10(deaths) + mask_percent + median_age_years, data=data)
 
 ```
+# Model Building Process
+
+## Data
+We will begin 
+
+To begin our modeling process, we needed to define the exact variable that we wanted to measure. Since we are researching how the rates of vaccinations effect park visits within a county, it made sense that our outcome variable would 
 
 
+
+# Regression Table
 ```{r latex output, warning=FALSE}
 
 se.model_1 = coeftest(model_1, vcov = vcovHC)[ , "Std. Error"]
@@ -191,6 +199,14 @@ stargazer(model_1, model_2, model_3, type = "text",
           star.cutoffs = c(0.05, 0.01, 0.001), title = "Table 1: The relationship between vaccination rates and park traffic")
 
 ```
+
+# Model Limitations
+
+
+# Omitted Variables
+
+
+# Conclusion
 
 
 ## Model Comparison
