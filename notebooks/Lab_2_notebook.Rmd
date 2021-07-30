@@ -24,6 +24,12 @@ library(patchwork)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+```{r source functions from project, echo = FALSE}
+source('../src/data/clean_and_join.R')
+```
+
+
 # Introduction
 
 The Covid-19 pandemic has upended lifestyles to a degree that most people couldn’t have imagined a couple years ago. One of the more interesting changes to lifestyles has been a significant increase in visits to parks, as people have been restricted to local travel. As developed world vaccinations increase, this raises an interesting question about the future of parks. Will some of the lifestyle changes from the pandemic stick around? Which ones? Are visits to parks going to be a permanent fixture of American life? This brings us to our proposed research question:
@@ -32,122 +38,84 @@ The Covid-19 pandemic has upended lifestyles to a degree that most people couldn
 
 Finding the answer to this question will bring important insight into how the Department of Tourism should allocate resources towards parks. 
 
+# Model Building Process
+
+## Variables
+We will begin 
+
+To begin our modeling process, we needed to define the exact variable that we wanted to measure. Since we are researching how the rates of vaccinations effect park visits within a county, it made sense that our outcome variable would 
+
+We used the following variables in our analysis: (FILL IN, add data dictionaries/links to references folder if needed)
+
+- `parks_chg` : Google Maps COVID-19 Community Mobility Report
+- `full_vax_count` : CDC
+- `full_vax_pct ` : CDC
+- `cases` : The New York Times
+- `deaths` : The New York Times
+- `mask_percent` : Percent of respondents in each county who indicated "ALWAYS" on a five point Likert scale from NEVER to ALWAYS. Each participant was asked: "How often do you wear a mask in public when you expect to be within six feet of another person?". This survey was conducted a single time in July 2020 by survey firm Dynata at the request of The New York Times.
+- `median_age_years` : Median age by county, 2019-2020 collected by the Census Bureau. 
+
+
 ```{r Data Wrangling, include=FALSE}
 parks <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/Google_Mobility_Report_out.csv')
 vax <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/CDC_Vaccinations_out.csv')
 covid <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/covid_cases_data.csv')
 mask_use <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/mask-use-by-county.csv')
 age <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/census_demographics.csv')
-
-covid <-
-  covid %>%
-    subset(
-      date > as.Date("2021-06-16")
-    ) %>%
-    subset(
-      date < as.Date("2021-07-14")
-      )
-
-### Subsetting the file and over-writing old file to save space on memory for us folks on datahub.
-# write.csv(covid,"~/lab_2_Whiteley_Hoff_McCormick/data/external/covid_cases_data.csv", row.names = TRUE)
-
-head(parks)
-head(vax)
-head(covid)
-head(mask_use)
-head(age)
 ```
 
-```{r slim parks, include=FALSE}
-parks <- parks %>% 
-  select(census_fips_code, 
-         parks_percent_change_from_baseline) %>%
-  rename(fips_code = census_fips_code,
-         parks_chg = parks_percent_change_from_baseline) %>% 
-  mutate(fips_code = as.character(fips_code))
-
-vax <- vax %>% 
-  select(FIPS, Recip_County, Recip_State, Series_Complete_Pop_Pct, 
-         Series_Complete_Yes, SVI_CTGY) %>% 
-  rename(fips_code = FIPS, 
-         county = Recip_County, 
-         state = Recip_State, 
-         full_vax_pct = Series_Complete_Pop_Pct, 
-         full_vax_count = Series_Complete_Yes, 
-         social_vulnerability_index = SVI_CTGY)
-
-covid <- covid %>% 
-  select(date, county, fips, cases, deaths) %>% 
-  rename(fips_code = fips) %>% 
-  group_by(fips_code) %>% 
-  summarise_at(vars(cases, deaths), sum)
-
-mask_use <- mask_use %>% 
-  select(COUNTYFP, ALWAYS) %>% 
-  rename(fips_code = COUNTYFP, 
-         mask_percent = ALWAYS) %>% 
-  mutate(mask_percent = mask_percent*100)
-
-age <- age %>% 
-  select(fips_code, median_age_years)
-
-head(parks)
-head(vax)
-head(covid)
-head(mask_use)
-head(age)
-
-```
-
-```{r join results and campaigns, include=FALSE}
-data <- parks %>%
-  dplyr::inner_join(vax, by = c("fips_code")) %>% 
-  dplyr::inner_join(covid, by = c("fips_code")) %>% 
-  dplyr::inner_join(mask_use, by = c("fips_code")) %>% 
-  dplyr::inner_join(age, by = c("fips_code"))
-
+```{r clean_and_join data from source function}
+data <- clean_and_join()
 head(data)
 ```
 
-```{r, include=FALSE, message=FALSE, fig.width=15, fig.height=6}
+## EDA
+
+```{r histograms, include=FALSE, message=FALSE, fig.width=15, fig.height=6}
 park_traffic_histogram <- data %>% 
     ggplot() + 
     aes(x=parks_chg) + 
     geom_histogram(color='firebrick4', fill="firebrick1") +
-    labs(x='Percent Change', y='Bin Count', title='Distribution of Change Percentages for Park Traffic')
+    labs(x='Percent Change', y='Bin Count', 
+         title='Distribution of Change Percentages for Park Traffic')
 
 vax_rate_histogram <- data %>% 
     ggplot() + 
     aes(x=full_vax_pct) + 
     geom_histogram(color='darkblue', fill="lightblue") +
-    labs(x='Percent Fully Vaccinated', y='Bin Count', title='Distribution of Population Percentages of Fully Vaccinated Individuals by County')
+    labs(x='Percent Fully Vaccinated', y='Bin Count', 
+         title='Distribution of Population Percentages of Fully Vaccinated Individuals by County')
 
 covid_case_histogram <- data %>% 
     ggplot() + 
     aes(x=cases) + 
     geom_histogram(color='darkgreen', fill="lightgreen") +
     scale_x_log10() + 
-    labs(x='Numer of Cases in County', y='Bin Count', title='Distribution of Case Counts per County')
+    labs(x='Numer of Cases in County', y='Bin Count', 
+         title='Distribution of Case Counts per County')
 
 covid_death_histogram <- data %>% 
     ggplot() + 
     aes(x=deaths) + 
     geom_histogram(color='purple', fill="violet") +
     scale_x_log10() + 
-    labs(x='Numer of Deaths in County', y='Bin Count', title='Distribution of Death Counts per County')
+    labs(x='Numer of Deaths in County', y='Bin Count', 
+         title='Distribution of Death Counts per County')
 
 mask_use_histogram <- data %>% 
     ggplot() + 
     aes(x=mask_percent) + 
     geom_histogram(color='orange', fill="darkorange") + 
-    labs(x='Percent of Residents Who Always Wear Masks in Public', y='Bin Count', title='Distribution of Percentage Mask Use by County')
+    labs(x='Percent of Residents Who Always Wear Masks in Public', y='Bin Count', 
+         title='Distribution of Percentage Mask Use by County')
 
 age_histogram <- data %>% 
     ggplot() + 
     aes(x=median_age_years) + 
     geom_histogram(color='blue', fill="darkblue") +
     scale_x_log10() + 
-    labs(x='Median Age', y='Bin Count', title='Distribution of Median Age by County')
+    labs(x='Median Age', y='Bin Count', 
+         title='Distribution of Median Age by County')
 
 park_traffic_histogram/vax_rate_histogram/age_histogram|covid_case_histogram/covid_death_histogram/mask_use_histogram
 ```
@@ -160,31 +128,39 @@ park_vs_vax_scatter <-
     scale_x_log10() + 
     geom_point() +
     geom_smooth() +
-    labs(x='Number of Vaccinations', y='Percent Change in Traffic at Parks', title='Vaccination Count VS Change in Park Traffic by County')
+    labs(x='Number of Vaccinations', y='Percent Change in Traffic at Parks', 
+         title='Vaccination Count VS Change in Park Traffic by County')
 park_vs_vax_scatter
 ```
 
 ```{r correlation, include=FALSE}
 
-corrplot::corrplot(cor(data[c("parks_chg", "full_vax_pct", "full_vax_count" , "cases", "deaths", "mask_percent", "median_age_years")], use = "complete.obs"), 
+corrplot::corrplot(cor(data[c("parks_chg", "full_vax_pct", "full_vax_count" , 
+                              "cases", "deaths", "mask_percent", 
+                              "median_age_years")], use = "complete.obs"
+                       ), 
                    method = "color", order="AOE", 
                    diag=FALSE, addCoef.col = "white")
 ```
 
+## Modeling
 
 ```{r, include=FALSE}
 model_1 <- lm(parks_chg ~ full_vax_count, data=data)
 model_2 <- lm(parks_chg ~ full_vax_count + log10(cases), data=data)
-model_3 <- lm(parks_chg ~ full_vax_count + full_vax_pct + log10(cases) + log10(deaths) + mask_percent + median_age_years, data=data)
+model_3 <- lm(parks_chg ~ full_vax_count + full_vax_pct + log10(cases) + 
+                log10(deaths) + mask_percent + median_age_years, data=data)
 
 ```
-# Model Building Process
 
-## Data
-We will begin 
+## F-Test
 
-To begin our modeling process, we needed to define the exact variable that we wanted to measure. Since we are researching how the rates of vaccinations effect park visits within a county, it made sense that our outcome variable would 
+We run an F-test to get an indication if our additional features are improving performance of the model. The null hypothesis is that the short model is as good at explaining the variance in `parks_chg` as the two long models.The rejection criteria used is p-value < 0.05 for the F-Test.
+We conclude that we are able to reject the null hypothesis for Model 3 but not Model 2, as our test returned a p-value much lower than 0.05 for Model 3. As a result, we can conclude that the additional features in Model 3 are improving the performance of our model and that our model improved more than if all those indicators had been set to zero.
 
+```{r}
+anova(model_1, model_2, model_3, test = "F")
+```
 
 
 # Regression Table
@@ -201,6 +177,89 @@ stargazer(model_1, model_2, model_3, type = "text",
 ```
 
 # Model Limitations
+
+Upon Assessing all five assumptions of the CLM, we found evidence that our model does not fit all the necessary assumptions for the CLM framework - specifically the assumptions for IID sampling, linear conditional expectation, and homoskedastic errors.
+
+> 1. **IID Sampling:** To assess IID data, we need to know about the sampling process for each set of variables. The county level data we analyzed was gathered from several different primary sources. We have reason to believe that clustering of similar values for variables X, Y , Z (FILL IN HERE) by region may violate independence within the sampling process.
+
+@Max feel free to fill in variables of concern here and add additional color. Given what Sush said i think we should include this blurb in the final report re concerns on IID but proceeded.
+
+> 2. **No Perfect Colinearity:** To test this assumption, we can look at our coefficients, and notice that R has not dropped any variables. This tells us that there is no perfect collinearity.  This assumption also includes the requirement that a BLP exists, which may not happen if there are heavy tails.  In this case, we don't see any distributions that look like they have unusually low or high values.
+
+```{r test no perfect colinearity, include=FALSE}
+model_1$coefficients
+model_2$coefficients
+model_3$coefficients
+```
+
+
+> 3. **Linear Conditional Expectation:**  To assess whether there is a linear conditional expectation, we've looked at the predicted vs. residuals of the model. The plot of both below indicates a pretty clear non-linear relationship. This is concerning and does not give us confidence that there is a linear conditional expectation here.
+
+```{r code and plots assessing linear conditional expectation}
+
+data %>% 
+  mutate(
+    model_preds = predict(model_1), 
+    model_resids = resid(model_1)
+  ) %>% 
+  ggplot(aes(model_preds, model_resids)) + 
+  geom_point() + 
+  stat_smooth()
+
+data %>% 
+  mutate(
+    model_preds = predict(model_3), 
+    model_resids = resid(model_3)
+  ) %>% 
+  ggplot(aes(model_preds, model_resids)) + 
+  geom_point() + 
+  stat_smooth()
+```
+
+```{r plot variables fitted, include=FALSE}
+#include=FALSE
+
+d <- data %>% 
+  mutate(
+    model_preds = predict(model_3), 
+    model_resids = resid(model_3)
+  )
+full_vax_count_resids <- d %>%
+  ggplot(aes(full_vax_count, model_resids)) +
+  geom_point() +
+  stat_smooth()
+
+cases_resids <- d %>%
+  ggplot(aes(log10(cases), model_resids)) +
+  geom_point() +
+  stat_smooth()
+
+full_vax_count_resids / cases_resids
+
+```
+
+> 4. **Homoskedastic Errors:** To assess whether the distribution of the errors is homoskedastic or heteroskedastic, we can look at the residuals versus fitted plot again.  We see that the band increases in thickness as it goes from left to right for `full_vax_count`, getting quite wide on the upper side of the predicted values, which is slightly concerning. For `cases` we see a wide band on the left that tapers off and gets wide out to the right. 
+We can also leverage a scale-location plot where we would see homoskedasticity would show up on this plot as a flat smoothing curve, which does not quite look like it is the case here, perhaps suggesting problems with homoskedasticity.
+
+```{r code and plots assessing error variance}
+plot(model_3, which=3)
+```
+
+> 5. **Normally Distributed Errors:** We are looking for evidence of normally distributed errors by examing the histogram of residuals and a qqplot. The normal shape of the histogram, yet flightly skewed right and the qqplot distribution shows the points from the quantiles forming a line that is roughly straight except off to the right side. This give us some confidence in stating that the errors are close to normally distributed. 
+
+```{r code and plots assessing normally distributed errors}
+# include=FALSE
+plot_one <- d %>% 
+  ggplot(aes(x = model_resids)) + 
+  geom_histogram()
+  
+plot_two <- d %>% 
+  ggplot(aes(sample = model_resids)) + 
+  stat_qq() + stat_qq_line()
+
+plot_one / plot_two 
+```
+
 
 
 # Omitted Variables
