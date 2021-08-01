@@ -8,11 +8,12 @@ output:
 ---
 
 ```{r setup, include=FALSE, warning=FALSE, message=FALSE}
-install.packages('corrplot')
+# install.packages('corrplot')
 
 library(corrplot)
 library(ggplot2)
 library(tidyverse)
+library(knitr)
 library(car)
 library(lmtest)
 library(sandwich)
@@ -109,7 +110,7 @@ data <- parks %>%
 head(data)
 ```
 
-```{r, include=FALSE, message=FALSE, fig.width=15, fig.height=6}
+```{r, include=TRUE, message=FALSE, fig.width=15, fig.height=6}
 park_traffic_histogram <- data %>% 
     ggplot() + 
     aes(x=parks_chg) + 
@@ -171,7 +172,6 @@ corrplot::corrplot(cor(data[c("parks_chg", "full_vax_pct", "full_vax_count" , "c
                    diag=FALSE, addCoef.col = "white")
 ```
 
-
 ```{r, include=FALSE}
 model_1 <- lm(parks_chg ~ full_vax_count, data=data)
 model_2 <- lm(parks_chg ~ full_vax_count + log10(cases), data=data)
@@ -181,11 +181,45 @@ model_3 <- lm(parks_chg ~ full_vax_count + full_vax_pct + log10(cases) + log10(d
 # Model Building Process
 
 ## Data
-We will begin 
+We begin by discussing the data we will use for modeling the hypothesized effect. We have enlisted the use of five different data sets to help us in our : 
 
-To begin our modeling process, we needed to define the exact variable that we wanted to measure. Since we are researching how the rates of vaccinations effect park visits within a county, it made sense that our outcome variable would 
+- __COVID-19 Community Mobility Report__: This data that was collected by Google, describes the percent increase/decrease of visits to specific categories of locations such as retail centers, transit stations, grocery store, etc. In our case, we will be looking at the percent trends over time of visits to parks. The data coverage begins from a baseline measurement taken on January 1st, 2021 and is updated routinely. Since we will not be performing a time-series analysis, we decided to select a slice of the data from June 30th, 2021. The variables that we are concerned with in this data set are the FIPS code (used for merging data by county) and the park visits change from baseline.
 
+- __CDC Data on Vaccinations__: This data set was provided by the CDC and contained a lot of information on vaccination rates at a county level. It contains both hard vaccination rates and percentages. Additionally, it provides these vaccination numbers drilled down to age subsets as well as at a cumulative level. Lastly, this data contains a FIPS code for data merging. The variables of concern for this data set are the FIPS code, the hard cumulative vaccination rate, and the percentage vaccination rate. We decided not to use any of the age subset rates since we hypothesize that all age demographics are reasonably likely to visit a park. 
 
+- __New York Times Covid-19 Data__: This data set is similar to the vaccination data provided by the CDC but instead reports on actual Covid-19 cases at a county level. In addition to case data, this data set also contains reports on deaths from Covid-19 as well. This data set is structured in a time series format, similar to the Covid-19 Community Mobility Report. So in order to choose a proper cross-section for analysis, we selected cases from 2-weeks before our selected date for the park visits percent change (June 30th, 2021) up until 2-weeks after, based on the CDC's recommendation of a two week life-cycle for virus contraction to full recovery. The variables that we are concerned with in this data set are the FIPS code, date (for cross-section selection), county, case counts, and death counts.
+
+- __Mask-Wearing Survey Data__: In the same repository as the NYT Covid-19 data set, we found another data set that came from a large number of interviews conducted online by a survey firm named Dynata at the request of The New York Times. They surveyed people at a county level about their mask use between July 2nd and July 14th. Since this survey collection period is so close to the covid case date cross section we selected and the date selected for park visit percent change, we're assuming that the respondent's mask wearing habits are not going to change that much so we can use this as one of our explanatory variables. The variables of concern for this data set are FIPS code and mask use.
+
+- __Census Demographic Data__: Lastly, we utilized the United States Census Bureau's Population Estimates Program data releases to retrieve a data set that describes the population size and median age of an area at the county level. The variables of concern in this data set are the FIPS code, the population size, and the median age.
+
+## Models
+To begin our modeling process, we needed to define the exact variable that we wanted to measure. Since we are researching how the rates of vaccinations effect park visits within a county, it made sense that our outcome variable would be the percent change in park visits from the Covid-19 Community Mobility Report data set from Google. Note that the category parks includes regions such as national parks, public beaches, marinas, dog parks, plazas, and public gardens. Given the flexibility in the definition of a park for this analysis, we want to make clear the range of the outcome variable that we are analyzing.
+
+To measure the percent change in park visits, we hypothesized that the main explanatory variable would be the rate of vaccinations within a county. In a way, the vaccination rate of a particular region somewhat symbolizes a transition state from pandemic operations for that region. We are unsure how this will affect the number of visitations of a particular park or set of parks however. On the one hand we have parks becoming a replacement for other locations that were closed during the pandemic, so this may indicate that park traffic will decrease as vaccination rates increase and people become more comfortable being in close quarters again. On the other hand, we have the possibility that people were nervous about going to parks during the pandemic, so in this case, we may expect to see an increase in park traffic as regions transition out of pandemic tendencies. In addition to the vaccination rate of a region, we also have identified the number of cases in a region as an explanatory variable. One thing we've noted for this additional expalanatory variable, however, is that there is likely a strong level of collinearity between case rate and vaccination rate. We will discuss this further in the model limitations section. In addition to these two main explanatory variables, we have identified a few other covariates we plan on including in the larger versions of the model; we will dicuss these further below. The final conclusion we plan on reaching is one that explains the causal nature of vaccination rates, and case rates for that matter, on the percent change in visits to parks in an area. 
+
+Because of the nature of our variables and the causal effect that we are searching for, we have determined our model to be an expanatory model. We decided to start off with a base model or *limited model* that just regresses change in park traffic on vaccination rate. Since this is the key variable which we are trying to determine a causal relationship between, we decided it best to use this as the only explanatory variable in our first model. 
+
+In our second model however, we decided to include the case count variable as a covariate. As mentioned before, we identified some collinearity between cases and vaccination rates in our EDA which may prove a little problematic. That being said, we feel that including this covariate will still influence the outcome variable so it is important to include, as long as we are aware of the potential collinearity effects. Another alteration we made to the second model was adding a log transformation to the cases covariate. While performing the EDA, we noticed that the distribution of the cases variable had a pretty strong right skew, so we added a log transformation the bring the variable closer to a normal distribution.
+
+Finally, for our third model, we included all relevant covariates that were available and we believed would have an influence on the change in park visits from baseline. So in addition to vaccination count and case count variables, we also included death counts, mask-wearing percentages, and the median age in years per county. Furthermore, we also decided to include vaccination percentage in addition to vaccination count since we figured that vaccination percentage would carry some additional information due to the fact that a percentage scales better with varying county population sizes. Again, we needed to perform a log transformation on the covid cases variable in order to acheive data linearity, and for the same reason, we performed a log transformation on the death count variable as well. It is important to point out that more so than model two, there will be some collinearity between some of the explanatory variables in this model iteration. For starters, we still have the collinearity between vaccination counts and case counts, but now we also have collinearity between vaccination percentage and these two variables. Moreover, there is most likely collinearity between these three variables and death counts and mask-wearing percentage as well. Addressing the final variable of median age, it is possibile that there is some collinearity between this variable and the other explanatory variables, however according to our correlation plot in the EDA section, it seems like there is only a small correlation between median age and vaccine count. At a high level, the variables we've included in the third model combine to more or less explain the severity of the pandemic in a particular region in addition to the response. And to wrap it all up, this explanation is the key that we are using to measure our outcome variable of change from baseline in visits to parks.
+
+```{r Covariate and Variable Name Table, warning=FALSE, message=FALSE, include=TRUE}
+variable_names <- c("full_vax_count", "full_vax_pct", "log_10_cases", 
+                    "log_10_deaths", "mask_percent", "median_age_years")
+
+covariates <- c("Number of citizens vaccinated in a particular county", 
+               "Percent of citizens vaccinated in a particular county", 
+               "Log transformed count of cases in a particular county", 
+               "Log transformed count of deaths in a particular county", 
+               "Percentage of the population that reported wearing masks frequently", 
+               "Median age of the population of a particular county")
+
+cov_var_names <- data.frame("Covariate" = covariates, "Variable Name" = variable_names)
+
+col_names <- c("Covariate", "Variable Name")
+knitr::kable(cov_var_names, col.names = col_names)
+```
 
 # Regression Table
 ```{r latex output, warning=FALSE}
