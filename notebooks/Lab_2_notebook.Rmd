@@ -36,11 +36,11 @@ source('../src/data/clean_and_join.R')
 ```
 
 ```{r Data Wrangling, include=FALSE}
-parks <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/Google_Mobility_Report_out.csv')
-vax <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/CDC_Vaccinations_out.csv')
-covid <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/covid_cases_data.csv')
-mask_use <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/mask-use-by-county.csv')
-age <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/census_demographics.csv')
+parks <- read_csv('/Users/maxhoff/MIDS/w203/working/lab_02/lab_2_Whiteley_Hoff_McCormick/data/external/Google_Mobility_Report_out.csv')
+vax <- read_csv('/Users/maxhoff/MIDS/w203/working/lab_02/lab_2_Whiteley_Hoff_McCormick/data/external/CDC_Vaccinations_out.csv')
+covid <- read_csv('/Users/maxhoff/MIDS/w203/working/lab_02/lab_2_Whiteley_Hoff_McCormick/data/external/covid_cases_data.csv')
+mask_use <- read_csv('/Users/maxhoff/MIDS/w203/working/lab_02/lab_2_Whiteley_Hoff_McCormick/data/external/mask-use-by-county.csv')
+age <- read_csv('/Users/maxhoff/MIDS/w203/working/lab_02/lab_2_Whiteley_Hoff_McCormick/data/external/census_demographics.csv')
 ```
 
 ```{r clean_and_join data from source function, include=FALSE}
@@ -130,7 +130,7 @@ Now that we had our data collected and our hypothesis and research goal laid out
 
 We examined each of the variables to dig up any potential errors or problems with the dataset, and determine whether any adjustments needed to be made. We started our investigation by looking at the distributions for each of the variables:
 
-#### Distributions
+### Distributions
 
 ```{r histograms, echo=FALSE, message=FALSE, fig.width=15, fig.height=6}
 park_traffic_histogram <- data %>% 
@@ -139,7 +139,7 @@ park_traffic_histogram <- data %>%
     geom_histogram(color='firebrick4', fill="firebrick1") +
     labs(x='Percent Change', y='Bin Count', 
          title='Distribution of Change Percentages for Park Traffic',
-         subtitle = "Figure 1")
+         subtitle = "Figure 2")
 
 vax_rate_histogram <- data %>% 
     ggplot() + 
@@ -147,7 +147,7 @@ vax_rate_histogram <- data %>%
     geom_histogram(color='darkblue', fill="lightblue") +
     labs(x='Percent Fully Vaccinated', y='Bin Count', 
          title='Distribution of Population Percentages of Fully Vaccinated Individuals by County',
-         subtitle = "Figure 2")
+         subtitle = "Figure 3")
 
 covid_case_histogram <- data %>% 
     ggplot() + 
@@ -156,7 +156,7 @@ covid_case_histogram <- data %>%
     scale_x_log10() + 
     labs(x='Numer of Cases in County', y='Bin Count', 
          title='Distribution of Case Counts per County',
-         subtitle = "Figure 3")
+         subtitle = "Figure 4")
 
 covid_death_histogram <- data %>% 
     ggplot() + 
@@ -165,7 +165,7 @@ covid_death_histogram <- data %>%
     scale_x_log10() + 
     labs(x='Numer of Deaths in County', y='Bin Count', 
          title='Distribution of Death Counts per County',
-         subtitle = "Figure 4")
+         subtitle = "Figure 5")
 
 mask_use_histogram <- data %>% 
     ggplot() + 
@@ -173,7 +173,7 @@ mask_use_histogram <- data %>%
     geom_histogram(color='orange', fill="darkorange") + 
     labs(x='Percent of Residents Who Always Wear Masks in Public', y='Bin Count', 
          title='Distribution of Percentage Mask Use by County',
-         subtitle = "Figure 5")
+         subtitle = "Figure 6")
 
 age_histogram <- data %>% 
     ggplot() + 
@@ -182,12 +182,12 @@ age_histogram <- data %>%
     scale_x_log10() + 
     labs(x='Median Age', y='Bin Count', 
          title='Distribution of Median Age by County',
-         subtitle = "Figure 6")
+         subtitle = "Figure 7")
 
 park_traffic_histogram/vax_rate_histogram/age_histogram|covid_case_histogram/covid_death_histogram/mask_use_histogram
 ```
 
-At first glance, in Figures 1 through 6, it seems like we may need to conduct some log transformations to several of the variables, given the long tailed distributions. 
+At first glance, in Figures 2 through 7, it seems like we may need to conduct some log transformations to several of the variables, given the long tailed distributions. 
 
 #### CDC Dataset Investigation
 
@@ -199,13 +199,13 @@ CDC_reliability <- data %>%
   ggplot() +
   geom_histogram() +
   aes(x = percent_vax_w_fips) +
-  ggtitle(label = 'How reliable is our vaccination percentage field?', subtitle = 'Figure 7') +
+  ggtitle(label = 'How reliable is our vaccination percentage field?', subtitle = 'Figure 8') +
   labs(x = '% Valid Vaccination Response', y = 'Count' )
 
 CDC_reliability
 ```
 
-We were hoping that almost all counties would have a value of close to 100 percent, but as you can see in Figure 7, a material proportion of the counties have values that might impact our results.
+We were hoping that almost all counties would have a value of close to 100 percent, but as you can see in Figure 8, a material proportion of the counties have values that might impact our results.
 
 Let’s dig further into this. It looks like the counties with 100 percent invalid FIPS codes are coming from two states; Hawaii and Texas. Let’s see how these counties are distributed in terms of vaccination percentages as a whole:
 
@@ -216,7 +216,7 @@ tx_hi_scatter <- data %>%
   ggplot()+
   geom_point() +
   aes(x = full_vax_count, y = parks_chg) +
-  ggtitle(label = 'Texas and Hawaii Vaccination Percentages', subtitle = "Figure 8") +
+  ggtitle(label = 'Texas and Hawaii Vaccination Percentages', subtitle = "Figure 9") +
   labs(x = 'Vaccination Count', y = '% Park Change')
 
 tx_hi_scatter 
@@ -228,13 +228,13 @@ data <- data %>%
 ```
 
 
-As you can see in Figure 8, all counties within these two states have invalid results, thus we should exclude these in our analyses going forward.
+As you can see in Figure 9, all counties within these two states have invalid results, thus we should exclude these in our analyses going forward.
 
 #### Region Analysis
 
 Our next set of investigations was related to how each of these variables change by region, since we thought some of the variances for each of our variables might be clustered well by region. This could potentially invalidate our findings, since counties might be not well distributed. If certain regions contain more counties than others, then our data might not meet the Independent and Identically Distributed (IID) assumption of the Classic Linear Model (CLM).
 
-Figure 9 below shows how park visits relates to the median age of a county, broken down by region (shown by color). We would not have to worry about IID if there is no discernible difference between the different regions. Also, we were hoping to find not much difference in county size, as shown by the size of each of the points on the scatter.
+Figure 10 below shows how park visits relates to the median age of a county, broken down by region (shown by color). We would not have to worry about IID if there is no discernible difference between the different regions. Also, we were hoping to find not much difference in county size, as shown by the size of each of the points on the scatter.
 
 ```{r age_parks_scatter, fig.align="center",fig.width = 15,fig.height=5, echo=FALSE, message=FALSE}
 age_parks_scatter <- data %>%
@@ -242,7 +242,7 @@ age_parks_scatter <- data %>%
   geom_point() +
   aes(x = median_age_years, y = parks_chg, size = census_population, color = region) +
   ggtitle(label = 'Change in Park Visits by Region',
-          subtitle = 'Figure 9') +
+          subtitle = 'Figure 10') +
   labs(x = 'Age', y = '% Park Change') +
   theme(legend.text = element_text(size=8))
   
@@ -251,13 +251,13 @@ age_parks_scatter
 ```
 
 
-As you can see in Figure 9, unfortunately there is a discernible difference between the regions of the country, as we suspected in our original hypothesis. We’ll have to revisit this when we build our model. As for county size, it looks like county size is fairly well distributed, so this shouldn't be a problem.
+As you can see in Figure 10, unfortunately there is a discernible difference between the regions of the country, as we suspected in our original hypothesis. We’ll have to revisit this when we build our model. As for county size, it looks like county size is fairly well distributed, so this shouldn't be a problem.
 
 #### County size investigation
 
 Another topic that we were interested in was whether county size could have an impact on changes in park visits. Theoretically, smaller counties could have larger swings in park visitation, since they will have smaller bases to work off of. For example, if a county has only two residents, if one person goes to a park who never did before, then park visitation will have a 50% increase. Compare that to a county with 10 residents, if 1 person goes, then then will only see a 10% increase. 
 
-Figure 10 plots how park visitation is affected by population size. We were hoping park visitation would not be affected by population size.
+Figure 11 plots how park visitation is affected by population size. We were hoping park visitation would not be affected by population size.
 
 ```{r parks_county_size, fig.align="center",fig.width = 15,fig.height=4, echo=FALSE, message=FALSE, warning=FALSE}
 parks_by_county_size <- data %>%
@@ -265,15 +265,15 @@ parks_by_county_size <- data %>%
   geom_point() +
   aes(x = implied_population, y = parks_chg) +
   ggtitle(label = 'Park Visitation Changes by Population Size', 
-          subtitle = 'Figure 10') +
+          subtitle = 'Figure 11') +
   labs(x = 'Population', y = '% Park Change')
 
 parks_by_county_size
 ```
 
-As you can see from Figure 10, unfortunately it does look like smaller counties can have larger swings in park visitation. This is one more item we’ll have to consider when building our model and interpreting results.
+As you can see from Figure 11, unfortunately it does look like smaller counties can have larger swings in park visitation. This is one more item we’ll have to consider when building our model and interpreting results.
 
-#### Variable Correlations
+### Variable Correlations
 
 Now that we've pressure tested our dataset, let's take an initial look at how strong the correlations are:
 
@@ -287,14 +287,14 @@ park_vs_vax_scatter <-
     geom_smooth() +
     labs(x='Number of Vaccinations', y='Percent Change in Traffic at Parks', 
          title='Vaccination Count VS Change in Park Traffic by County',
-         subtitle = 'Figure 11')
+         subtitle = 'Figure 12')
 
 park_vs_vax_scatter
 ```
 
-At first glance, Figure 11 shows that the correlation does not look very strong. We have not applied any transformations yet though, so it's possible that the data just needs some cleaning.
+At first glance, Figure 12 shows that the correlation does not look very strong. We have not applied any transformations yet though, so it's possible that the data just needs some cleaning.
 
-Diving more deeply into the specific variables, Figure 12 below the correlation between each of them:
+Diving more deeply into the specific variables, Figure 13 below the correlation between each of them:
 
 ```{r correlation, fig.align="center", echo=FALSE, message=FALSE, warning=FALSE}
 corrplot::corrplot(cor(data[c("parks_chg", "full_vax_pct", "full_vax_count" , 
@@ -306,7 +306,7 @@ corrplot::corrplot(cor(data[c("parks_chg", "full_vax_pct", "full_vax_count" ,
                    type = "upper", 
                    diag=FALSE, addCoef.col = "white")
 ```
-Figure 12
+Figure 13
 
 
 
@@ -386,13 +386,13 @@ age_masks_scatter <- data %>%
 age_parks_scatter / age_masks_scatter
 ```
 
-Shown in Figures 9 is the same distribution of park visits by age as shown in the EDA section, but shown in Figure 16 is the chart replicated but broken out by mask sentiment. As you can see, the mask sentiment shows a rough similarity in clustering compared to region. Although there is some subjectivity in our conclusion, we believe that the mask sentiment variable will control enough for this clustering to satisfy most of the IID assumption.
+Shown in Figures 10 is the same distribution of park visits by age as shown in the EDA section, but shown in Figure 15 is the chart replicated but broken out by mask sentiment. As you can see, the mask sentiment shows a rough similarity in clustering compared to region. Although there is some subjectivity in our conclusion, we believe that the mask sentiment variable will control enough for this clustering to satisfy most of the IID assumption.
 
 There are other potential problems with the data gathering process that could lead to IID issues, for example using only data from Google users which could exclude some older populations, but we believe these problems to be minimal, and most likely will not influence our results much.
 
 ### Linear Conditional Expectation  
 
-To assess whether there is a linear conditional expectation, we've looked at the predicted vs. residuals of both Model 1 and Model 3. The plot of both, shown below in Figures 17 and 18, indicates a pretty clear non-linear relationship. This is concerning and does not give us confidence that there is a linear conditional expectation here.
+To assess whether there is a linear conditional expectation, we've looked at the predicted vs. residuals of both Model 1 and Model 3. The plot of both, shown below in Figures 16 and 17, indicates a pretty clear non-linear relationship. This is concerning and does not give us confidence that there is a linear conditional expectation here.
 
 ```{r code and plots assessing linear conditional expectation, fig.align="center",fig.width = 15,fig.height=8, echo=FALSE, message=FALSE }
 
@@ -450,9 +450,9 @@ When looking for perfect collinearity, or the absence thereof. It is useful to l
 
 ### Homoskedastic Errors
 
-To assess whether the distribution of the errors is homoskedastic or heteroskedastic, we can references Figures 17 and 18 again. We see that the band increases in thickness as it goes from left to right for `full_vax_count`, getting quite wide on the upper side of the predicted values, which is slightly concerning. For `cases` we see a wide band on the left that tapers off and gets wide out to the right. 
+To assess whether the distribution of the errors is homoskedastic or heteroskedastic, we can references Figures 16 and 17 again. We see that the band increases in thickness as it goes from left to right for `full_vax_count`, getting quite wide on the upper side of the predicted values, which is slightly concerning. For `cases` we see a wide band on the left that tapers off and gets wide out to the right. 
 
-We can also leverage a scale-location plot, shown below in Figure 19. Homoskedasticity would show up on this plot as a flat smoothing curve, which does not quite look like it is the case here, perhaps suggesting problems with homoskedasticity.
+We can also leverage a scale-location plot, shown below in Figure 18. Homoskedasticity would show up on this plot as a flat smoothing curve, which does not quite look like it is the case here, perhaps suggesting problems with homoskedasticity.
 
 ```{r code and plots assessing error variance ,fig.align="center", echo=FALSE, message=FALSE }
 plot(model_3, which=3)
@@ -462,7 +462,7 @@ Figure 18
 
 ### Normally Distributed Errors
 
-We are looking for evidence of normally distributed errors by examining the histogram of residuals and a qqplot, shown below in Figures 20 and 21. The normal shape of the histogram, yet slightly skewed right and the qqplot distribution shows the points from the quantiles forming a line that is roughly straight except off to the right side. This give us some confidence in stating that the errors are close to normally distributed. 
+We are looking for evidence of normally distributed errors by examining the histogram of residuals and a qqplot, shown below in Figures 19 and 20. The normal shape of the histogram, yet slightly skewed right and the qqplot distribution shows the points from the quantiles forming a line that is roughly straight except off to the right side. This give us some confidence in stating that the errors are close to normally distributed. 
 
 ```{r code and plots assessing normally distributed errors, fig.align="center",fig.width = 15,fig.height=8, echo=FALSE, message=FALSE }
 plot_one <- d %>% 
@@ -510,10 +510,12 @@ Lastly, we noted that with the addition of more covariates with each model itera
 # Conclusion
 
 Based on the results of our coefficient tests, we are able to conclude that the percentage of vaccinated individuals has a positive causal effect on the percentage change from baseline in park visits. Additionally, our F-Test gave us additional confidence that our third model was pretty effective at explaining the change in park traffic in response to our explanatory variables.
-
-Although it is tempting to discard our initial hypothesis, and conclude that park visitation is here to stay, we can't be certain of this. For one, we don't know if vaccinations in the U.S. will continue to increase, or what the future of the pandemic will be like. It is very possible to have additional waves of the virus, and the pandemic become a persistant part of life. Assuming that the pandemic will eventually be defeated though and normal life will resume, 
-
-We recognize that our analysis was a snapshot into the causal relationship between the aforementioned factors. However, given the dynamic nature of the Covid-19 pandemic and subsequent waves, more sampling over time and time series analysis into behavior changes would allow a more comprehensive understanding. Future research on the topic, we agreed it would be interesting to examine the impact of rural vs urban populations and how each’s access to public spaces was impacted. Borrowing from an area of future study highlighted by Rice and colleagues (Rice et al), we would like to better understand how recreational behaviors changed as a result of the pandemic.
+	
+Although it is tempting to discard our initial hypothesis, and conclude that park visitation is here to stay, since vaccination rates had significant, positive coefficients across all three models, we can't be certain of this. For one, we don't know if vaccinations in the U.S. will continue to increase, or what the future of the pandemic will be like. It is very possible to have additional waves of the virus, and the pandemic become a persistent part of life. Assuming that the pandemic will eventually end and normal life will resume though, we still believe our results should be taken with a grain of salt. Although our sample size was large enough to overcome some of the deficiencies in our CLM assumptions, we believe our modeling may come short in other ways. Most importantly, we recognize that our analysis was a snapshot into the causal relationship between the aforementioned factors. More sampling over time and time series analysis into behavior changes would allow a more comprehensive understanding. Any effects that we observed may only apply to this particular moment in time. We don't know for sure if the relationship is linear, and if interests will change further once the pandemic has fully ended worldwide. Interests in parks may just be a temporary fad, since pandemic life is still a recent memory. As time passes and these memories fad, so may fondness towards parks.
+	
+As for additional research on the topic, it would be interesting to reconduct this study once the pandemic is fully over. Also, it would be interesting to examine the impact of rural vs urban populations and how each’s access to public spaces was impacted. The ability to collect more detailed data might provide rich new ways to examine these affects, and the release of public datasets (similar to Google's mobility report) should continue to be encouraged.
+	
+Overall, the future of parks in the U.S. looks brighter than it did before the pandemic, and society as a whole will benefit.
 
 # References
 
