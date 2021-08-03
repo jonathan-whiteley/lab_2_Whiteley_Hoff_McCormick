@@ -1,12 +1,15 @@
 ---
-title: "Lab 2"
+title: "The Future of Park Visitation in the U.S."
 author: "Jonathan Whiteley, Max Hoff, Connor McCormick"
-subtitle: 'w203: Statistics for Data Science'
+subtitle: 'W203: Lab 2'
 output:
   html_document:
+    toc: yes
     df_print: paged
-  pdf_document: default
+  bookdown::pdf_document2:
+    toc: yes
 ---
+\clearpage
 
 ```{r setup, include=FALSE, warning=FALSE, message=FALSE}
 # install.packages('corrplot')
@@ -97,7 +100,7 @@ Additional detail on each of these datasets is below:
 To begin our modeling process, we needed to define the exact variables that we wanted to measure. The table below explicitly states the ones we'll reference throughout this report:
 
 
-```{r Covariate and Variable Name Table, warning=FALSE, message=FALSE, include=TRUE}
+```{r Covariate and Variable Name Table, warning=FALSE, message=FALSE,echo=FALSE}
 variable_names <- c("full_vax_count", "full_vax_pct", "log_10_cases", 
                     "log_10_deaths", "mask_percent", "median_age_years")
 
@@ -125,7 +128,7 @@ We examined each of the variables to dig up any potential errors or problems wit
 
 #### Distributions
 
-```{r histograms, include=TRUE, message=FALSE, fig.width=15, fig.height=6}
+```{r histograms, echo=FALSE, message=FALSE, fig.width=15, fig.height=6}
 park_traffic_histogram <- data %>% 
     ggplot() + 
     aes(x=parks_chg) + 
@@ -180,13 +183,13 @@ age_histogram <- data %>%
 park_traffic_histogram/vax_rate_histogram/age_histogram|covid_case_histogram/covid_death_histogram/mask_use_histogram
 ```
 
-At first glance from figures 1 through 6, it seems like we may need to conduct some log transformations to several of the variables, given the long tailed distributions. 
+At first glance, in Figures 1 through 6, it seems like we may need to conduct some log transformations to several of the variables, given the long tailed distributions. 
 
 #### CDC Dataset Investigation
 
 While examining the CDC vaccination dataset we stumbled upon the `Completeness_pct` variable, which states the proportion of vaccination people that listed a valid FIPS code (county code). 
 
-```{r cdc data analysis, fig.align="center",fig.width = 7,fig.height=1, include=TRUE, message=FALSE}
+```{r cdc data analysis, fig.align="center",fig.width = 15,fig.height=3, echo=FALSE, message=FALSE}
 #investigate what the completeness percentage means. How reliable is our vaccination percentage field?
 CDC_reliability <- data %>%
   ggplot() +
@@ -203,7 +206,7 @@ We were hoping that almost all counties would have a value of close to 100 perce
 Let’s dig further into this. It looks like the counties with 100 percent invalid FIPS codes are coming from two states; Hawaii and Texas. Let’s see how these counties are distributed in terms of vaccination percentages as a whole:
 
 
-```{r texas and hawaii scatter, fig.align="center",fig.width = 7,fig.height=1, include=TRUE, message=FALSE}
+```{r texas and hawaii scatter, fig.align="center",fig.width = 15,fig.height=3, echo=FALSE, message=FALSE}
 tx_hi_scatter <- data %>%
   filter(state == 'TX' | state == 'HI') %>%
   ggplot()+
@@ -229,14 +232,16 @@ Our next set of investigations was related to how each of these variables change
 
 Figure 9 below shows how park visits relates to the median age of a county, broken down by region (shown by color). We would not have to worry about IID if there is no discernible difference between the different regions. Also, we were hoping to find not much difference in county size, as shown by the size of each of the points on the scatter.
 
-```{r age_parks_scatter, fig.align="center",fig.width = 7,fig.height=3, include=TRUE, message=FALSE}
+```{r age_parks_scatter, fig.align="center",fig.width = 15,fig.height=5, echo=FALSE, message=FALSE}
 age_parks_scatter <- data %>%
   ggplot() +
   geom_point() +
   aes(x = median_age_years, y = parks_chg, size = census_population, color = region) +
   ggtitle(label = 'Change in Park Visits by Region',
           subtitle = 'Figure 9') +
-  labs(x = 'Age', y = '% Park Change')
+  labs(x = 'Age', y = '% Park Change') +
+  theme(legend.text = element_text(size=8))
+  
 
 age_parks_scatter
 ```
@@ -250,7 +255,7 @@ Another topic that we were interested in was whether county size could have an i
 
 Figure 10 plots how park visitation is affected by population size. We were hoping park visitation would not be affected by population size.
 
-```{r parks_county_size, fig.align="center",fig.width = 7,fig.height=3, include=TRUE, message=FALSE}
+```{r parks_county_size, fig.align="center",fig.width = 15,fig.height=4, echo=FALSE, message=FALSE, warning=FALSE}
 parks_by_county_size <- data %>%
   ggplot() +
   geom_point() +
@@ -268,7 +273,7 @@ As you can see from Figure 10, unfortunately it does look like smaller counties 
 
 Now that we've pressure tested our dataset, let's take an initial look at how strong the correlations are:
 
-```{r, vax_park_scatter, fig.align="center",fig.width = 7,fig.height=3, include=TRUE, message=FALSE, warning=FALSE}
+```{r, vax_park_scatter, fig.align="center",fig.width = 15,fig.height=4, echo=FALSE, message=FALSE, warning=FALSE}
 park_vs_vax_scatter <- 
   data %>% 
     ggplot() + 
@@ -287,7 +292,7 @@ At first glance, Figure 11 shows that the correlation does not look very strong.
 
 Diving more deeply into the specific variables, Figure 12 below the correlation between each of them:
 
-```{r correlation, fig.align="center", include=TRUE, message=FALSE, warning=FALSE}
+```{r correlation, fig.align="center", echo=FALSE, message=FALSE, warning=FALSE}
 corrplot::corrplot(cor(data[c("parks_chg", "full_vax_pct", "full_vax_count" , 
                               "cases", "deaths", "mask_percent", 
                               "median_age_years")], use = "complete.obs"
@@ -300,9 +305,8 @@ corrplot::corrplot(cor(data[c("parks_chg", "full_vax_pct", "full_vax_count" ,
 Figure 12
 
 
-Unsurprisingly, there are very strong correlations between cases, deaths, and vaccination rates. The correlation between death and cases might even be strong to bring about problems of colinearity, which we'll discuss in time. As for the other variables, correlations were high enough to make us believe that a strong model would be built.
 
-## Modeling
+Unsurprisingly, there are very strong correlations between cases, deaths, and vaccination rates. The correlation between death and cases might even be strong to bring about problems of colinearity, which we'll discuss in time. As for the other variables, correlations were high enough to make us believe that a strong model would be built.
 
 ```{r, include=FALSE}
 model_1 <- lm(parks_chg ~ full_vax_count, data=data)
@@ -310,6 +314,8 @@ model_2 <- lm(parks_chg ~ full_vax_count + log10(cases), data=data)
 model_3 <- lm(parks_chg ~ full_vax_count + full_vax_pct + log10(cases) + mask_percent + median_age_years, data=data)
 
 ```
+
+
 
 # Model Building Process
 
@@ -324,19 +330,20 @@ In our second model however, we decided to include the case count variable as a 
 Finally, for our third model, we included all relevant covariates that were available and we believed would have an influence on the change in park visits from baseline. So in addition to vaccination count and case count variables, we also included death counts, mask-wearing percentages, and the median age in years per county. Furthermore, we also decided to include vaccination percentage in addition to vaccination count since we figured that vaccination percentage would carry some additional information due to the fact that a percentage scales better with varying county population sizes. Again, we needed to perform a log transformation on the covid cases variable in order to achieve data linearity, and for the same reason, we performed a log transformation on the death count variable as well. It is important to point out that more so than model two, there will be some collinearity between some of the explanatory variables in this model iteration. For starters, we still have the collinearity between vaccination counts and case counts, but now we also have collinearity between vaccination percentage and these two variables. Moreover, there is most likely collinearity between these three variables and death counts and mask-wearing percentage as well. Addressing the final variable of median age, it is possible that there is some collinearity between this variable and the other explanatory variables, however according to our correlation plot in the EDA section, it seems like there is only a small correlation between median age and vaccine count. At a high level, the variables we've included in the third model combine to more or less explain the severity of the pandemic in a particular region in addition to the response. And to wrap it all up, this explanation is the key that we are using to measure our outcome variable of change from baseline in visits to parks.
 
 
-## F-Test
+### F-Test
 
 We run an F-test to get an indication if our additional features are improving performance of the model. The null hypothesis is that the short model is as good at explaining the variance in `parks_chg` as the two long models.The rejection criteria used is p-value < 0.05 for the F-Test.
 We conclude that we are able to reject the null hypothesis for Model 3 but not Model 2, as our test returned a p-value much lower than 0.05 for Model 3. As a result, we can conclude that the additional features in Model 3 are improving the performance of our model and that our model improved more than if all those indicators had been set to zero.
 
-```{r}
+```{r f test, message=FALSE, warning=FALSE, echo=FALSE}
 anova(model_1, model_2, model_3, test = "F")
 ```
 Figure 13
 
 
-# Regression Table
-```{r latex output, warning=FALSE}
+
+### Regression Table
+```{r latex output, warning=FALSE, message=FALSE, echo=FALSE}
 
 se.model_1 = coeftest(model_1, vcov = vcovHC)[ , "Std. Error"]
 se.model_2 = coeftest(model_2, vcov = vcovHC)[ , "Std. Error"]
@@ -350,15 +357,18 @@ stargazer(model_1, model_2, model_3, type = "text",
 Figure 14
 
 
+
+
+
 # Model Limitations
 
 Our limitations around finding data set some tight constraints in how we built our model. Those constraints led us to make tradeoffs which added limitations to our model. Upon Assessing all five assumptions of the CLM, we found evidence that our model does not fit all the necessary assumptions for the CLM framework - specifically the assumptions for linear conditional expectation, and homoskedastic errors. There was also debateability for whether we met the IID assumption, which we'll discuss below.
 
-## IID Sampling
+### IID Sampling
 
 As discussed in the EDA section, there are some clusters when you organize the data by region, which might lead one to believe that IID is violated. This on it’s own might be enough to invalidate our model, but we believe the addition of the mask wearing variable is enough to counteract this problem. 
 
-```{r fig.align="center",fig.width = 7,fig.height=3, include=TRUE, message=FALSE} 
+```{r fig.align="center",fig.width = 15, fig.height=10, echo=FALSE, message=FALSE} 
 age_masks_scatter <- data %>%
   ggplot() +
   geom_point() +
@@ -366,7 +376,8 @@ age_masks_scatter <- data %>%
   ggtitle(label = 'Change in Park Visits by Mask Sentiment',
           subtitle = 'Figure 16') +
   theme(legend.position = "none") +
-  labs(x = 'Age', y = '% Park Change')
+  labs(x = 'Age', y = '% Park Change') +
+  theme(legend.text = element_text(size=8))
 
 age_parks_scatter / age_masks_scatter
 ```
@@ -375,11 +386,11 @@ Shown in Figures 9 is the same distribution of park visits by age as shown in th
 
 There are other potential problems with the data gathering process that could lead to IID issues, for example using only data from Google users which could exclude some older populations, but we believe these problems to be minimal, and most likely will not influence our results much.
 
-## Linear Conditional Expectation  
+### Linear Conditional Expectation  
 
 To assess whether there is a linear conditional expectation, we've looked at the predicted vs. residuals of both Model 1 and Model 3. The plot of both, shown below in Figures 17 and 18, indicates a pretty clear non-linear relationship. This is concerning and does not give us confidence that there is a linear conditional expectation here.
 
-```{r code and plots assessing linear conditional expectation, fig.align="center",fig.width = 7,fig.height=3, include=TRUE, message=FALSE }
+```{r code and plots assessing linear conditional expectation, fig.align="center",fig.width = 15,fig.height=8, echo=FALSE, message=FALSE }
 
 model_1_lce <- data %>% 
   mutate(
@@ -429,23 +440,23 @@ full_vax_count_resids / cases_resids
 
 ```
 
-## Homoskedastic Errors
+### Homoskedastic Errors
 
 To assess whether the distribution of the errors is homoskedastic or heteroskedastic, we can references Figures 17 and 18 again. We see that the band increases in thickness as it goes from left to right for `full_vax_count`, getting quite wide on the upper side of the predicted values, which is slightly concerning. For `cases` we see a wide band on the left that tapers off and gets wide out to the right. 
 
 We can also leverage a scale-location plot, shown below in Figure 19. Homoskedasticity would show up on this plot as a flat smoothing curve, which does not quite look like it is the case here, perhaps suggesting problems with homoskedasticity.
 
-```{r code and plots assessing error variance ,fig.align="center", include=TRUE, message=FALSE }
+```{r code and plots assessing error variance ,fig.align="center", echo=FALSE, message=FALSE }
 plot(model_3, which=3)
 ```
 Figure 19
 
 
-## Normally Distributed Errors
+### Normally Distributed Errors
 
 We are looking for evidence of normally distributed errors by examining the histogram of residuals and a qqplot, shown below in Figures 20 and 21. The normal shape of the histogram, yet slightly skewed right and the qqplot distribution shows the points from the quantiles forming a line that is roughly straight except off to the right side. This give us some confidence in stating that the errors are close to normally distributed. 
 
-```{r code and plots assessing normally distributed errors, fig.align="center",fig.width = 7,fig.height=3, include=TRUE, message=FALSE }
+```{r code and plots assessing normally distributed errors, fig.align="center",fig.width = 15,fig.height=8, echo=FALSE, message=FALSE }
 plot_one <- d %>% 
   ggplot(aes(x = model_resids)) + 
   geom_histogram() +
@@ -463,6 +474,8 @@ plot_two <- d %>%
 
 plot_one / plot_two 
 ```
+
+
 
 
 
