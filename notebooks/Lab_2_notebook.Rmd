@@ -2,13 +2,14 @@
 title: "Lab 2"
 author: "Jonathan Whiteley, Max Hoff, Connor McCormick"
 subtitle: 'w203: Statistics for Data Science'
-
 output:
+  html_document:
+    df_print: paged
   pdf_document: default
 ---
 
 ```{r setup, include=FALSE, warning=FALSE, message=FALSE}
-install.packages('corrplot')
+# install.packages('corrplot')
 
 library(corrplot)
 library(ggplot2)
@@ -38,22 +39,44 @@ The Covid-19 pandemic has upended lifestyles to a degree that most people couldn
 
 Finding the answer to this question will bring important insight into how the Department of Tourism should allocate resources towards parks. 
 
-# Model Building Process
+
+# Research Question and Theoretical Model
+
+
+
+# Data and Variables of Interest
+
+To begin our modeling process, we needed to define the exact variable that we wanted to measure. Since we were researching how the rates of vaccinations affect park visits within a county, it made sense that our outcome variable was change in park visits from a baseline date (sometime pre-Covid-19) to current date (more details to follow). 
+
+Our next step was to think of all the possible variables that could influence park visits and then explore data that was readily available in a comparable format to our output variable. From a conceptual level, there were all sorts of variables that we thought of that could influence park visits, but as we learned, not much data was available. Most of our ideation around influential variables were related to quantifying a propensity to visit a park. For example, the amount of parks available in a given region, the quality of these parks, the amount of lifestyle alternatives compared to parks (e.g., dining availability, amusement parks, etc.). We would then be able to control for these variables, leaving us with the true effect that vaccinations had on park visitation. Ideation for the amount of variables to control for seemed endless, but unfortunately, we were able to find very little data that was actually of use. 
+
+After much searching, we were able to obtain a couple datasets that we hypothesized to have an influence on park visitation. The first dataset was obtaining age data by county from the [U.S. census](https://www2.census.gov/programs-surveys/popest/datasets/2010/2010-eval-estimates/). Our hypothesis was that age might be a useful predictor in determining propensity to visit a park. Without being able to find other measures that indicate park visitation propensity, we thought age might be a useful substitute for at least a portion of the variables that make up propensity. Our reasoning behind this was that the average age of a population might be influential in park visitation, as younger people might be more active, and thus more likely to visit a park. 
+
+Another influential factor that we thought might influence visitation was attitudes towards Covid-19. Across the U.S., attitudes and policies have varied widely that most likely had a significant influence on mobility of a population. We searched for several datasets that might quantify these attitudes in some way, and we eventually stumbled upon a [New York Times dataset](https://github.com/nytimes/covid-19-data/tree/master/mask-use) that measured attitudes towards wearing masks. We believed that this might be a good proxy for general attitudes towards Covid-19. We thought attitudes towards Covid-19 might be one of the most influential factors in park visitation, and being able to control for this in some way would have a significant positive effect in being able to interpret our results.
+
+As for predictor and target variables, the datasets we used were a [mobility dataset from Google](https://www.google.com/covid19/mobility/), which gave us a percentage change in visitation to parks by U.S. county, and a [vaccination dataset from the CDC](https://data.cdc.gov/Vaccinations/COVID-19-Vaccinations-in-the-United-States-County/8xkx-amqh), which gave us vaccination rates for all U.S. counties.
+
+We also stumbled upon an [additional dataset from the New York Times](https://www.nytimes.com/article/coronavirus-county-data-us.html) which gave us case counts and death counts by U.S. county, which we thought could potentially be useful.
+
+Additional detail on each of these datasets is below:
+
+## Datasets
+
+- __COVID-19 Community Mobility Report__: This data that was collected by Google, describes the percent increase/decrease of visits to specific categories of locations such as retail centers, transit stations, grocery store, etc. In our case, we will be looking at the percent trends over time of visits to parks. The data coverage begins from a baseline measurement taken on January 1st, 2021 and is updated routinely. Since we will not be performing a time-series analysis, we decided to select a slice of the data from June 30th, 2021. The variables that we are concerned with in this data set are the FIPS code (used for merging data by county) and the park visits change from baseline.
+
+- __CDC Data on Vaccinations__: This data set was provided by the CDC and contained a lot of information on vaccination rates at a county level. It contains both hard vaccination rates and percentages. Additionally, it provides these vaccination numbers drilled down to age subsets as well as at a cumulative level. Lastly, this data contains a FIPS code for data merging. The variables of concern for this data set are the FIPS code, the hard cumulative vaccination rate, and the percentage vaccination rate. We decided not to use any of the age subset rates since we hypothesize that all age demographics are reasonably likely to visit a park. 
+
+- __New York Times Covid-19 Data__: This data set is similar to the vaccination data provided by the CDC but instead reports on actual Covid-19 cases at a county level. In addition to case data, this data set also contains reports on deaths from Covid-19 as well. This data set is structured in a time series format, similar to the Covid-19 Community Mobility Report. So in order to choose a proper cross-section for analysis, we selected cases from 2-weeks before our selected date for the park visits percent change (June 30th, 2021) up until 2-weeks after, based on the CDC's recommendation of a two week life-cycle for virus contraction to full recovery. The variables that we are concerned with in this data set are the FIPS code, date (for cross-section selection), county, case counts, and death counts.
+
+- __Mask-Wearing Survey Data__: In the same repository as the NYT Covid-19 data set, we found another data set that came from a large number of interviews conducted online by a survey firm named Dynata at the request of The New York Times. They surveyed people at a county level about their mask use between July 2nd and July 14th. Since this survey collection period is so close to the covid case date cross section we selected and the date selected for park visit percent change, we're assuming that the respondent's mask wearing habits are not going to change that much so we can use this as one of our explanatory variables. The variables of concern for this data set are FIPS code and mask use.
+
+- __Census Demographic Data__: Lastly, we utilized the United States Census Bureau's Population Estimates Program data releases to retrieve a data set that describes the population size and median age of an area at the county level. The variables of concern in this data set are the FIPS code, the population size, and the median age.
 
 ## Variables
-We will begin 
 
-To begin our modeling process, we needed to define the exact variable that we wanted to measure. Since we are researching how the rates of vaccinations effect park visits within a county, it made sense that our outcome variable would 
+To begin our modeling process, we needed to define the exact variables that we wanted to measure. The table below explicitly states the ones we'll reference throughout this report:
 
-We used the following variables in our analysis: (FILL IN, add data dictionaries/links to references folder if needed)
-
-- `parks_chg` : Google Maps COVID-19 Community Mobility Report
-- `full_vax_count` : CDC
-- `full_vax_pct ` : CDC
-- `cases` : The New York Times
-- `deaths` : The New York Times
-- `mask_percent` : Percent of respondents in each county who indicated "ALWAYS" on a five point Likert scale from NEVER to ALWAYS. Each participant was asked: "How often do you wear a mask in public when you expect to be within six feet of another person?". This survey was conducted a single time in July 2020 by survey firm Dynata at the request of The New York Times.
-- `median_age_years` : Median age by county, 2019-2020 collected by the Census Bureau. 
+****** CONNOR TO ADD TABLE ******
 
 
 ```{r Data Wrangling, include=FALSE}
@@ -69,22 +92,79 @@ data <- clean_and_join()
 head(data)
 ```
 
+```{r include=FALSE, message=FALSE}
+# Add region field to datatset
+# ***JON CAN YOU ADD THIS TO THE CLEAN AND JOIN FUNCTION? IT'S NOT WORKING FOR ME FOR SOME REASON***
+data <- data %>%
+  mutate(
+    implied_population = round(full_vax_count / (full_vax_pct/100), 0),
+    parks_chg_nominal = (parks_chg / 100) * implied_population,
+    region = case_when(
+      state %in% c('AK', 'WA', 'OR', 'CA', 'NV', 'HI')
+      ~ 'West',
+      state %in% c('ID', 'UT', 'MT', 'WY', 'CO')
+      ~ 'Mountain West',
+      state %in% c('AZ', 'NM', 'TX')
+      ~ 'South West',
+      state %in% c('ND', 'SD', 'NE', 'KS', 'OK', 'IA')
+      ~ 'Great Plains',
+      state %in% c('MN', 'MO', 'WI', 'MI', 'IL', 'OH', 'IN', 'OH', 'PA', 'WV')
+      ~ 'MidWest',
+      state %in% c('KY', 'AR', 'LA', 'MS', 'AL', 'GA', 'TN', 'KY', 'VA', 'NC', 'SC')
+      ~ 'South',
+      state %in% c('FL')
+      ~ 'Florida',
+      state %in% c('DC', 'MD', 'DE', 'NJ', 'CT', 'NY', 'RI', 'VT', 'NH', 'MA', 'ME')
+      ~ 'North East',
+    ),
+    region_ohe = case_when(
+      state %in% c('AK', 'WA', 'OR', 'CA', 'NV', 'HI')
+      ~ 1,
+      state %in% c('ID', 'UT', 'MT', 'WY', 'CO')
+      ~ 2,
+      state %in% c('AZ', 'NM', 'TX')
+      ~ 3,
+      state %in% c('ND', 'SD', 'NE', 'KS', 'OK', 'IA')
+      ~ 4,
+      state %in% c('MN', 'MO', 'WI', 'MI', 'IL', 'OH', 'IN', 'OH', 'PA', 'WV')
+      ~ 5,
+      state %in% c('KY', 'AR', 'LA', 'MS', 'AL', 'GA', 'TN', 'KY', 'VA', 'NC', 'SC')
+      ~ 6,
+      state %in% c('FL')
+      ~ 7,
+      state %in% c('DC', 'MD', 'DE', 'NJ', 'CT', 'NY', 'RI', 'VT', 'NH', 'MA', 'ME')
+      ~ 8,
+    )
+  )
+```
+
+
 ## EDA
 
-```{r histograms, include=FALSE, message=FALSE, fig.width=15, fig.height=6}
+Now that we had our data collected and our hypothesis and research goal laid out, it was time to explore the data. The first step in any Exploratory Data Analysis (EDA) is conducting data quality checks
+
+### Data Quality Checks
+
+We examined each of the variables to dig up any potential errors or problems with the dataset, and determine whether any adjustments needed to be made. We started our investigation by looking at the distributions for each of the variables:
+
+#### Distributions
+
+```{r histograms, include=TRUE, message=FALSE, fig.width=15, fig.height=6}
 park_traffic_histogram <- data %>% 
     ggplot() + 
     aes(x=parks_chg) + 
     geom_histogram(color='firebrick4', fill="firebrick1") +
     labs(x='Percent Change', y='Bin Count', 
-         title='Distribution of Change Percentages for Park Traffic')
+         title='Distribution of Change Percentages for Park Traffic',
+         subtitle = "Figure 1")
 
 vax_rate_histogram <- data %>% 
     ggplot() + 
     aes(x=full_vax_pct) + 
     geom_histogram(color='darkblue', fill="lightblue") +
     labs(x='Percent Fully Vaccinated', y='Bin Count', 
-         title='Distribution of Population Percentages of Fully Vaccinated Individuals by County')
+         title='Distribution of Population Percentages of Fully Vaccinated Individuals by County',
+         subtitle = "Figure 2")
 
 covid_case_histogram <- data %>% 
     ggplot() + 
@@ -92,7 +172,8 @@ covid_case_histogram <- data %>%
     geom_histogram(color='darkgreen', fill="lightgreen") +
     scale_x_log10() + 
     labs(x='Numer of Cases in County', y='Bin Count', 
-         title='Distribution of Case Counts per County')
+         title='Distribution of Case Counts per County',
+         subtitle = "Figure 3")
 
 covid_death_histogram <- data %>% 
     ggplot() + 
@@ -100,14 +181,16 @@ covid_death_histogram <- data %>%
     geom_histogram(color='purple', fill="violet") +
     scale_x_log10() + 
     labs(x='Numer of Deaths in County', y='Bin Count', 
-         title='Distribution of Death Counts per County')
+         title='Distribution of Death Counts per County',
+         subtitle = "Figure 4")
 
 mask_use_histogram <- data %>% 
     ggplot() + 
     aes(x=mask_percent) + 
     geom_histogram(color='orange', fill="darkorange") + 
     labs(x='Percent of Residents Who Always Wear Masks in Public', y='Bin Count', 
-         title='Distribution of Percentage Mask Use by County')
+         title='Distribution of Percentage Mask Use by County',
+         subtitle = "Figure 5")
 
 age_histogram <- data %>% 
     ggplot() + 
@@ -115,12 +198,101 @@ age_histogram <- data %>%
     geom_histogram(color='blue', fill="darkblue") +
     scale_x_log10() + 
     labs(x='Median Age', y='Bin Count', 
-         title='Distribution of Median Age by County')
+         title='Distribution of Median Age by County',
+         subtitle = "Figure 6")
 
 park_traffic_histogram/vax_rate_histogram/age_histogram|covid_case_histogram/covid_death_histogram/mask_use_histogram
 ```
 
-```{r, include=FALSE, message=FALSE, warning=FALSE}
+At first glance from figures 1 through 6, it seems like we may need to conduct some log transformations to several of the variables, given the long tailed distributions. 
+
+#### CDC Dataset Investigation
+
+While examining the CDC vaccination dataset we stumbled upon the `Completeness_pct` variable, which states the proportion of vaccination people that listed a valid FIPS code (county code). 
+
+```{r fig.align="center",fig.width = 7,fig.height=1, include=TRUE, message=FALSE}
+#investigate what the completeness percentage means. How reliable is our vaccination percentage field?
+CDC_reliability <- data %>%
+  ggplot() +
+  geom_histogram() +
+  aes(x = percent_vax_w_fips) +
+  ggtitle(label = 'How reliable is our vaccination percentage field?', subtitle = 'Figure 7') +
+  labs(x = '% Valid Vaccination Response', y = 'Count' )
+
+CDC_reliability
+```
+
+We were hoping that almost all counties would have a value of close to 100 percent, but as you can see in Figure 7, a material proportion of the counties have values that might impact our results.
+
+Let’s dig further into this. It looks like the counties with 100 percent invalid FIPS codes are coming from two states; Hawaii and Texas. Let’s see how these counties are distributed in terms of vaccination percentages as a whole:
+
+
+```{r texas and hawaii scatter, fig.align="center",fig.width = 7,fig.height=1, include=TRUE, message=FALSE}
+tx_hi_scatter <- data %>%
+  filter(state == 'TX' | state == 'HI') %>%
+  ggplot()+
+  geom_point() +
+  aes(x = full_vax_count, y = parks_chg) +
+  ggtitle(label = 'Texas and Hawaii Vaccination Percentages', subtitle = "Figure 8") +
+  labs(x = 'Vaccination Count', y = '% Park Change')
+
+tx_hi_scatter 
+```
+
+```{r tx_and_hi_filter, include=FALSE, message=FALSE}
+data <- data %>%
+  filter(state != 'TX' | state != 'HI')
+```
+
+
+As you can see in Figure 8, all counties within these two states have invalid results, thus we should exclude these in our analyses going forward.
+
+#### Region Analysis
+
+Our next set of investigations was related to how each of these variables change by region, since we thought some of the variances for each of our variables might be clustered well by region. This could potentially invalidate our findings, since counties might be not well distributed. If certain regions contain more counties than others, then our data might not meet the Independent and Identically Distributed (IID) assumption of the Classic Linear Model (CLM).
+
+Figure 9 below shows how park visits relates to the median age of a county, broken down by region (shown by color). We would not have to worry about IID if there is no discernible difference between the different regions. Also, we were hoping to find not much difference in county size, as shown by the size of each of the points on the scatter.
+
+```{r age_parks_scatter, fig.align="center",fig.width = 7,fig.height=3, include=TRUE, message=FALSE}
+age_parks_scatter <- data %>%
+  ggplot() +
+  geom_point() +
+  aes(x = median_age_years, y = parks_chg, size = census_population, color = region) +
+  ggtitle(label = 'Change in Park Visits by Region',
+          subtitle = 'Figure 9') +
+  labs(x = 'Age', y = '% Park Change')
+
+age_parks_scatter
+```
+
+
+As you can see in Figure 9, unfortunately there is a discernible difference between the regions of the country, as we suspected in our original hypothesis. We’ll have to revisit this when we build our model.
+
+#### County size investigation
+
+Another topic that we were interested in was whether county size could have an impact on changes in park visits. Theoretically, smaller counties could have larger swings in park visitation, since they will have smaller bases to work off of. For example, if a county has only two residents, if one person goes to a park who never did before, then park visitation will have a 50% increase. Compare that to a county with 10 residents, if 1 person goes, then then will only see a 10% increase. 
+
+Figure 10 plots how park visitation is affected by population size. We were hoping park visitation would not be affected by population size.
+
+```{r parks_county_size, fig.align="center",fig.width = 7,fig.height=3, include=TRUE, message=FALSE}
+parks_by_county_size <- data %>%
+  ggplot() +
+  geom_point() +
+  aes(x = implied_population, y = parks_chg) +
+  ggtitle(label = 'Park Visitation Changes by Population Size', 
+          subtitle = 'Figure 10') +
+  labs(x = 'Population', y = '% Park Change')
+
+parks_by_county_size
+```
+
+As you can see from Figure 10, unfortunately it does look like smaller counties can have larger swings in park visitation. This is one more item we’ll have to consider when building our model and interpreting results.
+
+#### Variable Correlations
+
+Now that we've pressure tested our dataset, let's take an initial look at how strong the correlations are:
+
+```{r, vax_park_scatter, fig.align="center",fig.width = 7,fig.height=3, include=TRUE, message=FALSE, warning=FALSE}
 park_vs_vax_scatter <- 
   data %>% 
     ggplot() + 
@@ -129,19 +301,30 @@ park_vs_vax_scatter <-
     geom_point() +
     geom_smooth() +
     labs(x='Number of Vaccinations', y='Percent Change in Traffic at Parks', 
-         title='Vaccination Count VS Change in Park Traffic by County')
+         title='Vaccination Count VS Change in Park Traffic by County',
+         subtitle = 'Figure 11')
+
 park_vs_vax_scatter
 ```
 
-```{r correlation, include=FALSE}
+At first glance, Figure 11 shows that the correlation does not look very strong. We have not applied any transformations yet though, so it's possible that the data just needs some cleaning.
 
+Diving more deeply into the specific variables, Figure 12 below the correlation between each of them:
+
+```{r correlation, fig.align="center", include=TRUE, message=FALSE, warning=FALSE}
 corrplot::corrplot(cor(data[c("parks_chg", "full_vax_pct", "full_vax_count" , 
                               "cases", "deaths", "mask_percent", 
                               "median_age_years")], use = "complete.obs"
                        ), 
                    method = "color", order="AOE", 
+                   tl.srt=45, tl.col="black",
+                   type = "upper", 
                    diag=FALSE, addCoef.col = "white")
 ```
+Figure 12
+
+
+Unsurprisingly, there are very strong correlations between cases, deaths, and vaccination rates. The correlation between death and cases might even be strong to bring about problems of colinearity, which we'll discuss in time. As for the other variables, correlations were high enough to make us believe that a strong model would be built.
 
 ## Modeling
 
@@ -155,20 +338,6 @@ model_3 <- lm(parks_chg ~ full_vax_count + full_vax_pct + log10(cases) +
 
 # Model Building Process
 
-## Data
-We begin by discussing the data we will use for modeling the hypothesized effect. We have enlisted the use of five different data sets to help us in our : 
-
-- __COVID-19 Community Mobility Report__: This data that was collected by Google, describes the percent increase/decrease of visits to specific categories of locations such as retail centers, transit stations, grocery store, etc. In our case, we will be looking at the percent trends over time of visits to parks. The data coverage begins from a baseline measurement taken on January 1st, 2021 and is updated routinely. Since we will not be performing a time-series analysis, we decided to select a slice of the data from June 30th, 2021. The variables that we are concerned with in this data set are the FIPS code (used for merging data by county) and the park visits change from baseline.
-
-- __CDC Data on Vaccinations__: This data set was provided by the CDC and contained a lot of information on vaccination rates at a county level. It contains both hard vaccination rates and percentages. Additionally, it provides these vaccination numbers drilled down to age subsets as well as at a cumulative level. Lastly, this data contains a FIPS code for data merging. The variables of concern for this data set are the FIPS code, the hard cumulative vaccination rate, and the percentage vaccination rate. We decided not to use any of the age subset rates since we hypothesize that all age demographics are reasonably likely to visit a park. 
-
-- __New York Times Covid-19 Data__: This data set is similar to the vaccination data provided by the CDC but instead reports on actual Covid-19 cases at a county level. In addition to case data, this data set also contains reports on deaths from Covid-19 as well. This data set is structured in a time series format, similar to the Covid-19 Community Mobility Report. So in order to choose a proper cross-section for analysis, we selected cases from 2-weeks before our selected date for the park visits percent change (June 30th, 2021) up until 2-weeks after, based on the CDC's recommendation of a two week life-cycle for virus contraction to full recovery. The variables that we are concerned with in this data set are the FIPS code, date (for cross-section selection), county, case counts, and death counts.
-
-- __Mask-Wearing Survey Data__: In the same repository as the NYT Covid-19 data set, we found another data set that came from a large number of interviews conducted online by a survey firm named Dynata at the request of The New York Times. They surveyed people at a county level about their mask use between July 2nd and July 14th. Since this survey collection period is so close to the covid case date cross section we selected and the date selected for park visit percent change, we're assuming that the respondent's mask wearing habits are not going to change that much so we can use this as one of our explanatory variables. The variables of concern for this data set are FIPS code and mask use.
-
-- __Census Demographic Data__: Lastly, we utilized the United States Census Bureau's Population Estimates Program data releases to retrieve a data set that describes the population size and median age of an area at the county level. The variables of concern in this data set are the FIPS code, the population size, and the median age.
-
-## Models
 To begin our modeling process, we needed to define the exact variable that we wanted to measure. Since we are researching how the rates of vaccinations effect park visits within a county, it made sense that our outcome variable would be the percent change in park visits from the Covid-19 Community Mobility Report data set from Google. Note that the category parks includes regions such as national parks, public beaches, marinas, dog parks, plazas, and public gardens. Given the flexibility in the definition of a park for this analysis, we want to make clear the range of the outcome variable that we are analyzing.
 
 To measure the percent change in park visits, we hypothesized that the main explanatory variable would be the rate of vaccinations within a county. In a way, the vaccination rate of a particular region somewhat symbolizes a transition state from pandemic operations for that region. We are unsure how this will affect the number of visitations of a particular park or set of parks however. On the one hand we have parks becoming a replacement for other locations that were closed during the pandemic, so this may indicate that park traffic will decrease as vaccination rates increase and people become more comfortable being in close quarters again. On the other hand, we have the possibility that people were nervous about going to parks during the pandemic, so in this case, we may expect to see an increase in park traffic as regions transition out of pandemic tendencies. In addition to the vaccination rate of a region, we also have identified the number of cases in a region as an explanatory variable. One thing we've noted for this additional expalanatory variable, however, is that there is likely a strong level of collinearity between case rate and vaccination rate. We will discuss this further in the model limitations section. In addition to these two main explanatory variables, we have identified a few other covariates we plan on including in the larger versions of the model; we will dicuss these further below. The final conclusion we plan on reaching is one that explains the causal nature of vaccination rates, and case rates for that matter, on the percent change in visits to parks in an area. 
@@ -195,6 +364,8 @@ cov_var_names <- data.frame("Covariate" = covariates, "Variable Name" = variable
 col_names <- c("Covariate", "Variable Name")
 knitr::kable(cov_var_names, col.names = col_names)
 ```
+Figure 13
+
 
 ## F-Test
 
@@ -204,6 +375,7 @@ We conclude that we are able to reject the null hypothesis for Model 3 but not M
 ```{r}
 anova(model_1, model_2, model_3, test = "F")
 ```
+Figure 14
 
 
 # Regression Table
@@ -218,50 +390,69 @@ stargazer(model_1, model_2, model_3, type = "text",
           star.cutoffs = c(0.05, 0.01, 0.001), title = "Table 1: The relationship between vaccination rates and park traffic")
 
 ```
+Figure 15
+
 
 # Model Limitations
 
-Upon Assessing all five assumptions of the CLM, we found evidence that our model does not fit all the necessary assumptions for the CLM framework - specifically the assumptions for IID sampling, linear conditional expectation, and homoskedastic errors.
+Our limitations around finding data set some tight constraints in how we built our model. Those constraints led us to make tradeoffs which added limitations to our model. Upon Assessing all five assumptions of the CLM, we found evidence that our model does not fit all the necessary assumptions for the CLM framework - specifically the assumptions for linear conditional expectation, and homoskedastic errors. There was also debateability for whether we met the IID assumption, which we'll discuss below.
 
-> 1. **IID Sampling:** To assess IID data, we need to know about the sampling process for each set of variables. The county level data we analyzed was gathered from several different primary sources. We have reason to believe that clustering of similar values for variables X, Y , Z (FILL IN HERE) by region may violate independence within the sampling process.
+## IID Sampling
 
-@Max feel free to fill in variables of concern here and add additional color. Given what Sush said i think we should include this blurb in the final report re concerns on IID but proceeded.
+As discussed in the EDA section, there are some clusters when you organize the data by region, which might lead one to believe that IID is violated. This on it’s own might be enough to invalidate our model, but we believe the addition of the mask wearing variable is enough to counteract this problem. 
 
-> 2. **No Perfect Colinearity:** To test this assumption, we can look at our coefficients, and notice that R has not dropped any variables. This tells us that there is no perfect collinearity.  This assumption also includes the requirement that a BLP exists, which may not happen if there are heavy tails.  In this case, we don't see any distributions that look like they have unusually low or high values.
+```{r fig.align="center",fig.width = 7,fig.height=3, include=TRUE, message=FALSE} 
+age_masks_scatter <- data %>%
+  ggplot() +
+  geom_point() +
+  aes(x = median_age_years, y = parks_chg, size = census_population, color = mask_percent) +
+  ggtitle(label = 'Change in Park Visits by Mask Sentiment',
+          subtitle = 'Figure 16') +
+  theme(legend.position = "none") +
+  labs(x = 'Age', y = '% Park Change')
 
-```{r test no perfect colinearity, include=FALSE}
-model_1$coefficients
-model_2$coefficients
-model_3$coefficients
+age_parks_scatter / age_masks_scatter
 ```
 
+Shown in Figures 9 is the same distribution of park visits by age as shown in the EDA section, but shown in Figure 16 is the chart replicated but broken out by mask sentiment. As you can see, the mask sentiment shows a rough similarity in clustering compared to region. Although there is some subjectivity in our conclusion, we believe that the mask sentiment variable will control enough for this clustering to satisfy most of the IID assumption.
 
-> 3. **Linear Conditional Expectation:**  To assess whether there is a linear conditional expectation, we've looked at the predicted vs. residuals of the model. The plot of both below indicates a pretty clear non-linear relationship. This is concerning and does not give us confidence that there is a linear conditional expectation here.
+There are other potential problems with the data gathering process that could lead to IID issues, for example using only data from Google users which could exclude some older populations, but we believe these problems to be minimal, and most likely will not influence our results much.
 
-```{r code and plots assessing linear conditional expectation}
+## Linear Conditional Expectation  
 
-data %>% 
+To assess whether there is a linear conditional expectation, we've looked at the predicted vs. residuals of both Model 1 and Model 3. The plot of both, shown below in Figures 17 and 18, indicates a pretty clear non-linear relationship. This is concerning and does not give us confidence that there is a linear conditional expectation here.
+
+```{r code and plots assessing linear conditional expectation, fig.align="center",fig.width = 7,fig.height=3, include=TRUE, message=FALSE }
+
+model_1_lce <- data %>% 
   mutate(
     model_preds = predict(model_1), 
     model_resids = resid(model_1)
   ) %>% 
   ggplot(aes(model_preds, model_resids)) + 
   geom_point() + 
-  stat_smooth()
+  stat_smooth() +
+  ggtitle(label = 'Model 1 Predicted Values vs. Residuals',
+          subtitle = 'Figure 17') +
+  labs(x = 'Predictions', y = 'Residuals')
+  
 
-data %>% 
+model_3_lce <- data %>% 
   mutate(
     model_preds = predict(model_3), 
     model_resids = resid(model_3)
   ) %>% 
   ggplot(aes(model_preds, model_resids)) + 
   geom_point() + 
-  stat_smooth()
+  stat_smooth() +
+  ggtitle(label = 'Model 3 Predicted Values vs. Residuals',
+          subtitle = 'Figure 18') +
+  labs(x = 'Predictions', y = 'Residuals')
+
+model_1_lce / model_3_lce
 ```
 
 ```{r plot variables fitted, include=FALSE}
-#include=FALSE
-
 d <- data %>% 
   mutate(
     model_preds = predict(model_3), 
@@ -281,24 +472,37 @@ full_vax_count_resids / cases_resids
 
 ```
 
-> 4. **Homoskedastic Errors:** To assess whether the distribution of the errors is homoskedastic or heteroskedastic, we can look at the residuals versus fitted plot again.  We see that the band increases in thickness as it goes from left to right for `full_vax_count`, getting quite wide on the upper side of the predicted values, which is slightly concerning. For `cases` we see a wide band on the left that tapers off and gets wide out to the right. 
-We can also leverage a scale-location plot where we would see homoskedasticity would show up on this plot as a flat smoothing curve, which does not quite look like it is the case here, perhaps suggesting problems with homoskedasticity.
+## Homoskedastic Errors
 
-```{r code and plots assessing error variance}
+To assess whether the distribution of the errors is homoskedastic or heteroskedastic, we can references Figures 17 and 18 again. We see that the band increases in thickness as it goes from left to right for `full_vax_count`, getting quite wide on the upper side of the predicted values, which is slightly concerning. For `cases` we see a wide band on the left that tapers off and gets wide out to the right. 
+
+We can also leverage a scale-location plot, shown below in Figure 19. Homoskedasticity would show up on this plot as a flat smoothing curve, which does not quite look like it is the case here, perhaps suggesting problems with homoskedasticity.
+
+```{r code and plots assessing error variance ,fig.align="center",fig.width = 7,fig.height=1.5, include=TRUE, message=FALSE }
 plot(model_3, which=3)
 ```
+Figure 19
 
-> 5. **Normally Distributed Errors:** We are looking for evidence of normally distributed errors by examing the histogram of residuals and a qqplot. The normal shape of the histogram, yet flightly skewed right and the qqplot distribution shows the points from the quantiles forming a line that is roughly straight except off to the right side. This give us some confidence in stating that the errors are close to normally distributed. 
 
-```{r code and plots assessing normally distributed errors}
-# include=FALSE
+## Normally Distributed Errors
+
+We are looking for evidence of normally distributed errors by examining the histogram of residuals and a qqplot, shown below in Figures 20 and 21. The normal shape of the histogram, yet slightly skewed right and the qqplot distribution shows the points from the quantiles forming a line that is roughly straight except off to the right side. This give us some confidence in stating that the errors are close to normally distributed. 
+
+```{r code and plots assessing normally distributed errors, fig.align="center",fig.width = 7,fig.height=3, include=TRUE, message=FALSE }
 plot_one <- d %>% 
   ggplot(aes(x = model_resids)) + 
-  geom_histogram()
+  geom_histogram() +
+  ggtitle(label = 'Distribution of Residuals',
+          subtitle = 'Figure 20') +
+  labs(x = 'Residuals', y = 'Count')
   
 plot_two <- d %>% 
   ggplot(aes(sample = model_resids)) + 
-  stat_qq() + stat_qq_line()
+  stat_qq() + 
+  stat_qq_line() +
+  ggtitle(label = 'QQ Plot',
+          subtitle = 'Figure 21') +
+  labs(x = 'Quantiles', y = 'Predictions')
 
 plot_one / plot_two 
 ```
