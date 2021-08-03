@@ -3,11 +3,13 @@ title: "The Future of Park Visitation in the U.S."
 author: "Jonathan Whiteley, Max Hoff, Connor McCormick"
 subtitle: 'W203: Lab 2'
 output:
+  pdf_document:
+    toc: yes
+  bookdown::pdf_document2:
+    toc: yes
   html_document:
     toc: yes
     df_print: paged
-  bookdown::pdf_document2:
-    toc: yes
 ---
 \clearpage
 
@@ -34,11 +36,11 @@ source('../src/data/clean_and_join.R')
 ```
 
 ```{r Data Wrangling, include=FALSE}
-parks <- read_csv('/Users/maxhoff/MIDS/w203/working/lab_02/lab_2_Whiteley_Hoff_McCormick/data/external/Google_Mobility_Report_out.csv')
-vax <- read_csv('/Users/maxhoff/MIDS/w203/working/lab_02/lab_2_Whiteley_Hoff_McCormick/data/external/CDC_Vaccinations_out.csv')
-covid <- read_csv('/Users/maxhoff/MIDS/w203/working/lab_02/lab_2_Whiteley_Hoff_McCormick/data/external/covid_cases_data.csv')
-mask_use <- read_csv('/Users/maxhoff/MIDS/w203/working/lab_02/lab_2_Whiteley_Hoff_McCormick/data/external/mask-use-by-county.csv')
-age <- read_csv('/Users/maxhoff/MIDS/w203/working/lab_02/lab_2_Whiteley_Hoff_McCormick/data/external/census_demographics.csv')
+parks <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/Google_Mobility_Report_out.csv')
+vax <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/CDC_Vaccinations_out.csv')
+covid <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/covid_cases_data.csv')
+mask_use <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/mask-use-by-county.csv')
+age <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/census_demographics.csv')
 ```
 
 ```{r clean_and_join data from source function, include=FALSE}
@@ -48,14 +50,14 @@ head(data)
 
 
 # Introduction
-
-The Covid-19 pandemic has upended lifestyles to a degree that most people could not have imagined a decade ago. The local community impacts of the Covid-19 ranged from uncertain financial situations, limited recreational options, all the way up to widespread anxiety and loss of loved ones. One of the more interesting changes to lifestyles has been a significant increase in visits to parks, as local travel and indoor recreational activities have been curbed by stay-at-home orders.
-
-Given they are free to use while providing a gathering place for a wide range of diverse groups, parks serve a valuable function to society. The importance of parks on a community's physical and mental wellbeing is well documented (Rice et al 2020, Samuelson et al 2020), but became especially relevant to consider as the pandemic spread. As developed world vaccinations increase, this raises an interesting question around the future of public spaces and more specifically public parks. Which lifestyle changes will become a permanent fixture of American life? Will increased public park usage go the way of cloud computing and remote work? The answers to these questions have important implications for city planners (Honey-Roses et al 2020), local government officials, and Department of Tourism officials across the country.
-
-
+ 
+The Covid-19 pandemic has upended lifestyles to a degree that most people could not have imagined a decade ago. The local community impacts of the pandemic have ranged from uncertain financial situations and limited recreational options, all the way to widespread anxiety and loss of loved ones. One of the more interesting changes to lifestyles has been shifts in how many citizens visit public parks, as local travel and indoor recreational activities have been curbed by stay-at-home orders.
+ 
+Given they are free to use while providing a gathering place for a wide range of diverse groups, parks serve a valuable function to society. The importance of parks on a community's physical and mental wellbeing is well documented (Rice 2020, Samuelson 2020), but became especially relevant to consider as the pandemic spread. As developed world vaccinations increase, this raises an interesting question around the future of public spaces and more specifically public parks. Which lifestyle changes will become a permanent fixture of American life? Will increased public park usage go the way of cloud computing and remote work remaining here to stay? The answers to these questions have important implications for city planners (Honey-Roses 2020), local government officials, and Department of Tourism officials across the country.
+ 
+ 
 # Research Question and Theoretical Model
-
+ 
 Our main goal for our research project is to explore whether a causal relationship exists between visits to public parks and Covid-19 vaccination rates in the United States. Specifically, how do Covid-19 vaccination rates within a county impact visits to parks within that county?  
  
 Finding the answer to this question will bring important insight into how the Department of Tourism should allocate resources towards parks, especially in counties with limited park space. Additionally, it will allow county officials to better understand park use as a passing trend or a mainstay of society after vaccinated citizens have the opportunity to return to indoor activities. If our evidence shows that there is not a meaningful relationship between park visits and Covid-19 vaccination rates within a county, our default action/recommendation is one of inaction. 
@@ -64,12 +66,14 @@ If our evidence does indeed indicate a meaningful relationship between park visi
  
 Through our explanatory modeling process, we plan to leverage the data sources below to operationalize and test parameters of the following causal theory: counties with high vaccination rates are returning to pre-pandemic activities faster and will not continue use of public parks as seen during the pandemic.
  
-The relationships explained through our analysis are related by the following ![structural equation model](./image.png)
+The relationships explained through our analysis are related by the structural equation model (Figure 1).
+
+![Structural Equation Model](./image.png)
 
 
 # Data and Variables of Interest
 
-To begin our modeling process, we needed to define the exact variable that we wanted to measure. Since we were researching how the rates of vaccinations affect park visits within a county, it made sense that our outcome variable was change in park visits from a baseline date (sometime pre-Covid-19) to current date (more details to follow). 
+To begin our modeling process, we needed to define the exact variable that we wanted to measure. Since we were researching how the rates of vaccinations affect park visits within a county, it made sense that our outcome variable was change in park visits from a baseline date (pre-Covid-19) to current date (more details to follow). 
 
 Our next step was to think of all the possible variables that could influence park visits and then explore data that was readily available in a comparable format to our output variable. From a conceptual level, there were all sorts of variables that we thought of that could influence park visits, but as we learned, not much data was available. Most of our ideation around influential variables were related to quantifying a propensity to visit a park. For example, the amount of parks available in a given region, the quality of these parks, the amount of lifestyle alternatives compared to parks (e.g., dining availability, amusement parks, etc.). We would then be able to control for these variables, leaving us with the true effect that vaccinations had on park visitation. Ideation for the amount of variables to control for seemed endless, but unfortunately, we were able to find very little data that was actually of use. 
 
@@ -485,11 +489,11 @@ plot_one / plot_two
 
 # Omitted Variables
 
-We identified several omitted variables which could cause omitted variable bias in our model. Park traffic is tied to the transportation option proximity and availability. As such, we aimed to operationalize this concept through two variables: proximity to bike and scooter sharing stations and parking spots availability. These variables were omitted due to a lack of comprehensive county-level data set from which could operationalize the concepts. 
+We identified several omitted variables which could cause omitted variable bias in our model. Park traffic is tied to the transportation option proximity and availability. As such, we aimed to operationalize this concept through two variables: changes in proximity to bike/scooter sharing stations and vehicle parking spot availability. Related to bike sharing, findings suggest moderate-frequency riders in San Antonio county increased bike share usage 12% during the pandemic  (Jobe, Jeffrey, and Griffin 2021). This gives us reason to believe that counties expanding bike & scooter sharing station footprints during the pandemic would see increased use. These variables were omitted due to a lack of comprehensive county-level data set from which could operationalize the concepts.
+
+Another variable driving park traffic is park maintenance/cleanliness. This concept would be difficult to measure and a proxy for it could be a county level public park budget allocated to maintenance. Total investment in parks in dollars, square acres dedicated to parks, and percent of residents within a 10 minute walk of a park would also have been relevant variables, however the dataset containing these variables (The Trust for Public Land) was at the city level and only included the 100 largest US cities. The expected relationship between the above variables with our output variable, `parks_chg`, and primary input variable, `full_vax_pct` are both positive. Given these observations, the direction of the bias will be positive. Since, the coefficient associated with the included variable `full_vax_pct` is positive, adding in the omitted variable would push the coefficient in the negative direction, towards zero in this case.
  
-Related to bike sharing, findings suggest moderate-frequency riders in San Antonio county increased bike share usage 12% during the pandemic  (Jobe, Jeffrey, and Griffin 2021). This gives us reason to believe that counties expanding bike & scooter sharing station footprints would see increased park traffic. Another variable driving park traffic is park maintenance and cleanliness. This concept would be difficult to measure and a proxy for it could be a county level public park budget allocated to maintenance. Total investment in parks in dollars, square acres dedicated to parks, and percent of residents within a 10 minute walk of a park would also have been relevant variables, however the dataset containing these variables (The Trust for Public Land) was at the city level and only included the 100 largest US cities. The expected relationship between the above variables with our output variable, `parks_chg`, and primary input variable, `full_vax_pct` are both positive. Given these observations, the direction of the bias will be positive. Since, the coefficient associated with the included variable `full_vax_pct` is positive, adding in the omitted variable would push the coefficient for rate in the negative direction, towards zero in this case.
- 
-Weather was also an important topic we discussed regarding omitted variables which may impact park usage in a given county. The difference between baseline and the average temperature and average precipitation are two additional variables which may impact the change in park traffic. If the baseline weather and precipitation in a given county was especially high or low given the average for the season, this could give an unrepresentative change in the park traffic from baseline to June 30, 2021. Having the average temperature and precipitation for each county would have allowed additional explanation within the model, but the data itself was difficult to collect and standardize for our purposes. We also discussed a potential reverse causal pathway between park traffic and vaccination rate, however determined that it was not a clear two way relationship. We proceeded with our model construction leveraging the initial causal theory outlined previously.
+Weather was also an important topic we discussed regarding omitted variables which may impact park usage in a given county. The difference between baseline and the average temperature and average precipitation are two additional variables which may impact the change in park traffic. If the baseline weather and precipitation in a given county was especially high or low given the average for the season, this could give an unrepresentative change in the park traffic from baseline to June 30, 2021. Having the average temperature and precipitation for each county would have allowed additional explanation within the model, but the data itself was difficult to collect and standardize for our purposes. We also discussed a potential reverse causal pathway between park traffic and vaccination rate, however determined that it was not a clear two way relationship. We proceeded with our model construction leveraging the causal theory outlined initially.
 
 
 # Results
