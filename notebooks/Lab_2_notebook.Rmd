@@ -36,11 +36,11 @@ source('../src/data/clean_and_join.R')
 ```
 
 ```{r Data Wrangling, include=FALSE}
-parks <- read_csv('/Users/maxhoff/MIDS/w203/working/lab_02/lab_2_Whiteley_Hoff_McCormick/data/external/Google_Mobility_Report_out.csv')
-vax <- read_csv('/Users/maxhoff/MIDS/w203/working/lab_02/lab_2_Whiteley_Hoff_McCormick/data/external/CDC_Vaccinations_out.csv')
-covid <- read_csv('/Users/maxhoff/MIDS/w203/working/lab_02/lab_2_Whiteley_Hoff_McCormick/data/external/covid_cases_data.csv')
-mask_use <- read_csv('/Users/maxhoff/MIDS/w203/working/lab_02/lab_2_Whiteley_Hoff_McCormick/data/external/mask-use-by-county.csv')
-age <- read_csv('/Users/maxhoff/MIDS/w203/working/lab_02/lab_2_Whiteley_Hoff_McCormick/data/external/census_demographics.csv')
+parks <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/Google_Mobility_Report_out.csv')
+vax <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/CDC_Vaccinations_out.csv')
+covid <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/covid_cases_data.csv')
+mask_use <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/mask-use-by-county.csv')
+age <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/census_demographics.csv')
 ```
 
 ```{r clean_and_join data from source function, include=FALSE}
