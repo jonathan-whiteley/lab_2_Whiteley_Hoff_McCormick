@@ -34,11 +34,11 @@ source('../src/data/clean_and_join.R')
 ```
 
 ```{r Data Wrangling, include=FALSE}
-parks <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/Google_Mobility_Report_out.csv')
-vax <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/CDC_Vaccinations_out.csv')
-covid <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/covid_cases_data.csv')
-mask_use <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/mask-use-by-county.csv')
-age <- read_csv('~/lab_2_Whiteley_Hoff_McCormick/data/external/census_demographics.csv')
+parks <- read_csv('/Users/maxhoff/MIDS/w203/working/lab_02/lab_2_Whiteley_Hoff_McCormick/data/external/Google_Mobility_Report_out.csv')
+vax <- read_csv('/Users/maxhoff/MIDS/w203/working/lab_02/lab_2_Whiteley_Hoff_McCormick/data/external/CDC_Vaccinations_out.csv')
+covid <- read_csv('/Users/maxhoff/MIDS/w203/working/lab_02/lab_2_Whiteley_Hoff_McCormick/data/external/covid_cases_data.csv')
+mask_use <- read_csv('/Users/maxhoff/MIDS/w203/working/lab_02/lab_2_Whiteley_Hoff_McCormick/data/external/mask-use-by-county.csv')
+age <- read_csv('/Users/maxhoff/MIDS/w203/working/lab_02/lab_2_Whiteley_Hoff_McCormick/data/external/census_demographics.csv')
 ```
 
 ```{r clean_and_join data from source function, include=FALSE}
@@ -51,7 +51,7 @@ head(data)
 
 The Covid-19 pandemic has upended lifestyles to a degree that most people could not have imagined a decade ago. The local community impacts of the Covid-19 ranged from uncertain financial situations, limited recreational options, all the way up to widespread anxiety and loss of loved ones. One of the more interesting changes to lifestyles has been a significant increase in visits to parks, as local travel and indoor recreational activities have been curbed by stay-at-home orders.
 
-Given they are free to use while providing a gathering place for a wide range of diverse groups, parks serve a valuable function to society. The importance of parks on a community's physical and mental wellbeing is well documented (Rice et al 2020, Samuelson et al 2020), but became especially relevant to consider as the pandemic spread. As developed world vaccinations increase, this raises an interesting question around the future of public spaces and more specifically public parks. Which lifestyle changes will become a permanent fixture of American life? Will increased public park usage go the way of cloud computing and remote work? The answers to these questions have important implications for city planners(Honey-Roses et al 2020), local government officials, and Department of Tourism officials across the country.
+Given they are free to use while providing a gathering place for a wide range of diverse groups, parks serve a valuable function to society. The importance of parks on a community's physical and mental wellbeing is well documented (Rice et al 2020, Samuelson et al 2020), but became especially relevant to consider as the pandemic spread. As developed world vaccinations increase, this raises an interesting question around the future of public spaces and more specifically public parks. Which lifestyle changes will become a permanent fixture of American life? Will increased public park usage go the way of cloud computing and remote work? The answers to these questions have important implications for city planners (Honey-Roses et al 2020), local government officials, and Department of Tourism officials across the country.
 
 
 # Research Question and Theoretical Model
@@ -75,7 +75,7 @@ Our next step was to think of all the possible variables that could influence pa
 
 After much searching, we were able to obtain a couple datasets that we hypothesized to have an influence on park visitation. The first dataset was obtaining age data by county from the [U.S. census](https://www2.census.gov/programs-surveys/popest/datasets/2010/2010-eval-estimates/). Our hypothesis was that age might be a useful predictor in determining propensity to visit a park. Without being able to find other measures that indicate park visitation propensity, we thought age might be a useful substitute for at least a portion of the variables that make up propensity. Our reasoning behind this was that the average age of a population might be influential in park visitation, as younger people might be more active, and thus more likely to visit a park. 
 
-Another influential factor that we thought might influence visitation was attitudes towards Covid-19. Across the U.S., attitudes and policies have varied widely that most likely had a significant influence on mobility of a population. We searched for several datasets that might quantify these attitudes in some way, and we eventually stumbled upon a [New York Times dataset](https://github.com/nytimes/covid-19-data/tree/master/mask-use) that measured attitudes towards wearing masks. We believed that this might be a good proxy for general attitudes towards Covid-19. We thought attitudes towards Covid-19 might be one of the most influential factors in park visitation, and being able to control for this in some way would have a significant positive effect in being able to interpret our results.
+Another distinct influential factor that we thought might influence visitation was attitudes towards Covid-19. Across the U.S., attitudes and policies have varied widely that most likely had a significant influence on mobility of a population. We searched for several datasets that might quantify these attitudes in some way, and we eventually stumbled upon a [New York Times dataset](https://github.com/nytimes/covid-19-data/tree/master/mask-use) that measured attitudes towards wearing masks. We believed that this might be a good proxy for general attitudes towards Covid-19. We thought attitudes towards Covid-19 might be one of the most influential factors in park visitation, and being able to control for this in some way would have a significant positive effect in being able to interpret our results.
 
 As for predictor and target variables, the datasets we used were a [mobility dataset from Google](https://www.google.com/covid19/mobility/), which gave us a percentage change in visitation to parks by U.S. county, and a [vaccination dataset from the CDC](https://data.cdc.gov/Vaccinations/COVID-19-Vaccinations-in-the-United-States-County/8xkx-amqh), which gave us vaccination rates for all U.S. counties.
 
@@ -87,7 +87,7 @@ Additional detail on each of these datasets is below:
 
 - __COVID-19 Community Mobility Report__: This data that was collected by Google, describes the percent increase/decrease of visits to specific categories of locations such as retail centers, transit stations, grocery store, etc. In our case, we will be looking at the percent trends over time of visits to parks. The data coverage begins from a baseline measurement taken on January 1st, 2021 and is updated routinely. Since we will not be performing a time-series analysis, we decided to select a slice of the data from June 30th, 2021. The variables that we are concerned with in this data set are the FIPS code (used for merging data by county) and the park visits change from baseline.
 
-- __CDC Data on Vaccinations__: This data set was provided by the CDC and contained a lot of information on vaccination rates at a county level. It contains both hard vaccination rates and percentages. Additionally, it provides these vaccination numbers drilled down to age subsets as well as at a cumulative level. Lastly, this data contains a FIPS code for data merging. The variables of concern for this data set are the FIPS code, the hard cumulative vaccination rate, and the percentage vaccination rate. We decided not to use any of the age subset rates since we hypothesize that all age demographics are reasonably likely to visit a park. 
+- __CDC Data on Vaccinations__: This data set was provided by the CDC and contained much information on vaccination rates at a county level. It contains both hard vaccination rates and percentages. Additionally, it provides these vaccination numbers drilled down to age subsets as well as at a cumulative level. Lastly, this data contains a FIPS code for data merging. The variables of concern for this data set are the FIPS code, the hard cumulative vaccination rate, and the percentage vaccination rate. We decided not to use any of the age subset rates since we hypothesize that all age demographics are reasonably likely to visit a park. 
 
 - __New York Times Covid-19 Data__: This data set is similar to the vaccination data provided by the CDC but instead reports on actual Covid-19 cases at a county level. In addition to case data, this data set also contains reports on deaths from Covid-19 as well. This data set is structured in a time series format, similar to the Covid-19 Community Mobility Report. So in order to choose a proper cross-section for analysis, we selected cases from 2-weeks before our selected date for the park visits percent change (June 30th, 2021) up until 2-weeks after, based on the CDC's recommendation of a two week life-cycle for virus contraction to full recovery. The variables that we are concerned with in this data set are the FIPS code, date (for cross-section selection), county, case counts, and death counts.
 
@@ -120,7 +120,7 @@ knitr::kable(cov_var_names, col.names = col_names)
 
 ## EDA
 
-Now that we had our data collected and our hypothesis and research goal laid out, it was time to explore the data. The first step in any Exploratory Data Analysis (EDA) is conducting data quality checks
+Now that we had our data collected and our hypothesis and research goal laid out, it was time to explore the data. A good first step in any Exploratory Data Analysis (EDA) is conducting data quality checks.
 
 ### Data Quality Checks
 
@@ -247,7 +247,7 @@ age_parks_scatter
 ```
 
 
-As you can see in Figure 9, unfortunately there is a discernible difference between the regions of the country, as we suspected in our original hypothesis. We’ll have to revisit this when we build our model.
+As you can see in Figure 9, unfortunately there is a discernible difference between the regions of the country, as we suspected in our original hypothesis. We’ll have to revisit this when we build our model. As for county size, it looks like county size is fairly well distributed, so this shouldn't be a problem.
 
 #### County size investigation
 
@@ -306,7 +306,7 @@ Figure 12
 
 
 
-Unsurprisingly, there are very strong correlations between cases, deaths, and vaccination rates. The correlation between deaths and cases might even be strong enough to bring about problems of perfect collinearity (or near perfect collinearity), which we'll discuss in more detail later. As for the other variables, correlations were high enough to make us believe that a strong model would be built.
+Unsurprisingly, there are very strong correlations between cases, deaths, and vaccination rates. The correlation between deaths and cases might even be strong enough to bring about problems of perfect collinearity (or near perfect collinearity), which we'll discuss in more detail later. As for the other variables, correlations were high enough to make us believe that a strong model might be built.
 
 ```{r, include=FALSE}
 model_1 <- lm(parks_chg ~ full_vax_pct, data=data)
@@ -374,7 +374,7 @@ age_masks_scatter <- data %>%
   geom_point() +
   aes(x = median_age_years, y = parks_chg, size = census_population, color = mask_percent) +
   ggtitle(label = 'Change in Park Visits by Mask Sentiment',
-          subtitle = 'Figure 16') +
+          subtitle = 'Figure 15') +
   theme(legend.position = "none") +
   labs(x = 'Age', y = '% Park Change') +
   theme(legend.text = element_text(size=8))
@@ -401,7 +401,7 @@ model_1_lce <- data %>%
   geom_point() + 
   stat_smooth() +
   ggtitle(label = 'Model 1 Predicted Values vs. Residuals',
-          subtitle = 'Figure 17') +
+          subtitle = 'Figure 16') +
   labs(x = 'Predictions', y = 'Residuals')
   
 
@@ -414,7 +414,7 @@ model_3_lce <- data %>%
   geom_point() + 
   stat_smooth() +
   ggtitle(label = 'Model 3 Predicted Values vs. Residuals',
-          subtitle = 'Figure 18') +
+          subtitle = 'Figure 17') +
   labs(x = 'Predictions', y = 'Residuals')
 
 model_1_lce / model_3_lce
@@ -453,7 +453,7 @@ We can also leverage a scale-location plot, shown below in Figure 19. Homoskedas
 ```{r code and plots assessing error variance ,fig.align="center", echo=FALSE, message=FALSE }
 plot(model_3, which=3)
 ```
-Figure 19
+Figure 18
 
 
 ### Normally Distributed Errors
@@ -465,7 +465,7 @@ plot_one <- d %>%
   ggplot(aes(x = model_resids)) + 
   geom_histogram() +
   ggtitle(label = 'Distribution of Residuals',
-          subtitle = 'Figure 20') +
+          subtitle = 'Figure 19') +
   labs(x = 'Residuals', y = 'Count')
   
 plot_two <- d %>% 
@@ -473,7 +473,7 @@ plot_two <- d %>%
   stat_qq() + 
   stat_qq_line() +
   ggtitle(label = 'QQ Plot',
-          subtitle = 'Figure 21') +
+          subtitle = 'Figure 20') +
   labs(x = 'Quantiles', y = 'Predictions')
 
 plot_one / plot_two 
@@ -487,7 +487,7 @@ plot_one / plot_two
 
 We identified several omitted variables which could cause omitted variable bias in our model. Park traffic is tied to the transportation option proximity and availability. As such, we aimed to operationalize this concept through two variables: proximity to bike and scooter sharing stations and parking spots availability. These variables were omitted due to a lack of comprehensive county-level data set from which could operationalize the concepts. 
  
-Related to bike sharing, findings suggest moderate-frequency riders in San Antonio county increased bike share usage 12% during the pandemic (SOURCE). This gives us reason to believe that counties expanding bike & scooter sharing station footprints would see increased park traffic. Another variable driving park traffic is park maintenance and cleanliness. This concept would be difficult to measure and a proxy for it could be a county level public park budget allocated to maintenance. Total investment in parks in dollars, square acres dedicated to parks, and percent of residents within a 10 minute walk of a park would also have been relevant variables, however the dataset containing these variables (The Trust for Public Land) was at the city level and only included the 100 largest US cities. The expected relationship between the above variables with our output variable, `parks_chg`, and primary input variable, `full_vax_pct` are both positive. Given these observations, the direction of the bias will be positive. Since, the coefficient associated with the included variable `full_vax_pct` is positive, adding in the omitted variable would push the coefficient for rate in the negative direction, towards zero in this case.
+Related to bike sharing, findings suggest moderate-frequency riders in San Antonio county increased bike share usage 12% during the pandemic  (Jobe, Jeffrey, and Griffin 2021). This gives us reason to believe that counties expanding bike & scooter sharing station footprints would see increased park traffic. Another variable driving park traffic is park maintenance and cleanliness. This concept would be difficult to measure and a proxy for it could be a county level public park budget allocated to maintenance. Total investment in parks in dollars, square acres dedicated to parks, and percent of residents within a 10 minute walk of a park would also have been relevant variables, however the dataset containing these variables (The Trust for Public Land) was at the city level and only included the 100 largest US cities. The expected relationship between the above variables with our output variable, `parks_chg`, and primary input variable, `full_vax_pct` are both positive. Given these observations, the direction of the bias will be positive. Since, the coefficient associated with the included variable `full_vax_pct` is positive, adding in the omitted variable would push the coefficient for rate in the negative direction, towards zero in this case.
  
 Weather was also an important topic we discussed regarding omitted variables which may impact park usage in a given county. The difference between baseline and the average temperature and average precipitation are two additional variables which may impact the change in park traffic. If the baseline weather and precipitation in a given county was especially high or low given the average for the season, this could give an unrepresentative change in the park traffic from baseline to June 30, 2021. Having the average temperature and precipitation for each county would have allowed additional explanation within the model, but the data itself was difficult to collect and standardize for our purposes. We also discussed a potential reverse causal pathway between park traffic and vaccination rate, however determined that it was not a clear two way relationship. We proceeded with our model construction leveraging the initial causal theory outlined previously.
 
@@ -505,7 +505,9 @@ Lastly, we noted that with the addition of more covariates with each model itera
 
 # Conclusion
 
-Based on the results of our coefficient tests, we are able to conclude that the percentage of vaccinated individuals has a causal effect on the percentage change from baseline in park visits. Additionally, our F-Test gave us additional confidence that our third model was pretty effective at explaining the change in park traffic in response to our explanatory variables.
+Based on the results of our coefficient tests, we are able to conclude that the percentage of vaccinated individuals has a positive causal effect on the percentage change from baseline in park visits. Additionally, our F-Test gave us additional confidence that our third model was pretty effective at explaining the change in park traffic in response to our explanatory variables.
+
+Although it is tempting to discard our initial hypothesis, and conclude that park visitation is here to stay, we can't be certain of this. For one, we don't know if vaccinations in the U.S. will continue to increase, or what the future of the pandemic will be like. It is very possible to have additional waves of the virus, and the pandemic become a persistant part of life. Assuming that the pandemic will eventually be defeated though and normal life will resume, 
 
 We recognize that our analysis was a snapshot into the causal relationship between the aforementioned factors. However, given the dynamic nature of the Covid-19 pandemic and subsequent waves, more sampling over time and time series analysis into behavior changes would allow a more comprehensive understanding. Future research on the topic, we agreed it would be interesting to examine the impact of rural vs urban populations and how each’s access to public spaces was impacted. Borrowing from an area of future study highlighted by Rice and colleagues (Rice et al), we would like to better understand how recreational behaviors changed as a result of the pandemic.
 
